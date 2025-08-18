@@ -23,7 +23,7 @@ Fork this repo to create a battledome scoreboard for your guild.
    - Click on "Developer settings" on the bottom of left sidebar
    - Select "Personal access tokens" > "Fine-grained tokens" > "Generate new token"
    - Give the token a name, description, and expiration
-   - It is recommended to give the token access to "Only select repositories" > select your `<GITHUB_USERNAME>.github.io` repo, and add `Contents` permissions. That's the minimum that the script needs.
+   - It is recommended to give the token access to "Only select repositories" > select your `<GITHUB_USERNAME>.github.io` repo, and add `Contents` permissions. That's the minimum that the script needs. **Make sure to give it `Read and write` permissions.**
    - Confirm and generate. You will get a chance to copy this token **one time**. GitHub won't let you copy it again. **Keep it somewhere safe and never commit this token to your GitHub source code.**
 2. Fill in the `// FIRST TIME USERS MUST FILL IN THESE DETAILS!!!!` block in the `bd_fetcher.js` script. You can (and should) commit these details to source code.
    - `GITHUB_USERNAME` and `MY_NAME`: self-explanatory
