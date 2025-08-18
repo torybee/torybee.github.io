@@ -45,7 +45,7 @@ Fork this repo to create a battledome scoreboard for your guild.
 3. After you have visited all the players' stats pages, it takes ~3-5 minutes for the action that updates your pages site to complete running. (Each new commit to your repo usually cancels the previous run and makes a new one start, so sometimes it takes a bit longer for the data to reflect. To review the actions, navigate to `https://github.com/GITHUB_USERNAME/GITHUB_USERNAME.github.io/actions`)
 4. For subsequent runs, the `battledome.html` page table will be a clickable link to each user's respective battledome stats page, so you can simply click each link (open in a new tab).
 
-### adding other script-runners
+### adding other script runners
 If you want to add other people to run the script (for instance, to cover multiple timezones) they will need to:
 1. Create a new PAT for each person from your guild you want to share the script with.
 2. Direct them to copy/paste the `bd_fetcher.js` script from your repo into a new TamperMonkey script.

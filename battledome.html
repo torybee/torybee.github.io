@@ -131,7 +131,8 @@
         <b>NOTE: This scoreboard is updated semi-automatically!</b> Every time we visit your stats page, the data is
         scraped and populates on the scoreboard. The "last updated" column tells when the data was last pulled for each
         person. If you aren't seeing up-to-date stats, first try to do a hard refresh <b>(cmd/ctrl+shift+R)</b> to make
-        your browser pull fresh data. If it's still out-of-date, tag the <b>@can i pretty please get a scoreboard refresh</b> role!
+        your browser pull fresh data. If it's still out-of-date, tag the <b>@can i pretty please get a scoreboard
+        refresh</b> role!
     </div>
     <br><br>
     <div id="guild-totals">
@@ -191,52 +192,47 @@
                 const scoresTableBody = document.getElementById('spuds').getElementsByTagName('tbody')[0];
                 const guildTotalsDiv = document.getElementById('guild-totals');
 
-                let place = 1;
                 scores.forEach(score => {
-                    if (score.opted_in === true) {
-                        const row = scoresTableBody.insertRow();
+                    const row = scoresTableBody.insertRow();
 
-                        const cellLogo = row.insertCell();
-                        const img = document.createElement('img');
-                        img.src = score.logo;
-                        img.height = 50;
-                        img.alt = score.username;
-                        cellLogo.style.setProperty("text-align", "center", "important");
-                        cellLogo.appendChild(img);
+                    const cellLogo = row.insertCell();
+                    const img = document.createElement('img');
+                    img.src = score.logo;
+                    img.height = 50;
+                    img.alt = score.username;
+                    cellLogo.style.setProperty("text-align", "center", "important");
+                    cellLogo.appendChild(img);
 
-                        const cellUsername = row.insertCell();
-                        const link = document.createElement('a');
-                        link.href = 'https://www.neopets.com/dome/record.phtml?username=' + score.username;
-                        link.textContent = score.username;
-                        link.target = '_blank';
-                        cellUsername.appendChild(link);
+                    const cellUsername = row.insertCell();
+                    const link = document.createElement('a');
+                    link.href = 'https://www.neopets.com/dome/record.phtml?username=' + score.username;
+                    link.textContent = score.username;
+                    link.target = '_blank';
+                    cellUsername.appendChild(link);
 
-                        const cellStartingWins = row.insertCell();
-                        cellStartingWins.textContent = score.starting_wins.toLocaleString();
+                    const cellStartingWins = row.insertCell();
+                    cellStartingWins.textContent = score.starting_wins.toLocaleString();
 
-                        const cellStartingScore = row.insertCell();
-                        cellStartingScore.textContent = score.starting_score.toLocaleString();
+                    const cellStartingScore = row.insertCell();
+                    cellStartingScore.textContent = score.starting_score.toLocaleString();
 
-                        const cellCurrentWins = row.insertCell();
-                        cellCurrentWins.textContent = score.current_wins.toLocaleString();
+                    const cellCurrentWins = row.insertCell();
+                    cellCurrentWins.textContent = score.current_wins.toLocaleString();
 
-                        const cellCurrentScore = row.insertCell();
-                        cellCurrentScore.textContent = score.current_score.toLocaleString();
+                    const cellCurrentScore = row.insertCell();
+                    cellCurrentScore.textContent = score.current_score.toLocaleString();
 
-                        const cellTotalWins = row.insertCell();
-                        cellTotalWins.textContent = score.total_wins.toLocaleString();
+                    const cellTotalWins = row.insertCell();
+                    cellTotalWins.textContent = score.total_wins.toLocaleString();
 
-                        const cellTotalScore = row.insertCell();
-                        cellTotalScore.textContent = score.total_score.toLocaleString();
+                    const cellTotalScore = row.insertCell();
+                    cellTotalScore.textContent = score.total_score.toLocaleString();
 
-                        const cellLastUpdated = row.insertCell();
-                        cellLastUpdated.textContent = score.last_updated;
+                    const cellLastUpdated = row.insertCell();
+                    cellLastUpdated.textContent = score.last_updated;
 
-                        guild_score += score.total_score;
-                        guild_wins += score.total_wins;
-
-                        place++;
-                    }
+                    guild_score += score.total_score;
+                    guild_wins += score.total_wins;
                 });
                 guildTotalsDiv.textContent = `GUILD WINS: ${guild_wins.toLocaleString()} || GUILD SCORE: ${guild_score.toLocaleString()}`;
 
@@ -261,7 +257,8 @@
             adjustHeaderOnScroll();
             adjustContentTop();
         });
-    });
+    })
+    ;
 
 </script>
 </body>

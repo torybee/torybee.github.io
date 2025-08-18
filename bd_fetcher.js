@@ -140,8 +140,7 @@
                             "current_score": data.current_score,
                             "last_updated": data.timestamp,
                             "total_wins": 0,
-                            "total_score": 0,
-                            "opted_in": false
+                            "total_score": 0
                         });
                     }
 
