@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Battledome Leaderboard">
+    <meta property="og:description" content="How do you stack up to other guild members?">
+    <meta property="og:url" content="https://GITHUB_USERNAME.github.io/battledome">
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <title>Exodus Battledome Leaderboard</title>
+
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+
+    <style>
+        html, body {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body {
+            background-image: url("images/background.png");
+            background-repeat: repeat;
+        }
+
+        #header {
+            width: 100%;
+            text-align: center;
+            align-items: center;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            transition: height 0.3s, padding 0.3s;
+        }
+
+        #header img {
+            width: 60%; /* Adjust the size as needed */
+            height: auto;
+        }
+
+        #content {
+            width: 100%;
+            box-sizing: border-box;
+            overflow-y: auto;
+            position: relative; /* Added positioning context */
+            max-height: calc(100vh - 70px); /* Adjust based on the header height */
+        }
+
+        #spuds {
+            font-family: Verdana, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 85%;
+            margin: auto;
+        }
+
+        #spuds td, #spuds th {
+            border: 2px solid #4f4f4f;
+            padding: 4px;
+            text-align: right !important;
+        }
+
+        #spuds tr:nth-child(even) {
+            background-color: #e9c184;
+        }
+
+        #spuds tr:nth-child(odd) {
+            background-color: #fbf0dc;
+        }
+
+        #spuds th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #d08526;
+            color: #000000;
+        }
+
+        @media only screen and (max-width: 730px) {
+            #spuds td:nth-child(3),
+            #spuds th:nth-child(3),
+            #spuds td:nth-child(4),
+            #spuds th:nth-child(4),
+            #spuds td:nth-child(5),
+            #spuds th:nth-child(5),
+            #spuds td:nth-child(6),
+            #spuds th:nth-child(6),
+            #spuds td:nth-child(9),
+            #spuds th:nth-child(9) {
+                display: none;
+            }
+
+            .yellow-box {
+                font-size: 10px;
+            }
+
+            #header img {
+                width: 80%; /* Adjust the size as needed */
+                height: auto;
+            }
+        }
+
+        .yellow-box {
+            background-color: #d08526;
+            padding: 4px;
+            font-family: Verdana, Helvetica, sans-serif;
+            width: 85%;
+            margin: auto;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        #guild-totals {
+            font-family: Verdana, Helvetica, sans-serif;
+            font-size: 36px;
+            color: #d08526;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <img src="images/banner.png" alt="Battledome Challenge Banner">
+</div>
+
+<div id="content">
+    <div class="yellow-box">
+        <b>NOTE: This scoreboard is updated semi-automatically!</b> Every time we visit your stats page, the data is
+        scraped and populates on the scoreboard. The "last updated" column tells when the data was last pulled for each
+        person. If you aren't seeing up-to-date stats, first try to do a hard refresh <b>(cmd/ctrl+shift+R)</b> to make
+        your browser pull fresh data. If it's still out-of-date, tag the <b>@can i pretty please get a scoreboard refresh</b> role!
+    </div>
+    <br><br>
+    <div id="guild-totals">
+        <!-- guild totals will be displayed here -->
+    </div>
+    <br><br>
+    <table id="spuds">
+        <thead>
+        <tr>
+            <th>ICON</th>
+            <th>USERNAME</th>
+            <th>STARTING WINS</th>
+            <th>STARTING SCORE</th>
+            <th>CURRENT WINS</th>
+            <th>CURRENT SCORE</th>
+            <th>TOTAL WINS</th>
+            <th>TOTAL SCORE</th>
+            <th>LAST UPDATED (NST)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Data will be populated here -->
+        </tbody>
+    </table>
+    <br><br><br><br>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // Initial setting of the margin-top for #content
+        let headerImg = document.querySelector('#header img');
+        let contentBox = document.querySelector('#content');
+
+        function adjustContentTop() {
+            let headerHeight = headerImg.getBoundingClientRect().height;
+            contentBox.style.top = headerHeight + 'px';
+            contentBox.style.maxHeight = `calc(100vh - ${headerHeight}px)`;
+        }
+
+        // Add onload event listener to the header image
+        headerImg.onload = function () {
+            adjustContentTop();
+        };
+
+        // Adjust the margin dynamically based on header image size
+        window.addEventListener('resize', adjustContentTop);
+
+        let guild_wins = 0;
+        let guild_score = 0;
+
+        fetch('bd_scores.json')
+            .then(response => response.json())
+            .then(scores => {
+                scores.sort((a, b) => b.total_score - a.total_score);
+
+                const scoresTableBody = document.getElementById('spuds').getElementsByTagName('tbody')[0];
+                const guildTotalsDiv = document.getElementById('guild-totals');
+
+                let place = 1;
+                scores.forEach(score => {
+                    if (score.opted_in === true) {
+                        const row = scoresTableBody.insertRow();
+
+                        const cellLogo = row.insertCell();
+                        const img = document.createElement('img');
+                        img.src = score.logo;
+                        img.height = 50;
+                        img.alt = score.username;
+                        cellLogo.style.setProperty("text-align", "center", "important");
+                        cellLogo.appendChild(img);
+
+                        const cellUsername = row.insertCell();
+                        const link = document.createElement('a');
+                        link.href = 'https://www.neopets.com/dome/record.phtml?username=' + score.username;
+                        link.textContent = score.username;
+                        link.target = '_blank';
+                        cellUsername.appendChild(link);
+
+                        const cellStartingWins = row.insertCell();
+                        cellStartingWins.textContent = score.starting_wins.toLocaleString();
+
+                        const cellStartingScore = row.insertCell();
+                        cellStartingScore.textContent = score.starting_score.toLocaleString();
+
+                        const cellCurrentWins = row.insertCell();
+                        cellCurrentWins.textContent = score.current_wins.toLocaleString();
+
+                        const cellCurrentScore = row.insertCell();
+                        cellCurrentScore.textContent = score.current_score.toLocaleString();
+
+                        const cellTotalWins = row.insertCell();
+                        cellTotalWins.textContent = score.total_wins.toLocaleString();
+
+                        const cellTotalScore = row.insertCell();
+                        cellTotalScore.textContent = score.total_score.toLocaleString();
+
+                        const cellLastUpdated = row.insertCell();
+                        cellLastUpdated.textContent = score.last_updated;
+
+                        guild_score += score.total_score;
+                        guild_wins += score.total_wins;
+
+                        place++;
+                    }
+                });
+                guildTotalsDiv.textContent = `GUILD WINS: ${guild_wins.toLocaleString()} || GUILD SCORE: ${guild_score.toLocaleString()}`;
+
+            })
+            .catch(error => {
+                console.error('Error fetching the JSON data:', error);
+            });
+
+        function adjustHeaderOnScroll() {
+            // Calculate the scroll percentage
+            let scrollTop = contentBox.scrollTop;
+            let maxScrollTop = contentBox.scrollHeight - contentBox.clientHeight;
+            let scrollPercentage = scrollTop / maxScrollTop;
+
+            // Adjust the header image width based on scroll percentage
+            let newWidth = Math.max(30, 60 - scrollPercentage * 30); // Example range from 60% to 30%
+            headerImg.style.width = newWidth + '%';
+        }
+
+        // Add scroll event listener to contentBox
+        contentBox.addEventListener('scroll', function () {
+            adjustHeaderOnScroll();
+            adjustContentTop();
+        });
+    });
+
+</script>
+</body>
+</html>
