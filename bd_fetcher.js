@@ -15,13 +15,15 @@
         'use strict';
 
         // FIRST TIME USERS MUST FILL IN THESE DETAILS!!!!
-        const SECRET_GITHUB_TOKEN = 'abcdefghijklmnopqrstuvwxyz1234567890'
-        const GITHUB_USERNAME = ''
-        const AUTO_REFRESH_ON_FAILURE = false;
+        const GITHUB_USERNAME = "";
         const MY_NAME = "Kat";
+        const AUTO_REFRESH_ON_FAILURE = false;
         const PLAYERS = [
             "superkathiee"
-        ]
+        ];
+
+        // Fill this in *only* in tampermonkey. DO *NOT* COMMIT VALUE TO SOURCE CODE.
+        const SECRET_GITHUB_TOKEN = "abcdefghijklmnopqrstuvwxyz1234567890";
 
         const data = {};
 
