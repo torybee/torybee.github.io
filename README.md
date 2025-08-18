@@ -28,7 +28,7 @@ Fork this repo to create a battledome scoreboard for your guild.
 2. Fill in the `// FIRST TIME USERS MUST FILL IN THESE DETAILS!!!!` block in the `bd_fetcher.js` script. You can (and should) commit these details to source code.
    - `GITHUB_USERNAME` and `MY_NAME`: self-explanatory
    - `AUTO_REFRESH_ON_FAILURE`: If set to **true**, when one of the pages fails, it will auto refresh the page until it succeeds. (On every test I've done, every page has eventually succeeded after a few seconds.) However, if you are nervous about your browser freezing OR about too many refreshes flagging your account, don't set this to true. If set to **false** (default) when it fails, you will see a "failed" box on the page, and you can either refresh the page or click "try again" to refresh it.
-   - `PLAYERS`: comma-separated list of usernames to be included in the scoreboard
+   - `PLAYERS`: comma-separated list of usernames to be included in the scoreboard. If someone new joins your guild, you will need to update this list both in the source code and on every instance you have of the script.
     ```
         const GITHUB_USERNAME = "";
         const MY_NAME = "Kat";
@@ -43,3 +43,11 @@ Fork this repo to create a battledome scoreboard for your guild.
 1. To capture data for the first time, you will need to visit the battledome stats page of every user in the `PLAYERS` list. The URL for this page is `https://www.neopets.com/dome/record.phtml?username=USERNAME`
 2. Upon visiting a stats page, the script will automatically capture data and push a new commit it to GitHub. These updates are committed to the `bd_scores.json` file in your repo. You can view the file in the source code to confirm it's coming through.
 3. After you have visited all the players' stats pages, it takes ~3-5 minutes for the action that updates your pages site to complete running. (Each new commit to your repo usually cancels the previous run and makes a new one start, so sometimes it takes a bit longer for the data to reflect. To review the actions, navigate to `https://github.com/GITHUB_USERNAME/GITHUB_USERNAME.github.io/actions`)
+4. For subsequent runs, the `battledome.html` page table will be a clickable link to each user's respective battledome stats page, so you can simply click each link (open in a new tab).
+
+### adding other script-runners
+If you want to add other people to run the script (for instance, to cover multiple timezones) they will need to:
+1. Create a new PAT for each person from your guild you want to share the script with.
+2. Direct them to copy/paste the `bd_fetcher.js` script from your repo into a new TamperMonkey script.
+3. Instruct them to fill in the `MY_NAME`, `AUTO_REFRESH_ON_FAILURE`, and `SECRET_GITHUB_TOKEN` variables. (The `PLAYERS` and `GITHUB_USERNAME` variables should stay the same.)
+4. They will be able to click on usernames from the scorebaord page and update scores too! 
