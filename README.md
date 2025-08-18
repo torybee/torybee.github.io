@@ -8,7 +8,7 @@ Fork this repo to create a battledome scoreboard for your guild.
    - Scroll down to the "GitHub Pages" section.
    - Choose `Deploy from a branch` as the source.
    - Select `main` branch and `/ (root)` folder.
-3. After ~10 minutes, your scoreboard should be available to see at `<GITHUB_USERNAME>.github.io/battledome.html` with one default player: superkathiee.
+3. After ~10 minutes, your scoreboard should be available to see at `<GITHUB_USERNAME>.github.io/battledome.html` with one default player: superkathiee. (You should eventually delete this entry from your JSON data file.)
 4. Customize the HTML page by... (_each update is optional_)
    - Setting `GITHUB_USERNAME` with your GitHub username
    - Setting `GUILD_NAME` with your guild name
@@ -44,6 +44,7 @@ Fork this repo to create a battledome scoreboard for your guild.
 2. Upon visiting a stats page, the script will automatically capture data and push a new commit it to GitHub. These updates are committed to the `bd_scores.json` file in your repo. You can view the file in the source code to confirm it's coming through.
 3. After you have visited all the players' stats pages, it takes ~3-5 minutes for the action that updates your pages site to complete running. (Each new commit to your repo usually cancels the previous run and makes a new one start, so sometimes it takes a bit longer for the data to reflect. To review the actions, navigate to `https://github.com/GITHUB_USERNAME/GITHUB_USERNAME.github.io/actions`)
 4. For subsequent runs, the `battledome.html` page table will be a clickable link to each user's respective battledome stats page, so you can simply click each link (open in a new tab).
+5. Don't forget to delete the entry for "superkathiee" from `bd_scores.json` :)
 
 ### adding other script runners
 If you want to add other people to run the script (for instance, to cover multiple timezones) they will need to:
