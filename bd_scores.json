@@ -358,5 +358,17 @@
     "last_updated": "8/18/2025, 7:32:55 PM",
     "total_wins": 0,
     "total_score": 0
+  },
+  {
+    "logo": "images/icon.png",
+    "username": "kindled",
+    "starting_wins": 19683,
+    "starting_score": 3841195,
+    "starting_stats_captured": "8/18/2025, 7:33:06 PM",
+    "current_wins": 19683,
+    "current_score": 3841195,
+    "last_updated": "8/18/2025, 7:33:06 PM",
+    "total_wins": 0,
+    "total_score": 0
   }
 ]
