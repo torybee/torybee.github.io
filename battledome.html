@@ -44,11 +44,14 @@
         #content {
             width: 100%;
             box-sizing: border-box;
+            border-radius: 1em;
             overflow-y: auto;
             position: relative; /* Added positioning context */
             max-height: calc(100vh - 70px); /* Adjust based on the header height */
             background: url("http://i.imgur.com/YYIaGZ8.png") repeat;
             margin: 20px;
+            padding: 50px 0px;
+            
         }
 
         #spuds {
@@ -106,7 +109,7 @@
 
         .yellow-box {
             background-color: #fff;
-            padding: 4px;
+            padding: 10px;
             border-radius: 1em;
             font-family: Verdana, Helvetica, sans-serif;
             width: 85%;
@@ -131,11 +134,16 @@
 
 <div id="content">
     <div class="yellow-box">
-        <b>NOTE: This scoreboard is updated semi-automatically!</b> Every time we visit your stats page, the data is
+        <b>NOTE: This scoreboard is updated semi-automatically!</b>
+        <br>Every time we visit your stats page, the data is
         scraped and populates on the scoreboard. The "last updated" column tells when the data was last pulled for each
-        person. If you aren't seeing up-to-date stats, first try to do a hard refresh <b>(cmd/ctrl+shift+R)</b> to make
+        person. If you aren't seeing up-to-date stats, first try a hard refresh <b>(cmd/ctrl+shift+R)</b> to make
         your browser pull fresh data. </b>
-        <p><a href="/~Troster#guide"><img src="http://i.imgur.com/DRG14ue.gif"></a></p>
+        <p></p>
+        <i>check out the following resources for event details, free codestones, training plans, and weapon tips!</i>
+        <p><a href="/~Troster#guide"><img src="http://i.imgur.com/DRG14ue.gif"></a>
+        <a href="/~Solinova"><img src="http://i.imgur.com/elBtr65.gif" border="0"></a>
+        </p>
     </div>
     <br><br>
     <div id="guild-totals">
@@ -266,6 +274,7 @@
 </script>
 </body>
 </html>
+
 
 
 
