@@ -478,5 +478,17 @@
     "last_updated": "8/18/2025, 7:35:32 PM",
     "total_wins": 0,
     "total_score": 0
+  },
+  {
+    "logo": "images/icon.png",
+    "username": "madlovedarling",
+    "starting_wins": 962,
+    "starting_score": 82662,
+    "starting_stats_captured": "8/18/2025, 7:35:47 PM",
+    "current_wins": 962,
+    "current_score": 82662,
+    "last_updated": "8/18/2025, 7:35:47 PM",
+    "total_wins": 0,
+    "total_score": 0
   }
 ]
