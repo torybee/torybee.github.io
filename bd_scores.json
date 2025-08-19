@@ -178,5 +178,17 @@
     "last_updated": "8/18/2025, 7:25:55 PM",
     "total_wins": 0,
     "total_score": 0
+  },
+  {
+    "logo": "images/icon.png",
+    "username": "drackonwood",
+    "starting_wins": 4572,
+    "starting_score": 759609,
+    "starting_stats_captured": "8/18/2025, 7:26:09 PM",
+    "current_wins": 4572,
+    "current_score": 759609,
+    "last_updated": "8/18/2025, 7:26:09 PM",
+    "total_wins": 0,
+    "total_score": 0
   }
 ]
