@@ -514,5 +514,17 @@
     "last_updated": "8/18/2025, 7:37:57 PM",
     "total_wins": 0,
     "total_score": 0
+  },
+  {
+    "logo": "images/ignite-flame.png",
+    "username": "mew_mew_time",
+    "starting_wins": 640,
+    "starting_score": 82772,
+    "starting_stats_captured": "8/19/2025, 5:44:47 AM",
+    "current_wins": 640,
+    "current_score": 82772,
+    "last_updated": "8/19/2025, 5:44:47 AM",
+    "total_wins": 0,
+    "total_score": 0
   }
 ]
