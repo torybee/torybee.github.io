@@ -82,7 +82,7 @@
   "rotfljenn",
   "roxi2rox",
   "salvadortuna",
-  "schwarzes_schaf",
+  "schwarzes_schaaf",
   "seluker406",
   "sleate",
   "softypaws",
