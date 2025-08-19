@@ -574,5 +574,17 @@
     "last_updated": "8/19/2025, 6:01:53 AM",
     "total_wins": 0,
     "total_score": 0
+  },
+  {
+    "logo": "images/ignite-flame.png",
+    "username": "notooryous",
+    "starting_wins": 15384,
+    "starting_score": 10315817,
+    "starting_stats_captured": "8/19/2025, 6:01:56 AM",
+    "current_wins": 15384,
+    "current_score": 10315817,
+    "last_updated": "8/19/2025, 6:01:56 AM",
+    "total_wins": 0,
+    "total_score": 0
   }
 ]
