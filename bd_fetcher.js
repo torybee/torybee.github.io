@@ -15,11 +15,11 @@
         'use strict';
 
         // FIRST TIME USERS MUST FILL IN THESE DETAILS!!!!
-        const GITHUB_USERNAME = "";
-        const MY_NAME = "Kat";
-        const AUTO_REFRESH_ON_FAILURE = false;
+        const GITHUB_USERNAME = "torybee";
+        const MY_NAME = "Tory";
+        const AUTO_REFRESH_ON_FAILURE = true;
         const PLAYERS = [
-            "superkathiee"
+            "16th_serendipity, _aliciaaa_, acherub, angelbrat916, bama_girl12, barrelchic22, bikerchic624, bodhikels9, christinearning, cibola, cutypie349514, cyberpuppy33, desirae336, devil_kiki_girlz, dianaholdsie, dixie_immortal_chao, doctor_boo, drackonwood, eggs11044, eternal_fire48, flated, gali184, gamin_de_la_landes2, gymbrat2010, haleigh_2011, heart_stealer292, id_24, Illustrator, jade3443, jordanlyrix, joshdibb, kailey_kitty1995, karma_moon, kindled, kittycrew, kogglerr, legiox, lemontea_max9, lesliiiiex, limour, m_hero18, madidogs88, madlovedarling, marisn0w, melisssa12xx, mew_mew_time, misty_go_solo, mylist, najkay_44, nixonnn, nostosgalos, notooryous, nyltiac5, oroitz, ossabritt, plushgator, puppies10190, rachael1410, rainysapphire, riseofzedekiel, rotfljenn, roxi2rox, salvadortuna, schwarzes_schaf, seluker406, sleate, softypaws, spidero, stratus365, tackydad, tatyanne, thedaydreamfaerie, unfreeze_xlinger2, whyhellotherecupcake, xmeanerina, zuniak"
         ];
 
         // Fill this in *only* in tampermonkey. DO *NOT* COMMIT VALUE TO SOURCE CODE.
