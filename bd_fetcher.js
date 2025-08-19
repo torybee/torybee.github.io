@@ -84,7 +84,7 @@
   "salvadortuna",
   "schwarzes_schaaf",
   "seluker406",
-  "sleate",
+  "aleate",
   "softypaws",
   "spidero",
   "stratus365",
