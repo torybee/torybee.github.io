@@ -418,5 +418,17 @@
     "last_updated": "8/18/2025, 7:34:43 PM",
     "total_wins": 0,
     "total_score": 0
+  },
+  {
+    "logo": "images/icon.png",
+    "username": "lemontea_max9",
+    "starting_wins": 111,
+    "starting_score": 5775,
+    "starting_stats_captured": "8/18/2025, 7:34:48 PM",
+    "current_wins": 111,
+    "current_score": 5775,
+    "last_updated": "8/18/2025, 7:34:48 PM",
+    "total_wins": 0,
+    "total_score": 0
   }
 ]
