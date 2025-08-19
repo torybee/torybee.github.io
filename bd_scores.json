@@ -766,5 +766,17 @@
     "last_updated": "8/19/2025, 6:06:05 AM",
     "total_wins": 0,
     "total_score": 0
+  },
+  {
+    "logo": "images/ignite-flame.png",
+    "username": "stratus365",
+    "starting_wins": 3613,
+    "starting_score": 571618,
+    "starting_stats_captured": "8/19/2025, 6:06:19 AM",
+    "current_wins": 3613,
+    "current_score": 571618,
+    "last_updated": "8/19/2025, 6:06:19 AM",
+    "total_wins": 0,
+    "total_score": 0
   }
 ]
