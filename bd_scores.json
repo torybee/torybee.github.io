@@ -190,5 +190,17 @@
     "last_updated": "8/18/2025, 7:26:09 PM",
     "total_wins": 0,
     "total_score": 0
+  },
+  {
+    "logo": "images/icon.png",
+    "username": "eggs11044",
+    "starting_wins": 5993,
+    "starting_score": 714296,
+    "starting_stats_captured": "8/18/2025, 7:27:17 PM",
+    "current_wins": 5993,
+    "current_score": 714296,
+    "last_updated": "8/18/2025, 7:27:17 PM",
+    "total_wins": 0,
+    "total_score": 0
   }
 ]
