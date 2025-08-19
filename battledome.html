@@ -206,7 +206,7 @@
         fetch('bd_scores.json')
             .then(response => response.json())
             .then(scores => {
-                scores.sort((a, b) => b.total_score - a.total_score);
+                scores.sort((a, b) => b.username - a.username);
 
                 const scoresTableBody = document.getElementById('spuds').getElementsByTagName('tbody')[0];
                 const guildTotalsDiv = document.getElementById('guild-totals');
@@ -282,6 +282,7 @@
 </script>
 </body>
 </html>
+
 
 
 
