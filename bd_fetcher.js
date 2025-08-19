@@ -54,7 +54,7 @@
   "karma_moon",
   "kindled",
   "kittycrew",
-  "kogglerr",
+  "koggler",
   "legiox",
   "lemontea_max9",
   "lesliiiiex",
