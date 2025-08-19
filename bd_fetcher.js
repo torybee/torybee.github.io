@@ -206,7 +206,7 @@
                         existingEntry.total_score = data.current_score - existingEntry.starting_score;
                     } else {
                         scores.push({
-                            "potato_logo": "potatoes/marathon.png",
+                            "logo": "ignite-flame.png",
                             "username": data.username,
                             "starting_wins": data.current_wins,
                             "starting_score": data.current_score,
