@@ -802,5 +802,17 @@
     "last_updated": "8/19/2025, 6:06:46 AM",
     "total_wins": 0,
     "total_score": 0
+  },
+  {
+    "logo": "images/ignite-flame.png",
+    "username": "thedaydreamfaerie",
+    "starting_wins": 216,
+    "starting_score": 19526,
+    "starting_stats_captured": "8/19/2025, 6:06:59 AM",
+    "current_wins": 216,
+    "current_score": 19526,
+    "last_updated": "8/19/2025, 6:06:59 AM",
+    "total_wins": 0,
+    "total_score": 0
   }
 ]
