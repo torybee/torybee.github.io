@@ -658,5 +658,17 @@
     "last_updated": "8/19/2025, 6:02:38 AM",
     "total_wins": 0,
     "total_score": 0
+  },
+  {
+    "logo": "images/ignite-flame.png",
+    "username": "rainysapphire",
+    "starting_wins": 4253,
+    "starting_score": 582012,
+    "starting_stats_captured": "8/19/2025, 6:02:45 AM",
+    "current_wins": 4253,
+    "current_score": 582012,
+    "last_updated": "8/19/2025, 6:02:45 AM",
+    "total_wins": 0,
+    "total_score": 0
   }
 ]
