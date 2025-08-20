@@ -99,7 +99,7 @@
     "logo": "images/ignite-flame.png",
     "username": "cibola",
     "starting_wins": 9790,
-    "starting_score": 3615757,
+    "starting_score": 2504974,
     "starting_stats_captured": "8/18/2025, 7:13:15 PM",
     "current_wins": 9829,
     "current_score": 3650005,
@@ -593,11 +593,11 @@
     "starting_wins": 15384,
     "starting_score": 1904725,
     "starting_stats_captured": "8/19/2025, 6:01:56 AM",
-    "current_wins": 16242,
-    "current_score": 12109657,
-    "last_updated": "8/20/2025, 4:32:29 AM",
-    "total_wins": 858,
-    "total_score": 10204932
+    "current_wins": 15778,
+    "current_score": 11298457,
+    "last_updated": "8/19/2025, 3:33:10 PM",
+    "total_wins": 394,
+    "total_score": 9393732
   },
   {
     "logo": "images/ignite-flame.png",
@@ -830,8 +830,8 @@
   {
     "logo": "images/ignite-flame.png",
     "username": "unfreeze_xlinger2",
-    "starting_wins": 21728,
-    "starting_score": 13171222,
+    "starting_wins": 20300,
+    "starting_score": 10170708,
     "starting_stats_captured": "8/19/2025, 6:07:05 AM",
     "current_wins": 21746,
     "current_score": 13177288,
