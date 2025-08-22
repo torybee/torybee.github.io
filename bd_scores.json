@@ -886,5 +886,17 @@
     "last_updated": "8/21/2025, 8:31:47 PM",
     "total_wins": 1704,
     "total_score": 5263770
+  },
+  {
+    "logo": "images/ignite-flame.png",
+    "username": "laura_ow08",
+    "starting_wins": 2762,
+    "starting_score": 440009,
+    "starting_stats_captured": "8/21/2025, 9:24:25 PM",
+    "current_wins": 2762,
+    "current_score": 440009,
+    "last_updated": "8/21/2025, 9:24:25 PM",
+    "total_wins": 0,
+    "total_score": 0
   }
 ]
