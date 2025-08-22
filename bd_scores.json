@@ -1,18 +1,6 @@
 [
   {
     "logo": "images/ignite-flame.png",
-    "username": "laura_ow08",
-    "starting_wins": 2762,
-    "starting_score": 425230,
-    "starting_stats_captured": "8/18/2025, 7:07:31 PM",
-    "current_wins": 2762,
-    "current_score": 440009,
-    "last_updated": "8/21/2025, 9:33:02 PM",
-    "total_wins": 0,
-    "total_score": 14779
-  },
-  {
-    "logo": "images/ignite-flame.png",
     "username": "16th_serendipity",
     "starting_wins": 3216,
     "starting_score": 149564,
@@ -430,6 +418,18 @@
     "last_updated": "8/21/2025, 8:28:54 PM",
     "total_wins": 781,
     "total_score": 1082958
+  },
+    {
+    "logo": "images/ignite-flame.png",
+    "username": "laura_ow08",
+    "starting_wins": 2762,
+    "starting_score": 425230,
+    "starting_stats_captured": "8/18/2025, 7:07:31 PM",
+    "current_wins": 2762,
+    "current_score": 440009,
+    "last_updated": "8/21/2025, 9:33:02 PM",
+    "total_wins": 0,
+    "total_score": 14779
   },
   {
     "logo": "images/ignite-flame.png",
