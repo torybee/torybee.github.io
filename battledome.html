@@ -185,6 +185,7 @@
     <table id="spuds">
         <thead>
         <tr>
+            <th>RANK</th>
             <th>ICON</th>
             <th>USERNAME</th>
             <th>STARTING WINS</th>
@@ -241,6 +242,10 @@
 
             data.forEach(score => {
                 const row = scoresTableBody.insertRow();
+
+                    // RANK column (index + 1)
+                const cellRank = row.insertCell();
+                cellRank.textContent = (index + 1).toLocaleString();
 
                 const cellLogo = row.insertCell();
                 const img = document.createElement('img');
@@ -384,6 +389,7 @@
 </script>
 </body>
 </html>
+
 
 
 
