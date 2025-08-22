@@ -293,6 +293,7 @@
 
                 scoresData = scores.slice(); // keep a copy for resorting
                 renderTable(scoresData);
+                setSortIndicators(); // ensure indicators are visible right away
             })
             .catch(error => {
                 console.error('Error fetching the JSON data:', error);
@@ -315,55 +316,75 @@
             adjustContentTop();
         });
 
-        // ---- added: sorting handlers on headers (USERNAME = th:nth-child(2), TOTAL SCORE = th:nth-child(8)) ----
-        const thUsername = document.querySelector('#spuds thead th:nth-child(2)');
-        const thTotalScore = document.querySelector('#spuds thead th:nth-child(8)');
-
+        // ---- added: make ALL headers sortable ----
+        const headers = document.querySelectorAll('#spuds thead th');
         let sortState = { key: 'total_score', dir: 'desc' };
 
+        function getKeyFromIndex(idx) {
+            // map column index (0-based) to data key
+            switch (idx) {
+                case 1: return 'username';
+                case 2: return 'starting_wins';
+                case 3: return 'starting_score';
+                case 4: return 'current_wins';
+                case 5: return 'current_score';
+                case 6: return 'total_wins';
+                case 7: return 'total_score';
+                case 8: return 'last_updated';
+                default: return null;
+            }
+        }
+
         function applySort(key) {
-            if (!scoresData.length) return;
+            if (!scoresData.length || !key) return;
             if (sortState.key === key) {
                 sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
             } else {
                 sortState.key = key;
-                sortState.dir = key === 'username' ? 'asc' : 'desc';
+                sortState.dir = key === 'username' || key === 'last_updated' ? 'asc' : 'desc';
             }
 
             const mult = sortState.dir === 'asc' ? 1 : -1;
 
             scoresData.sort((a, b) => {
-                if (key === 'username') {
-                    const A = (a.username || '').toLowerCase();
-                    const B = (b.username || '').toLowerCase();
-                    if (A < B) return -1 * mult;
-                    if (A > B) return  1 * mult;
-                    return 0;
-                } else {
-                    return (Number(a.total_score || 0) - Number(b.total_score || 0)) * mult;
+                const A = a[key] || 0;
+                const B = b[key] || 0;
+                if (typeof A === 'string' || typeof B === 'string') {
+                    return A.toString().localeCompare(B.toString()) * mult;
                 }
+                return (Number(A) - Number(B)) * mult;
             });
 
-            // update header text with arrow (without changing your other markup)
-            thUsername.textContent = 'USERNAME' + (sortState.key === 'username' ? (sortState.dir === 'asc' ? ' ▲' : ' ▼') : '');
-            thTotalScore.textContent = 'TOTAL SCORE' + (sortState.key === 'total_score' ? (sortState.dir === 'asc' ? ' ▲' : ' ▼') : '');
-
             renderTable(scoresData);
+            setSortIndicators();
         }
 
-        if (thUsername) {
-            thUsername.style.cursor = 'pointer';
-            thUsername.addEventListener('click', function(){ applySort('username'); });
+        function setSortIndicators() {
+            headers.forEach((th, idx) => {
+                let base = th.textContent.replace(/ ▲| ▼| △/g, ''); // strip old arrow
+                let key = getKeyFromIndex(idx);
+                if (!key) { th.textContent = base; return; }
+
+                if (key === sortState.key) {
+                    th.textContent = base + (sortState.dir === 'asc' ? ' ▲' : ' ▼');
+                } else {
+                    th.textContent = base + ' △'; // neutral indicator = always sortable
+                }
+            });
         }
-        if (thTotalScore) {
-            thTotalScore.style.cursor = 'pointer';
-            thTotalScore.addEventListener('click', function(){ applySort('total_score'); });
-        }
+
+        headers.forEach((th, idx) => {
+            let key = getKeyFromIndex(idx);
+            if (!key) return;
+            th.style.cursor = 'pointer';
+            th.addEventListener('click', function(){ applySort(key); });
+        });
     })
     ;
 </script>
 </body>
 </html>
+
 
 
 
