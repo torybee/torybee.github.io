@@ -86,17 +86,17 @@
         }
 
         @media only screen and (max-width: 730px) {
-            #spuds td:nth-child(3),
-            #spuds th:nth-child(3),
-            #spuds td:nth-child(4),
-            #spuds th:nth-child(4),
-            #spuds td:nth-child(5),
-            #spuds th:nth-child(5),
-            #spuds td:nth-child(6),
-            #spuds th:nth-child(6),
-            #spuds td:nth-child(9),
-            #spuds th:nth-child(9) {
-                display: none;
+#spuds td:nth-child(4),
+#spuds th:nth-child(4),
+#spuds td:nth-child(5),
+#spuds th:nth-child(5),
+#spuds td:nth-child(6),
+#spuds th:nth-child(6),
+#spuds td:nth-child(7),
+#spuds th:nth-child(7),
+#spuds td:nth-child(10),
+#spuds th:nth-child(10) {
+    display: none;
             }
 
             .yellow-box {
@@ -240,7 +240,7 @@
             guild_wins = 0;
             guild_score = 0;
 
-            data.forEach(score => {
+            data.forEach((score, index) => {
                 const row = scoresTableBody.insertRow();
 
                     // RANK column (index + 1)
@@ -388,6 +388,7 @@ function getKeyFromIndex(idx) {
 </script>
 </body>
 </html>
+
 
 
 
