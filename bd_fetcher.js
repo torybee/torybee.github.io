@@ -55,7 +55,7 @@
   "kindled",
   "kittycrew",
   "koggler",
-  "laura_ow08".
+  "laura_ow08",
   "legiox",
   "lemontea_max9",
   "lesliiiiex",
