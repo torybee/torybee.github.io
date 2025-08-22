@@ -227,58 +227,72 @@
         let guild_wins = 0;
         let guild_score = 0;
 
+        // ---- added: keep data for resorting ----
+        let scoresData = [];
+        const scoresTableBody = document.getElementById('spuds').getElementsByTagName('tbody')[0];
+        const guildTotalsDiv = document.getElementById('guild-totals');
+
+        function renderTable(data) {
+            // clear body
+            while (scoresTableBody.firstChild) scoresTableBody.removeChild(scoresTableBody.firstChild);
+
+            guild_wins = 0;
+            guild_score = 0;
+
+            data.forEach(score => {
+                const row = scoresTableBody.insertRow();
+
+                const cellLogo = row.insertCell();
+                const img = document.createElement('img');
+                img.src = score.logo;
+                img.height = 50;
+                img.alt = score.username;
+                cellLogo.style.setProperty("text-align", "center", "important");
+                cellLogo.appendChild(img);
+
+                const cellUsername = row.insertCell();
+                const link = document.createElement('a');
+                link.href = 'https://www.neopets.com/dome/record.phtml?username=' + score.username;
+                link.textContent = score.username;
+                link.target = '_blank';
+                cellUsername.appendChild(link);
+
+                const cellStartingWins = row.insertCell();
+                cellStartingWins.textContent = Number(score.starting_wins || 0).toLocaleString();
+
+                const cellStartingScore = row.insertCell();
+                cellStartingScore.textContent = Number(score.starting_score || 0).toLocaleString();
+
+                const cellCurrentWins = row.insertCell();
+                cellCurrentWins.textContent = Number(score.current_wins || 0).toLocaleString();
+
+                const cellCurrentScore = row.insertCell();
+                cellCurrentScore.textContent = Number(score.current_score || 0).toLocaleString();
+
+                const cellTotalWins = row.insertCell();
+                cellTotalWins.textContent = Number(score.total_wins || 0).toLocaleString();
+
+                const cellTotalScore = row.insertCell();
+                cellTotalScore.textContent = Number(score.total_score || 0).toLocaleString();
+
+                const cellLastUpdated = row.insertCell();
+                cellLastUpdated.textContent = score.last_updated || '';
+
+                guild_score += Number(score.total_score || 0);
+                guild_wins += Number(score.total_wins || 0);
+            });
+
+            guildTotalsDiv.textContent = `GUILD WINS: ${guild_wins.toLocaleString()} || GUILD SCORE: ${guild_score.toLocaleString()}`;
+        }
+
         fetch('bd_scores.json')
             .then(response => response.json())
             .then(scores => {
-                scores.sort((a, b) => b.total.score - a.totalscore);
+                // fixed: correct properties and default sort by total_score desc
+                scores.sort((a, b) => (Number(b.total_score || 0) - Number(a.total_score || 0)));
 
-                const scoresTableBody = document.getElementById('spuds').getElementsByTagName('tbody')[0];
-                const guildTotalsDiv = document.getElementById('guild-totals');
-
-                scores.forEach(score => {
-                    const row = scoresTableBody.insertRow();
-
-                    const cellLogo = row.insertCell();
-                    const img = document.createElement('img');
-                    img.src = score.logo;
-                    img.height = 50;
-                    img.alt = score.username;
-                    cellLogo.style.setProperty("text-align", "center", "important");
-                    cellLogo.appendChild(img);
-
-                    const cellUsername = row.insertCell();
-                    const link = document.createElement('a');
-                    link.href = 'https://www.neopets.com/dome/record.phtml?username=' + score.username;
-                    link.textContent = score.username;
-                    link.target = '_blank';
-                    cellUsername.appendChild(link);
-
-                    const cellStartingWins = row.insertCell();
-                    cellStartingWins.textContent = score.starting_wins.toLocaleString();
-
-                    const cellStartingScore = row.insertCell();
-                    cellStartingScore.textContent = score.starting_score.toLocaleString();
-
-                    const cellCurrentWins = row.insertCell();
-                    cellCurrentWins.textContent = score.current_wins.toLocaleString();
-
-                    const cellCurrentScore = row.insertCell();
-                    cellCurrentScore.textContent = score.current_score.toLocaleString();
-
-                    const cellTotalWins = row.insertCell();
-                    cellTotalWins.textContent = score.total_wins.toLocaleString();
-
-                    const cellTotalScore = row.insertCell();
-                    cellTotalScore.textContent = score.total_score.toLocaleString();
-
-                    const cellLastUpdated = row.insertCell();
-                    cellLastUpdated.textContent = score.last_updated;
-
-                    guild_score += score.total_score;
-                    guild_wins += score.total_wins;
-                });
-                guildTotalsDiv.textContent = `GUILD WINS: ${guild_wins.toLocaleString()} || GUILD SCORE: ${guild_score.toLocaleString()}`;
-
+                scoresData = scores.slice(); // keep a copy for resorting
+                renderTable(scoresData);
             })
             .catch(error => {
                 console.error('Error fetching the JSON data:', error);
@@ -300,12 +314,57 @@
             adjustHeaderOnScroll();
             adjustContentTop();
         });
+
+        // ---- added: sorting handlers on headers (USERNAME = th:nth-child(2), TOTAL SCORE = th:nth-child(8)) ----
+        const thUsername = document.querySelector('#spuds thead th:nth-child(2)');
+        const thTotalScore = document.querySelector('#spuds thead th:nth-child(8)');
+
+        let sortState = { key: 'total_score', dir: 'desc' };
+
+        function applySort(key) {
+            if (!scoresData.length) return;
+            if (sortState.key === key) {
+                sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
+            } else {
+                sortState.key = key;
+                sortState.dir = key === 'username' ? 'asc' : 'desc';
+            }
+
+            const mult = sortState.dir === 'asc' ? 1 : -1;
+
+            scoresData.sort((a, b) => {
+                if (key === 'username') {
+                    const A = (a.username || '').toLowerCase();
+                    const B = (b.username || '').toLowerCase();
+                    if (A < B) return -1 * mult;
+                    if (A > B) return  1 * mult;
+                    return 0;
+                } else {
+                    return (Number(a.total_score || 0) - Number(b.total_score || 0)) * mult;
+                }
+            });
+
+            // update header text with arrow (without changing your other markup)
+            thUsername.textContent = 'USERNAME' + (sortState.key === 'username' ? (sortState.dir === 'asc' ? ' ▲' : ' ▼') : '');
+            thTotalScore.textContent = 'TOTAL SCORE' + (sortState.key === 'total_score' ? (sortState.dir === 'asc' ? ' ▲' : ' ▼') : '');
+
+            renderTable(scoresData);
+        }
+
+        if (thUsername) {
+            thUsername.style.cursor = 'pointer';
+            thUsername.addEventListener('click', function(){ applySort('username'); });
+        }
+        if (thTotalScore) {
+            thTotalScore.style.cursor = 'pointer';
+            thTotalScore.addEventListener('click', function(){ applySort('total_score'); });
+        }
     })
     ;
-
 </script>
 </body>
 </html>
+
 
 
 
