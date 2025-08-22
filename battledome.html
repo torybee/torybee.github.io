@@ -325,19 +325,18 @@
         const headers = document.querySelectorAll('#spuds thead th');
         let sortState = { key: 'total_score', dir: 'desc' };
 
-        function getKeyFromIndex(idx) {
-            // map column index (0-based) to data key
-            switch (idx) {
-                case 1: return 'username';
-                case 2: return 'starting_wins';
-                case 3: return 'starting_score';
-                case 4: return 'current_wins';
-                case 5: return 'current_score';
-                case 6: return 'total_wins';
-                case 7: return 'total_score';
-                case 8: return 'last_updated';
-                default: return null;
-            }
+function getKeyFromIndex(idx) {
+    switch (idx) {
+        case 2: return 'username';
+        case 3: return 'starting_wins';
+        case 4: return 'starting_score';
+        case 5: return 'current_wins';
+        case 6: return 'current_score';
+        case 7: return 'total_wins';
+        case 8: return 'total_score';
+        case 9: return 'last_updated';
+        default: return null; // rank (col 0) and icon (col 1) not sortable
+    }
         }
 
         function applySort(key) {
@@ -389,6 +388,7 @@
 </script>
 </body>
 </html>
+
 
 
 
