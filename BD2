@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Ignite's Battledome Leaderboard">
+    <meta property="og:description" content="How do you stack up to other guild members?">
+    <meta property="og:url" content="https://torybee.github.io/battledome">
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <title>Ignite's Battledome Leaderboard</title>
+
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+
+    <style>
+        html, body {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body {
+            background-image: url("images/background.png");
+            background-repeat: repeat;
+        }
+
+        #header {
+            width: 100%;
+            text-align: center;
+            align-items: center;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            transition: height 0.3s, padding 0.3s;
+        }
+
+        #header img {
+            width: 60%; /* Adjust the size as needed */
+            height: auto;
+        }
+
+        #content {
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 1em;
+            overflow-y: auto;
+            position: relative; /* Added positioning context */
+            max-height: calc(100vh - 70px); /* Adjust based on the header height */
+            background: url("http://i.imgur.com/YYIaGZ8.png") repeat;
+            margin: 20px;
+            padding: 50px 0px;
+            
+        }
+        strong {
+        background-color: #FFC797;
+        }
+        #spuds {
+            font-family: Verdana, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 85%;
+            margin: auto;
+            font-size: 13px;
+        }
+
+        #spuds td, #spuds th {
+            border: 2px solid #4f4f4f;
+            padding: 4px;
+            text-align: center !important;
+        }
+
+        #spuds tr:nth-child(even) {
+            background-color: #FACDBE;
+        }
+
+        #spuds tr:nth-child(odd) {
+            background-color: #F3AC95;
+        }
+
+        #spuds th {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: center;
+            background-color: #AA011D;
+            color: #FFF;
+        }
+
+        @media only screen and (max-width: 730px) {
+    /* hide ICON, STARTING WINS, STARTING SCORE, CURRENT WINS, CURRENT SCORE, TOTAL SCORE */
+    #spuds td:nth-child(2),
+    #spuds th:nth-child(2),
+    #spuds td:nth-child(4),
+    #spuds th:nth-child(4),
+    #spuds td:nth-child(5),
+    #spuds th:nth-child(5),
+    #spuds td:nth-child(6),
+    #spuds th:nth-child(6),
+    #spuds td:nth-child(7),
+    #spuds th:nth-child(7),
+    #spuds td:nth-child(8),
+    #spuds th:nth-child(8) {
+        display: none;
+            }
+
+            .yellow-box {
+                font-size: 10px;
+            }
+
+            #header img {
+                width: 80%; /* Adjust the size as needed */
+                height: auto;
+            }
+        }
+
+        .yellow-box {
+            background-color: #fff;
+            color: #660021;
+            padding: 10px;
+            border-radius: 1em;
+            font-family: Verdana, Helvetica, sans-serif;
+            width: 85%;
+            
+            margin: auto;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .resources {
+            width: 400px;
+            padding: 10px;
+            border: 1px solid #000;
+            border-radius: 1em;
+            float: right;
+        }
+        
+        .prize {
+            width: 200px;
+            padding: 10px;
+            border-radius: 1em;
+            float: left;
+            background-color: #FFC897;
+        }
+        
+         .texticon {
+            float: left;
+            padding: 10px;
+            width: 110px;
+        }
+        #guild-totals {
+            font-family: Verdana, Helvetica, sans-serif;
+            font-size: 30px;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <img src="images/banner.png" alt="Battledome Challenge Banner">
+</div>
+
+<div id="content">
+    <div class="yellow-box">
+    <img src="images/ignite-flame.png" alt="Sweating for Eternal Glory!" class="texticon">
+    <center>
+    <b>NOTE: This scoreboard is updated semi-automatically!</b>
+    <br>Every time we visit your stats page, the data is
+    scraped and populates on the scoreboard. The "last updated" column tells when the data was last pulled for each
+    person. If you aren't seeing up-to-date stats, first try a hard refresh <b>(cmd/ctrl+shift+R)</b> to make
+    your browser pull fresh data.
+    <p></p>
+    <strong>All members who pass 2M in Total Score will receive a <b>Skarl Collectable Charm!</b></strong>
+    <p></p>
+    <a href="https://www.neopets.com/~Troster#guildbd"><img src="http://i.imgur.com/DRG14ue.gif"></a>
+    <a href="https://www.neopets.com/~Solinova"><img src="http://i.imgur.com/elBtr65.gif" border="0"></a>
+    <br>
+    <i>check out the following resources for event details, free codestones, training plans, and weapon tips!</i>
+
+    <p></p>
+    <strong>Finish in Ignite’s Top 20 to be auto-entered in a raffle for the following weapons! Winners announced Sept 1st! </strong>
+    <br><br>
+
+        
+    <table border="0" cellpadding="4" cellspacing="0" width="80%">
+  <tr align="center" valign="top">
+    <td>
+      <b>Monoceraptors Claw</b><br>
+      <img src="images/monoceraptorclaw.gif" alt="Monoceraptors Claw"><br>
+      ~27m
+    </td>
+    <td>
+      <b>Grapes of Wrath</b><br>
+      <img src="images/bd_grapesofwrath.gif" alt="Grapes of Wrath"><br>
+      ~15m
+    </td>
+    <td>
+      <b>Skarls Sword</b><br>
+      <img src="images/bd_wotc_sword.gif" alt="Skarls Sword"><br>
+      ~7m
+    </td>
+    <td>
+      <b>Fire and Ice Blade</b><br>
+      <img src="images/bd_icefire_blade.gif" alt="Fire and Ice Blade"><br>
+      ~5m
+    </td>
+    <td>
+      <b>Celebratory Confetti Cannon</b><br>
+      <img src="images/confetticannon.gif" alt="Celebratory Confetti Cannon"><br>
+      ~4m
+    </td>
+  </tr>
+</table></center>
+
+</div>
+    <br><br>
+
+    
+    <div id="guild-totals">
+        <!-- guild totals will be displayed here -->
+    </div>
+    <br><br>
+    <table id="spuds">
+        <thead>
+        <tr>
+            <th>RANK</th>
+            <th>ICON</th>
+            <th>USERNAME</th>
+            <th>STARTING WINS</th>
+            <th>STARTING SCORE</th>
+            <th>CURRENT WINS</th>
+            <th>CURRENT SCORE</th>
+            <th>TOTAL WINS</th>
+            <th>TOTAL SCORE</th>
+            <th>LAST UPDATED (NST)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Data will be populated here -->
+        </tbody>
+    </table>
+    <br><br><br><br>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // Initial setting of the margin-top for #content
+        let headerImg = document.querySelector('#header img');
+        let contentBox = document.querySelector('#content');
+
+        function adjustContentTop() {
+            let headerHeight = headerImg.getBoundingClientRect().height;
+            contentBox.style.top = headerHeight + 'px';
+            contentBox.style.maxHeight = `calc(100vh - ${headerHeight}px)`;
+        }
+
+        // Add onload event listener to the header image
+        headerImg.onload = function () {
+            adjustContentTop();
+        };
+
+        // Adjust the margin dynamically based on header image size
+        window.addEventListener('resize', adjustContentTop);
+
+        let guild_wins = 0;
+        let guild_score = 0;
+
+        // ---- added: keep data for resorting ----
+        let scoresData = [];
+        const scoresTableBody = document.getElementById('spuds').getElementsByTagName('tbody')[0];
+        const guildTotalsDiv = document.getElementById('guild-totals');
+
+        function renderTable(data) {
+            // clear body
+            while (scoresTableBody.firstChild) scoresTableBody.removeChild(scoresTableBody.firstChild);
+
+            guild_wins = 0;
+            guild_score = 0;
+
+            data.forEach((score, index) => {
+                const row = scoresTableBody.insertRow();
+
+                    // RANK column (index + 1)
+                const cellRank = row.insertCell();
+                cellRank.textContent = (index + 1).toLocaleString();
+
+                const cellLogo = row.insertCell();
+                const img = document.createElement('img');
+                img.src = score.logo;
+                img.height = 50;
+                img.alt = score.username;
+                cellLogo.style.setProperty("text-align", "center", "important");
+                cellLogo.appendChild(img);
+
+                const cellUsername = row.insertCell();
+                const link = document.createElement('a');
+                link.href = 'https://www.neopets.com/dome/record.phtml?username=' + score.username;
+                link.textContent = score.username;
+                link.target = '_blank';
+                cellUsername.appendChild(link);
+
+                const cellStartingWins = row.insertCell();
+                cellStartingWins.textContent = Number(score.starting_wins || 0).toLocaleString();
+
+                const cellStartingScore = row.insertCell();
+                cellStartingScore.textContent = Number(score.starting_score || 0).toLocaleString();
+
+                const cellCurrentWins = row.insertCell();
+                cellCurrentWins.textContent = Number(score.current_wins || 0).toLocaleString();
+
+                const cellCurrentScore = row.insertCell();
+                cellCurrentScore.textContent = Number(score.current_score || 0).toLocaleString();
+
+                const cellTotalWins = row.insertCell();
+                cellTotalWins.textContent = Number(score.total_wins || 0).toLocaleString();
+
+                const cellTotalScore = row.insertCell();
+                cellTotalScore.textContent = Number(score.total_score || 0).toLocaleString();
+
+                const cellLastUpdated = row.insertCell();
+                cellLastUpdated.textContent = score.last_updated || '';
+
+                guild_score += Number(score.total_score || 0);
+                guild_wins += Number(score.total_wins || 0);
+            });
+
+            guildTotalsDiv.textContent = `GUILD WINS: ${guild_wins.toLocaleString()} || GUILD SCORE: ${guild_score.toLocaleString()}`;
+        }
+
+        fetch('bd_scores.json')
+            .then(response => response.json())
+            .then(scores => {
+                // fixed: correct properties and default sort by total_score desc
+                scores.sort((a, b) => (Number(b.total_score || 0) - Number(a.total_score || 0)));
+
+                scoresData = scores.slice(); // keep a copy for resorting
+                renderTable(scoresData);
+                setSortIndicators(); // ensure indicators are visible right away
+            })
+            .catch(error => {
+                console.error('Error fetching the JSON data:', error);
+            });
+
+        function adjustHeaderOnScroll() {
+            // Calculate the scroll percentage
+            let scrollTop = contentBox.scrollTop;
+            let maxScrollTop = contentBox.scrollHeight - contentBox.clientHeight;
+            let scrollPercentage = scrollTop / maxScrollTop;
+
+            // Adjust the header image width based on scroll percentage
+            let newWidth = Math.max(30, 60 - scrollPercentage * 30); // Example range from 60% to 30%
+            headerImg.style.width = newWidth + '%';
+        }
+
+        // Add scroll event listener to contentBox
+        contentBox.addEventListener('scroll', function () {
+            adjustHeaderOnScroll();
+            adjustContentTop();
+        });
+
+        // ---- added: make ALL headers sortable ----
+        const headers = document.querySelectorAll('#spuds thead th');
+        let sortState = { key: 'total_score', dir: 'desc' };
+
+function getKeyFromIndex(idx) {
+    switch (idx) {
+        case 2: return 'username';
+        case 3: return 'starting_wins';
+        case 4: return 'starting_score';
+        case 5: return 'current_wins';
+        case 6: return 'current_score';
+        case 7: return 'total_wins';
+        case 8: return 'total_score';
+        case 9: return 'last_updated';
+        default: return null; // rank (col 0) and icon (col 1) not sortable
+    }
+        }
+
+        function applySort(key) {
+            if (!scoresData.length || !key) return;
+            if (sortState.key === key) {
+                sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
+            } else {
+                sortState.key = key;
+                sortState.dir = key === 'username' || key === 'last_updated' ? 'asc' : 'desc';
+            }
+
+            const mult = sortState.dir === 'asc' ? 1 : -1;
+
+            scoresData.sort((a, b) => {
+                const A = a[key] || 0;
+                const B = b[key] || 0;
+                if (typeof A === 'string' || typeof B === 'string') {
+                    return A.toString().localeCompare(B.toString()) * mult;
+                }
+                return (Number(A) - Number(B)) * mult;
+            });
+
+            renderTable(scoresData);
+            setSortIndicators();
+        }
+
+        function setSortIndicators() {
+            headers.forEach((th, idx) => {
+                let base = th.textContent.replace(/ ▲| ▼| △/g, ''); // strip old arrow
+                let key = getKeyFromIndex(idx);
+                if (!key) { th.textContent = base; return; }
+
+                if (key === sortState.key) {
+                    th.textContent = base + (sortState.dir === 'asc' ? ' ▲' : ' ▼');
+                } else {
+                    th.textContent = base + ' △'; // neutral indicator = always sortable
+                }
+            });
+        }
+
+        headers.forEach((th, idx) => {
+            let key = getKeyFromIndex(idx);
+            if (!key) return;
+            th.style.cursor = 'pointer';
+            th.addEventListener('click', function(){ applySort(key); });
+        });
+    })
+    ;
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
