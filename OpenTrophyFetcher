@@ -1,0 +1,202 @@
+// ==UserScript==
+// @name         Ignite Open Trophy Spot Fetcher
+// @version      1.0
+// @description  Checks handpicked Neopets high-score tables and writes games with open trophy spots to GitHub JSON.
+// @author       Tory / Ignite
+// @match        *://www.neopets.com/games/hiscores.phtml?game_id=*
+// @match        *://www.neopets.com/games/game.phtml?game_id=*
+// @grant        GM.xmlHttpRequest
+// @grant        GM_getValue
+// @grant        GM_setValue
+// @connect      www.neopets.com
+// @connect      api.github.com
+// ==/UserScript==
+
+(function () {
+    'use strict';
+
+    const GITHUB_USERNAME = "torybee";
+    const REPO_NAME = "torybee.github.io";
+    const BRANCH = "main";
+    const OUTPUT_FILE = "open_trophy_spots.json";
+
+    const MAX_SCORE_SPOTS = 17;
+    const MINUTES_BETWEEN_FULL_CHECKS = 10;
+
+    const GAME_LINKS = [
+        "https://www.neopets.com/games/hiscores.phtml?game_id=796",
+        "https://www.neopets.com/games/hiscores.phtml?game_id=82",
+        "https://www.neopets.com/games/hiscores.phtml?game_id=772",
+        "https://www.neopets.com/games/hiscores.phtml?game_id=1252",
+        "https://www.neopets.com/games/hiscores.phtml?game_id=965",
+        "https://www.neopets.com/games/game.phtml?game_id=404",
+        "https://www.neopets.com/games/game.phtml?game_id=970",
+        "https://www.neopets.com/games/game.phtml?game_id=1369",
+        "https://www.neopets.com/games/game.phtml?game_id=207"
+    ];
+
+    function showStatusBox(message, background = "#660021") {
+        let box = document.getElementById("ignite-trophy-fetcher-box");
+
+        if (!box) {
+            box = document.createElement("div");
+            box.id = "ignite-trophy-fetcher-box";
+            box.style.position = "fixed";
+            box.style.right = "20px";
+            box.style.bottom = "20px";
+            box.style.maxWidth = "360px";
+            box.style.padding = "14px";
+            box.style.borderRadius = "10px";
+            box.style.color = "#fff";
+            box.style.fontFamily = "Verdana";
+            box.style.fontSize = "12px";
+            box.style.zIndex = "999999";
+            document.body.appendChild(box);
+        }
+
+        box.style.background = background;
+        box.textContent = message;
+    }
+
+    function normalizeUrl(url) {
+        const parsed = new URL(url);
+        const gameId = parsed.searchParams.get("game_id");
+        return `https://www.neopets.com/games/hiscores.phtml?game_id=${gameId}`;
+    }
+
+    function getTimestamp() {
+        return new Date().toLocaleString("en-US", {
+            timeZone: "America/Los_Angeles"
+        });
+    }
+
+    function gmRequest(method, url, options = {}) {
+        return new Promise((resolve, reject) => {
+            GM.xmlHttpRequest({
+                method,
+                url,
+                headers: options.headers || {},
+                data: options.data || null,
+                onload: resolve,
+                onerror: reject
+            });
+        });
+    }
+
+    function decode(base64) {
+        return decodeURIComponent(escape(atob(base64.replace(/\s/g, ""))));
+    }
+
+    function encode(text) {
+        return btoa(unescape(encodeURIComponent(text)));
+    }
+
+    function shouldRun() {
+        const last = Number(GM_getValue("last_run", 0));
+        const now = Date.now();
+        const gap = MINUTES_BETWEEN_FULL_CHECKS * 60000;
+
+        if (now - last < gap) {
+            showStatusBox("Recently ran. Try again later.", "#8a4b00");
+            return false;
+        }
+
+        GM_setValue("last_run", now);
+        return true;
+    }
+
+    function countScores(doc) {
+        const links = doc.querySelectorAll('a[href*="userlookup.phtml?user="]');
+        const users = new Set();
+
+        links.forEach(link => {
+            const name = link.textContent.trim();
+            if (name && name.length < 30) {
+                users.add(name.toLowerCase());
+            }
+        });
+
+        return users.size;
+    }
+
+    function parse(html, url) {
+        const doc = new DOMParser().parseFromString(html, "text/html");
+
+        const title = doc.querySelector("h2")?.textContent?.trim() || "Unknown Game";
+        const count = countScores(doc);
+        const open = Math.max(0, MAX_SCORE_SPOTS - count);
+
+        return {
+            game: title,
+            url,
+            open_spots: open,
+            last_checked: getTimestamp()
+        };
+    }
+
+    async function fetchGame(url) {
+        const hi = normalizeUrl(url);
+        const res = await gmRequest("GET", hi);
+        return parse(res.responseText, hi);
+    }
+
+    async function updateGitHub(data) {
+        const token = GM_getValue("github_token", "");
+
+        if (!token) {
+            showStatusBox('Run GM_setValue("github_token","TOKEN") first.', "#a00000");
+            throw new Error("No token");
+        }
+
+        const get = await gmRequest("GET",
+            `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contents/${OUTPUT_FILE}`,
+            { headers: { Authorization: `token ${token}` } }
+        );
+
+        const file = JSON.parse(get.responseText);
+
+        const payload = {
+            message: "Update trophy spots",
+            content: encode(JSON.stringify(data, null, 2)),
+            sha: file.sha
+        };
+
+        await gmRequest("PUT",
+            `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contents/${OUTPUT_FILE}`,
+            {
+                headers: { Authorization: `token ${token}` },
+                data: JSON.stringify(payload)
+            }
+        );
+    }
+
+    async function run() {
+        if (!shouldRun()) return;
+
+        showStatusBox("Checking games...");
+
+        const results = [];
+
+        for (const link of GAME_LINKS) {
+            try {
+                const r = await fetchGame(link);
+                if (r.open_spots > 0) results.push(r);
+            } catch (e) {
+                console.error("Failed:", link);
+            }
+        }
+
+        results.sort((a, b) => b.open_spots - a.open_spots);
+
+        const output = {
+            last_updated: getTimestamp(),
+            open_games: results
+        };
+
+        await updateGitHub(output);
+
+        showStatusBox(`Done! ${results.length} games have open spots.`, "#006b35");
+    }
+
+    run();
+})();
