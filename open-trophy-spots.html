@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Ignite Open Trophy Spots">
+    <meta property="og:title" content="Open Trophy Spots">
     <meta property="og:description" content="Handpicked Neopets games with empty high-score table spots.">
-    <meta property="og:url" content="https://torybee.github.io/open-trophy-spots">
+    <meta property="og:url" content="https://torybee.github.io/open-trophy-spots.html">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
     <meta http-equiv="pragma" content="no-cache">
 
-    <title>Ignite Open Trophy Spots</title>
+    <title>Open Trophy Spots</title>
 
     <link rel="icon" href="images/icon.png" type="image/x-icon">
 
@@ -145,7 +145,7 @@
 <div id="wrap">
     <div id="card">
         <div id="header">
-            <h1>Ignite Open Trophy Spots</h1>
+            <h1>Open Trophy Spots</h1>
             <p>Handpicked Neopets high-score tables with empty trophy spots.</p>
         </div>
 
@@ -188,9 +188,17 @@ document.addEventListener("DOMContentLoaded", function () {
     function render(data) {
         const games = Array.isArray(data.open_games) ? data.open_games : [];
 
+        const gamesChecked = typeof data.games_checked === "number"
+            ? data.games_checked
+            : games.length;
+
+        const gamesWithOpenSpots = typeof data.games_with_open_spots === "number"
+            ? data.games_with_open_spots
+            : games.length;
+
         summary.textContent =
-            `${number(data.games_with_open_spots)} game(s) with open spots` +
-            ` || ${number(data.games_checked)} game(s) checked` +
+            `${number(gamesWithOpenSpots)} game(s) with open spots` +
+            ` || ${number(gamesChecked)} game(s) checked` +
             ` || Last updated: ${data.last_updated || "Unknown"}`;
 
         tbody.innerHTML = "";
@@ -205,7 +213,10 @@ document.addEventListener("DOMContentLoaded", function () {
         empty.style.display = "none";
 
         games
-            .sort((a, b) => Number(b.open_spots || 0) - Number(a.open_spots || 0) || String(a.game).localeCompare(String(b.game)))
+            .sort((a, b) => {
+                return Number(b.open_spots || 0) - Number(a.open_spots || 0)
+                    || String(a.game || "").localeCompare(String(b.game || ""));
+            })
             .forEach(game => {
                 const row = tbody.insertRow();
 
@@ -214,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 link.href = game.url;
                 link.target = "_blank";
                 link.rel = "noopener noreferrer";
-                link.textContent = game.game || `Game ${game.game_id}`;
+                link.textContent = game.game || `Game ${game.game_id || ""}`;
                 gameCell.appendChild(link);
 
                 const openCell = row.insertCell();
