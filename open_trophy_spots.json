@@ -1,59 +1,9 @@
 {
-  "last_updated": "5/2/2026, 12:42:57 PM",
-  "open_games": [
-    {
-      "game": "Kreludan Mining Corp.",
-      "url": "https://www.neopets.com/games/hiscores.phtml?game_id=404",
-      "open_spots": 13,
-      "last_checked": "5/2/2026, 12:42:55 PM"
-    },
-    {
-      "game": "Hot Dog Hero",
-      "url": "https://www.neopets.com/games/hiscores.phtml?game_id=965",
-      "open_spots": 12,
-      "last_checked": "5/2/2026, 12:42:55 PM"
-    },
-    {
-      "game": "Let It Slide",
-      "url": "https://www.neopets.com/games/hiscores.phtml?game_id=970",
-      "open_spots": 12,
-      "last_checked": "5/2/2026, 12:42:56 PM"
-    },
-    {
-      "game": "Pakiko",
-      "url": "https://www.neopets.com/games/hiscores.phtml?game_id=1369",
-      "open_spots": 11,
-      "last_checked": "5/2/2026, 12:42:56 PM"
-    },
-    {
-      "game": "Zurroball",
-      "url": "https://www.neopets.com/games/hiscores.phtml?game_id=207",
-      "open_spots": 7,
-      "last_checked": "5/2/2026, 12:42:57 PM"
-    },
-    {
-      "game": "Deckball",
-      "url": "https://www.neopets.com/games/hiscores.phtml?game_id=82",
-      "open_spots": 5,
-      "last_checked": "5/2/2026, 12:42:53 PM"
-    },
-    {
-      "game": "Dubloon Disaster",
-      "url": "https://www.neopets.com/games/hiscores.phtml?game_id=772",
-      "open_spots": 5,
-      "last_checked": "5/2/2026, 12:42:53 PM"
-    },
-    {
-      "game": "Hannah and the Kreludor Caves",
-      "url": "https://www.neopets.com/games/hiscores.phtml?game_id=1252",
-      "open_spots": 3,
-      "last_checked": "5/2/2026, 12:42:54 PM"
-    },
-    {
-      "game": "Cooty Wars",
-      "url": "https://www.neopets.com/games/hiscores.phtml?game_id=796",
-      "open_spots": 2,
-      "last_checked": "5/2/2026, 12:42:49 PM"
-    }
-  ]
+  "last_updated": "",
+  "max_score_spots": 17,
+  "games_checked": 0,
+  "games_with_open_spots": 0,
+  "open_games": [],
+  "checked_games": [],
+  "failed": []
 }
