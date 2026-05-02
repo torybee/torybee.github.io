@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Ignite Open Trophy Spots">
+    <meta property="og:description" content="Handpicked Neopets games with empty high-score table spots.">
+    <meta property="og:url" content="https://torybee.github.io/open-trophy-spots">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+
+    <title>Ignite Open Trophy Spots</title>
+
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            background: #660021 url("images/background.png") repeat;
+            color: #2d1b1b;
+            font-family: Verdana, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        #wrap {
+            width: min(900px, calc(100% - 30px));
+            margin: 25px auto;
+        }
+
+        #card {
+            background: #fff;
+            border: 3px solid #AA011D;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,.25);
+            overflow: hidden;
+        }
+
+        #header {
+            background: #AA011D;
+            color: #fff;
+            text-align: center;
+            padding: 24px 18px;
+        }
+
+        #header h1 {
+            margin: 0;
+            font-size: 30px;
+            line-height: 1.2;
+        }
+
+        #header p {
+            margin: 8px 0 0;
+            font-size: 13px;
+        }
+
+        #summary {
+            background: #FFC797;
+            padding: 14px 18px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #content {
+            padding: 18px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 12px;
+        }
+
+        th, td {
+            border: 2px solid #4f4f4f;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: #AA011D;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #FACDBE;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #F3AC95;
+        }
+
+        a {
+            color: #660021;
+            font-weight: bold;
+        }
+
+        #empty, #error {
+            display: none;
+            text-align: center;
+            padding: 22px;
+            border-radius: 12px;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        #empty {
+            background: #f5f5f5;
+        }
+
+        #error {
+            background: #ffe0e0;
+            color: #900;
+        }
+
+        .small {
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+        @media only screen and (max-width: 650px) {
+            body {
+                font-size: 12px;
+            }
+
+            #header h1 {
+                font-size: 23px;
+            }
+
+            th, td {
+                padding: 7px 5px;
+            }
+
+            .hide-mobile {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="card">
+        <div id="header">
+            <h1>Ignite Open Trophy Spots</h1>
+            <p>Handpicked Neopets high-score tables with empty trophy spots.</p>
+        </div>
+
+        <div id="summary">Loading open trophy spots...</div>
+
+        <div id="content">
+            <div id="error"></div>
+            <div id="empty">No open trophy spots found in the currently checked games.</div>
+
+            <table id="spots-table">
+                <thead>
+                    <tr>
+                        <th>Game</th>
+                        <th>Open Spots</th>
+                        <th class="hide-mobile">Last Checked (NST)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- JSON data appears here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const DATA_FILE = "open_trophy_spots.json";
+
+    const summary = document.getElementById("summary");
+    const table = document.getElementById("spots-table");
+    const tbody = table.querySelector("tbody");
+    const empty = document.getElementById("empty");
+    const errorBox = document.getElementById("error");
+
+    function number(value) {
+        return Number(value || 0).toLocaleString();
+    }
+
+    function render(data) {
+        const games = Array.isArray(data.open_games) ? data.open_games : [];
+
+        summary.textContent =
+            `${number(data.games_with_open_spots)} game(s) with open spots` +
+            ` || ${number(data.games_checked)} game(s) checked` +
+            ` || Last updated: ${data.last_updated || "Unknown"}`;
+
+        tbody.innerHTML = "";
+
+        if (!games.length) {
+            table.style.display = "none";
+            empty.style.display = "block";
+            return;
+        }
+
+        table.style.display = "table";
+        empty.style.display = "none";
+
+        games
+            .sort((a, b) => Number(b.open_spots || 0) - Number(a.open_spots || 0) || String(a.game).localeCompare(String(b.game)))
+            .forEach(game => {
+                const row = tbody.insertRow();
+
+                const gameCell = row.insertCell();
+                const link = document.createElement("a");
+                link.href = game.url;
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+                link.textContent = game.game || `Game ${game.game_id}`;
+                gameCell.appendChild(link);
+
+                const openCell = row.insertCell();
+                openCell.textContent = number(game.open_spots);
+
+                const checkedCell = row.insertCell();
+                checkedCell.className = "hide-mobile";
+                checkedCell.textContent = game.last_checked || "";
+            });
+    }
+
+    fetch(DATA_FILE + "?v=" + Date.now())
+        .then(response => {
+            if (!response.ok) throw new Error("Could not load " + DATA_FILE);
+            return response.json();
+        })
+        .then(render)
+        .catch(error => {
+            console.error(error);
+            summary.textContent = "Could not load trophy spot data.";
+            table.style.display = "none";
+            errorBox.style.display = "block";
+            errorBox.textContent = "Error: " + error.message;
+        });
+});
+</script>
+</body>
+</html>
