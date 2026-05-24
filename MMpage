@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Red League Battledome Scores">
+    <meta property="og:description" content="Highest Red League victory scores by opponent for May 4-31, 2026.">
+    <meta property="og:url" content="https://torybee.github.io/red-league-bd.html">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+
+    <title>Red League Battledome Scores</title>
+
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            background: #660021 url("images/background.png") repeat;
+            color: #2d1b1b;
+            font-family: Verdana, Helvetica, sans-serif;
+            font-size: 13px;
+        }
+
+        #wrap {
+            width: min(1250px, calc(100% - 30px));
+            margin: 25px auto;
+        }
+
+        #card {
+            background: #fff;
+            border: 3px solid #AA011D;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,.25);
+            overflow: hidden;
+        }
+
+        #header {
+            background: #AA011D;
+            color: #fff;
+            text-align: center;
+            padding: 24px 18px;
+        }
+
+        #header h1 {
+            margin: 0;
+            font-size: 30px;
+            line-height: 1.2;
+        }
+
+        #header p {
+            margin: 8px 0 0;
+            font-size: 13px;
+        }
+
+        #summary {
+            background: #FFC797;
+            padding: 14px 18px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #content {
+            padding: 18px;
+            overflow-x: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 1100px;
+            margin-top: 12px;
+        }
+
+        th, td {
+            border: 2px solid #4f4f4f;
+            padding: 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        th {
+            background: #AA011D;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        tr:nth-child(even) {
+            background-color: #FACDBE;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #F3AC95;
+        }
+
+        a {
+            color: #660021;
+            font-weight: bold;
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .total {
+            font-weight: bold;
+            background: #FFC797;
+        }
+
+        .zero {
+            color: #777;
+        }
+
+        #empty, #error {
+            display: none;
+            text-align: center;
+            padding: 22px;
+            border-radius: 12px;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        #empty {
+            background: #f5f5f5;
+        }
+
+        #error {
+            background: #ffe0e0;
+            color: #900;
+        }
+
+        @media only screen and (max-width: 650px) {
+            body {
+                font-size: 12px;
+            }
+
+            #header h1 {
+                font-size: 23px;
+            }
+
+            th, td {
+                padding: 7px 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="card">
+        <div id="header">
+            <h1>Red League Battledome Scores</h1>
+            <p>Highest victory score against each chosen opponent from May 4-31, 2026.</p>
+        </div>
+
+        <div id="summary">Loading Red League scores...</div>
+
+        <div id="content">
+            <div id="error"></div>
+            <div id="empty">No score data found yet.</div>
+
+            <table id="scores-table">
+                <thead>
+                    <tr id="header-row">
+                        <th>Rank</th>
+                        <th>Username</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- JSON data appears here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const DATA_FILE = "red_league_bd_scores.json";
+
+    const summary = document.getElementById("summary");
+    const table = document.getElementById("scores-table");
+    const headerRow = document.getElementById("header-row");
+    const tbody = table.querySelector("tbody");
+    const empty = document.getElementById("empty");
+    const errorBox = document.getElementById("error");
+
+    let scoreData = [];
+    let opponents = [];
+    let sortState = { key: "total_score", dir: "desc" };
+
+    function number(value) {
+        return Number(value || 0).toLocaleString();
+    }
+
+    function shortOpponentName(name) {
+        const map = {
+            "Giant Hungry Malevolent Chomby": "GHMC",
+            "Giant Ghostkerchief": "Ghostkerchief",
+            "Ryshu the Nimmo": "Ryshu"
+        };
+
+        return map[name] || name;
+    }
+
+    function getScore(player, opponent) {
+        return Number(
+            player.opponents &&
+            player.opponents[opponent] &&
+            player.opponents[opponent].high_score
+                ? player.opponents[opponent].high_score
+                : 0
+        );
+    }
+
+    function applySort() {
+        const mult = sortState.dir === "asc" ? 1 : -1;
+
+        scoreData.sort((a, b) => {
+            if (sortState.key === "username") {
+                return String(a.username || "").localeCompare(String(b.username || "")) * mult;
+            }
+
+            if (sortState.key === "total_score") {
+                return (Number(a.total_score || 0) - Number(b.total_score || 0)) * mult;
+            }
+
+            return (getScore(a, sortState.key) - getScore(b, sortState.key)) * mult;
+        });
+    }
+
+    function setHeaders() {
+        headerRow.innerHTML = "";
+
+        const baseHeaders = [
+            { label: "Rank", key: null },
+            { label: "Username", key: "username" },
+            { label: "Total", key: "total_score" }
+        ];
+
+        baseHeaders.forEach(item => {
+            const th = document.createElement("th");
+            th.textContent = item.label;
+            if (item.key) th.dataset.key = item.key;
+            headerRow.appendChild(th);
+        });
+
+        opponents.forEach(opponent => {
+            const th = document.createElement("th");
+            th.textContent = shortOpponentName(opponent);
+            th.title = opponent;
+            th.dataset.key = opponent;
+            headerRow.appendChild(th);
+        });
+
+        Array.from(headerRow.querySelectorAll("th[data-key]")).forEach(th => {
+            th.addEventListener("click", function () {
+                const key = th.dataset.key;
+
+                if (sortState.key === key) {
+                    sortState.dir = sortState.dir === "asc" ? "desc" : "asc";
+                } else {
+                    sortState.key = key;
+                    sortState.dir = key === "username" ? "asc" : "desc";
+                }
+
+                renderRows();
+            });
+        });
+    }
+
+    function renderRows() {
+        applySort();
+        tbody.innerHTML = "";
+
+        scoreData.forEach((player, index) => {
+            const row = tbody.insertRow();
+
+            const rankCell = row.insertCell();
+            rankCell.textContent = number(index + 1);
+
+            const userCell = row.insertCell();
+            userCell.className = "left";
+            const link = document.createElement("a");
+            link.href = player.url || ("https://www.neopets.com/dome/record.phtml?username=" + encodeURIComponent(player.username));
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.textContent = player.username || "";
+            userCell.appendChild(link);
+
+            const totalCell = row.insertCell();
+            totalCell.className = "total";
+            totalCell.textContent = number(player.total_score);
+
+            opponents.forEach(opponent => {
+                const scoreInfo = player.opponents && player.opponents[opponent] ? player.opponents[opponent] : {};
+                const score = Number(scoreInfo.high_score || 0);
+
+                const cell = row.insertCell();
+                cell.textContent = number(score);
+
+                const titleParts = [];
+                if (scoreInfo.best_date) titleParts.push("Best date: " + scoreInfo.best_date);
+                if (scoreInfo.opponent_id) titleParts.push("Opponent ID: " + scoreInfo.opponent_id);
+                if (typeof scoreInfo.battles_counted === "number") titleParts.push("Wins counted: " + scoreInfo.battles_counted);
+                if (scoreInfo.found_opponent === false) titleParts.push("Opponent not listed on page");
+
+                cell.title = titleParts.join(" | ");
+                if (!score) cell.className = "zero";
+            });
+        });
+    }
+
+    function render(data) {
+        scoreData = Array.isArray(data.players) ? data.players.slice() : [];
+        opponents = Array.isArray(data.opponents) ? data.opponents : [];
+
+        summary.textContent =
+            `${data.league || "Red League"} || ${data.date_range || "May 4-31, 2026"}` +
+            ` || ${number(data.players_checked)} / ${number(data.players_expected)} players checked` +
+            ` || Last updated: ${data.last_updated || "Unknown"}`;
+
+        if (!scoreData.length) {
+            table.style.display = "none";
+            empty.style.display = "block";
+            return;
+        }
+
+        table.style.display = "table";
+        empty.style.display = "none";
+
+        setHeaders();
+        renderRows();
+    }
+
+    fetch(DATA_FILE + "?v=" + Date.now())
+        .then(response => {
+            if (!response.ok) throw new Error("Could not load " + DATA_FILE);
+            return response.json();
+        })
+        .then(render)
+        .catch(error => {
+            console.error(error);
+            summary.textContent = "Could not load Red League score data.";
+            table.style.display = "none";
+            errorBox.style.display = "block";
+            errorBox.textContent = "Error: " + error.message;
+        });
+});
+</script>
+</body>
+</html>
