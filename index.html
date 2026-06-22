@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:title" content="Ignite Flame vs Flood 2026 Scoreboard - Admin">
     <meta property="og:description" content="Tracking Altador Cup scores for Team Flame and Team Flood.">
-    <meta property="og:url" content="https://torybee.github.io/flamevsflood">
+    <meta property="og:url" content="https://torybee.github.io">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
     <meta http-equiv="pragma" content="no-cache">
@@ -56,58 +55,58 @@
             font-size: 18px;
         }
 
-        #spuds {
+        #members {
             border-collapse: collapse;
             width: 85%;
             margin: auto;
             font-size: 13px;
         }
 
-        #spuds td, #spuds th {
+        #members td, #members th {
             border: 1px solid #555;
             padding: 5px;
             text-align: center;
         }
 
-        #spuds tr:nth-child(even) {
+        #members tr:nth-child(even) {
             background-color: #f2f2f2;
         }
 
-        #spuds tr:nth-child(odd) {
+        #members tr:nth-child(odd) {
             background-color: #ddd;
         }
 
-        #spuds th {
+        #members th {
             background-color: #333;
             color: #fff;
             cursor: pointer;
         }
 
-        #spuds th.up::after {
+        #members th.up::after {
             content: " ▲";
         }
 
-        #spuds th.down::after {
+        #members th.down::after {
             content: " ▼";
         }
 
         @media only screen and (max-width: 730px) {
-            #spuds td:nth-child(4),
-            #spuds th:nth-child(4),
-            #spuds td:nth-child(5),
-            #spuds th:nth-child(5),
-            #spuds td:nth-child(6),
-            #spuds th:nth-child(6),
-            #spuds td:nth-child(7),
-            #spuds th:nth-child(7),
-            #spuds td:nth-child(10),
-            #spuds th:nth-child(10) {
+            #members td:nth-child(4),
+            #members th:nth-child(4),
+            #members td:nth-child(5),
+            #members th:nth-child(5),
+            #members td:nth-child(6),
+            #members th:nth-child(6),
+            #members td:nth-child(7),
+            #members th:nth-child(7),
+            #members td:nth-child(10),
+            #members th:nth-child(10) {
                 display: none;
             }
 
             .note,
             #team-totals,
-            #spuds {
+            #members {
                 width: 95%;
             }
         }
@@ -128,7 +127,7 @@
         <!-- team totals will be displayed here -->
     </div>
 
-    <table id="spuds">
+    <table id="members">
         <thead>
         <tr>
             <th data-key="guild_team">GUILD TEAM</th>
@@ -148,12 +147,15 @@
         </tbody>
     </table>
 </div>
+<p></p>
+    <h3 style="text-align:center;">Neopets Table Code</h3>
+<textarea id="neo-table-code" style="width:85%; height:300px; display:block; margin:0 auto 30px auto;"></textarea>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    const scoresTableBody = document.getElementById('spuds').getElementsByTagName('tbody')[0];
+    const scoresTableBody = document.getElementById('members').getElementsByTagName('tbody')[0];
     const teamTotalsDiv = document.getElementById('team-totals');
-    const headers = document.querySelectorAll('#spuds thead th');
+    const headers = document.querySelectorAll('#members thead th');
     let scoresData = [];
     let sortState = { key: 'total_score', dir: 'desc' };
 
