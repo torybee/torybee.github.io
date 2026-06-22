@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="Flame vs Flood Scoreboard">
+    <meta property="og:description" content="Tracking Altador Cup scores for Team Flame and Team Flood.">
+    <meta property="og:url" content="https://torybee.github.io/flamevsflood">
+
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+
+    <title>Flame vs Flood Scoreboard</title>
+
+    <style>
+        body {
+            margin: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f7f7;
+            color: #222;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto 40px auto;
+            background: #fff;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background: #efefef;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Flame vs Flood Scoreboard</h1>
+
+    <h2>🔥 Team Flame</h2>
+
+    <table id="flameScores">
+        <thead>
+            <tr>
+                <th>Team</th>
+                <th>Username</th>
+                <th data-type="number">YYB</th>
+                <th data-type="number">SS</th>
+                <th data-type="number">MSN</th>
+                <th data-type="number">SOSD</th>
+                <th data-type="number">Points</th>
+                <th data-type="number">Rank</th>
+                <th>Updated</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <h2>🌊 Team Flood</h2>
+
+    <table id="floodScores">
+        <thead>
+            <tr>
+                <th>Team</th>
+                <th>Username</th>
+                <th data-type="number">YYB</th>
+                <th data-type="number">SS</th>
+                <th data-type="number">MSN</th>
+                <th data-type="number">SOSD</th>
+                <th data-type="number">Points</th>
+                <th data-type="number">Rank</th>
+                <th>Updated</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    function loadScores(jsonFile, tableId) {
+        fetch(jsonFile)
+            .then(response => response.json())
+            .then(scores => {
+                scores.sort((a, b) => Number(b.total_score || 0) - Number(a.total_score || 0));
+
+                const tableBody = document
+                    .getElementById(tableId)
+                    .getElementsByTagName('tbody')[0];
+
+                scores.forEach(score => {
+                    const row = tableBody.insertRow();
+
+                    const cellTeamLogo = row.insertCell();
+                    const img = document.createElement('img');
+
+                    img.src = score.team_logo;
+                    img.height = 40;
+                    img.alt = score.team_name;
+
+                    cellTeamLogo.appendChild(img);
+                    cellTeamLogo.appendChild(document.createTextNode(score.team_name));
+
+                    const cellUsername = row.insertCell();
+                    const link = document.createElement('a');
+
+                    link.href = 'https://www.neopets.com/altador/colosseum/userstats.phtml?username=' + score.username;
+                    link.textContent = score.username;
+                    link.target = '_blank';
+
+                    cellUsername.appendChild(link);
+
+                    row.insertCell().textContent = Number(score.yyb_wins || 0).toLocaleString();
+                    row.insertCell().textContent = Number(score.slsl_wins || 0).toLocaleString();
+                    row.insertCell().textContent = Number(score.msn_plays || 0).toLocaleString();
+                    row.insertCell().textContent = Number(score.sosd_plays || 0).toLocaleString();
+                    row.insertCell().textContent = Number(score.total_score || 0).toLocaleString();
+                    row.insertCell().textContent = score.rank || '';
+                    row.insertCell().textContent = score.last_updated || '';
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching ' + jsonFile + ':', error);
+            });
+    }
+
+    function enableTableSorting(tableId) {
+        document.querySelectorAll('#' + tableId + ' th').forEach((header, columnIndex) => {
+            header.addEventListener('click', () => {
+                const table = header.closest('table');
+                const tbody = table.querySelector('tbody');
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+                const type = header.getAttribute('data-type');
+
+                const isAscending = !header.classList.contains('up');
+
+                table.querySelectorAll('th').forEach(th => {
+                    th.classList.remove('up', 'down');
+                });
+
+                header.classList.add(isAscending ? 'up' : 'down');
+
+                rows.sort((rowA, rowB) => {
+                    const cellA = rowA.children[columnIndex].textContent.trim().replace(/,/g, '');
+                    const cellB = rowB.children[columnIndex].textContent.trim().replace(/,/g, '');
+
+                    if (type === 'number') {
+                        return isAscending
+                            ? Number(cellA) - Number(cellB)
+                            : Number(cellB) - Number(cellA);
+                    }
+
+                    return isAscending
+                        ? cellA.localeCompare(cellB)
+                        : cellB.localeCompare(cellA);
+                });
+
+                rows.forEach(row => tbody.appendChild(row));
+            });
+        });
+    }
+
+    loadScores('flame_scores.json', 'flameScores');
+    loadScores('flood_scores.json', 'floodScores');
+
+    enableTableSorting('flameScores');
+    enableTableSorting('floodScores');
+
+});
+</script>
+
+</body>
+</html>
