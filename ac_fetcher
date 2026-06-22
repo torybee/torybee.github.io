@@ -1,0 +1,100 @@
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    function loadScores(jsonFile, tableId, logoOrder = 'logo-first') {
+        fetch(jsonFile)
+            .then(response => response.json())
+            .then(scores => {
+                scores.sort((a, b) => b.total_score - a.total_score);
+
+                const tableBody = document
+                    .getElementById(tableId)
+                    .getElementsByTagName('tbody')[0];
+
+                scores.forEach(score => {
+                    const row = tableBody.insertRow();
+
+                    const cellTeamLogo = row.insertCell();
+                    const img = document.createElement('img');
+
+                    img.src = score.team_logo;
+                    img.height = 40;
+                    img.alt = score.team_name;
+
+                    cellTeamLogo.style.setProperty('text-align', 'center', 'important');
+
+                    if (logoOrder === 'logo-first') {
+                        cellTeamLogo.appendChild(img);
+                        cellTeamLogo.appendChild(document.createTextNode(score.team_name));
+                    } else {
+                        cellTeamLogo.appendChild(document.createTextNode(score.team_name));
+                        cellTeamLogo.appendChild(img);
+                    }
+
+                    const cellUsername = row.insertCell();
+                    const link = document.createElement('a');
+
+                    link.href = 'https://www.neopets.com/altador/colosseum/userstats.phtml?username=' + score.username;
+                    link.textContent = score.username;
+                    link.target = '_blank';
+
+                    cellUsername.appendChild(link);
+
+                    row.insertCell().textContent = score.yyb_wins;
+                    row.insertCell().textContent = score.slsl_wins;
+                    row.insertCell().textContent = score.msn_plays;
+                    row.insertCell().textContent = score.sosd_plays;
+                    row.insertCell().textContent = score.total_score;
+                    row.insertCell().textContent = score.rank;
+                    row.insertCell().textContent = score.last_updated;
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching ' + jsonFile + ':', error);
+            });
+    }
+
+    function enableTableSorting(tableId) {
+        document.querySelectorAll('#' + tableId + ' th').forEach((header, columnIndex) => {
+            header.addEventListener('click', () => {
+                const table = header.closest('table');
+                const tbody = table.querySelector('tbody');
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+                const type = header.getAttribute('data-type');
+
+                const isAscending = !header.classList.contains('up');
+
+                table.querySelectorAll('th').forEach(th => {
+                    th.classList.remove('up', 'down');
+                });
+
+                header.classList.add(isAscending ? 'up' : 'down');
+
+                rows.sort((rowA, rowB) => {
+                    const cellA = rowA.children[columnIndex].textContent.trim();
+                    const cellB = rowB.children[columnIndex].textContent.trim();
+
+                    if (type === 'number') {
+                        return isAscending
+                            ? parseFloat(cellA) - parseFloat(cellB)
+                            : parseFloat(cellB) - parseFloat(cellA);
+                    }
+
+                    return isAscending
+                        ? cellA.localeCompare(cellB)
+                        : cellB.localeCompare(cellA);
+                });
+
+                rows.forEach(row => tbody.appendChild(row));
+            });
+        });
+    }
+
+    loadScores('flame_scores.json', 'flameScores');
+    loadScores('flood_scores.json', 'floodScores');
+
+    enableTableSorting('flameScores');
+    enableTableSorting('floodScores');
+
+});
+</script>
