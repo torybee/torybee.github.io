@@ -3,24 +3,6 @@
     "guild_team": "",
     "team_logo": "",
     "team_name": "",
-    "username": "spidero",
-    "yyb_wins": 0,
-    "yyb_draws": 0,
-    "yyb_high_score": 0,
-    "slsl_wins": 0,
-    "slsl_high_score": 0,
-    "msn_plays": 0,
-    "msn_high_score": 0,
-    "sosd_plays": 0,
-    "sosd_high_score": 0,
-    "total_score": 0,
-    "rank": "",
-    "last_updated": ""
-  },
-  {
-    "guild_team": "",
-    "team_logo": "",
-    "team_name": "",
     "username": "cibola",
     "yyb_wins": 0,
     "yyb_draws": 0,
@@ -88,5 +70,23 @@
     "total_score": 207,
     "rank": "Level 1",
     "last_updated": "6/21/2026, 10:50:08 PM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/darigancitadel/logo.png",
+    "team_name": "darigan citadel",
+    "username": "spidero",
+    "yyb_wins": 145,
+    "yyb_draws": 0,
+    "yyb_high_score": 740,
+    "slsl_wins": 60,
+    "slsl_high_score": 780,
+    "msn_plays": 60,
+    "msn_high_score": 4537,
+    "sosd_plays": 845,
+    "sosd_high_score": 1192,
+    "total_score": 5345,
+    "rank": "All-Star",
+    "last_updated": "6/21/2026, 10:53:38 PM"
   }
 ]
