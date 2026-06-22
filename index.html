@@ -210,60 +210,75 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function buildNeoTableCode(data) {
-        const grouped = {};
+    const grouped = {};
 
-        data.forEach(score => {
-            const acTeam = (score.team_name || '').toLowerCase();
-            const guildTeam = (score.guild_team || '').toLowerCase();
+    data.forEach(score => {
+        const acTeam = (score.team_name || '').toLowerCase();
+        const guildTeam = (score.guild_team || '').toLowerCase();
 
-            if (!grouped[acTeam]) {
-                grouped[acTeam] = {
-                    flame: [],
-                    flood: []
-                };
+        if (!acTeam || !guildTeam) return;
+
+        if (!grouped[acTeam]) {
+            grouped[acTeam] = {
+                flame: [],
+                flood: []
+            };
+        }
+
+        if (guildTeam === 'flame') {
+            grouped[acTeam].flame.push(score);
+        } else if (guildTeam === 'flood') {
+            grouped[acTeam].flood.push(score);
+        }
+    });
+
+    Object.keys(grouped).forEach(team => {
+        grouped[team].flame.sort((a, b) => a.username.localeCompare(b.username));
+        grouped[team].flood.sort((a, b) => a.username.localeCompare(b.username));
+    });
+
+    let html = '<table class="challenge" style="background-color: #FBFBFB;">';
+
+    TEAM_SMILIES.forEach(team => {
+        const flamePlayers = grouped[team.key]?.flame || [];
+        const floodPlayers = grouped[team.key]?.flood || [];
+        const rowCount = Math.max(flamePlayers.length, floodPlayers.length);
+
+        if (rowCount === 0) return;
+
+        for (let i = 0; i < rowCount; i++) {
+            const flame = flamePlayers[i];
+            const flood = floodPlayers[i];
+
+            const flameName = flame ? getMemberDisplay(flame) : '';
+            const floodName = flood ? getMemberDisplay(flood) : '';
+
+            const flamePoints = flame ? displayNumber(flame.total_score) + ' points' : '';
+            const floodPoints = flood ? displayNumber(flood.total_score) + ' points' : '';
+
+            html += '<tr><td class="flame">';
+            if (flame) {
+                html += '<img src="http://images.neopets.com/neoboards/smilies/' + team.img + '"> ' + flameName;
             }
+            html += '</td>\n';
 
-            if (guildTeam === 'flame') {
-                grouped[acTeam].flame.push(score);
-            } else if (guildTeam === 'flood') {
-                grouped[acTeam].flood.push(score);
+            html += '        <td>' + flamePoints + '</td>\n';
+
+            html += '        <td class="flood">';
+            if (flood) {
+                html += '<img src="http://images.neopets.com/neoboards/smilies/' + team.img + '"> ' + floodName;
             }
-        });
+            html += '</td>\n';
 
-        Object.keys(grouped).forEach(team => {
-            grouped[team].flame.sort((a, b) => a.username.localeCompare(b.username));
-            grouped[team].flood.sort((a, b) => a.username.localeCompare(b.username));
-        });
+            html += '        <td>' + floodPoints + '</td>\n';
+            html += '        </tr>';
+        }
+    });
 
-        let html = '<table class="challenge" style="background-color: #FBFBFB;">';
+    html += '</table>';
 
-        TEAM_SMILIES.forEach(team => {
-            const flamePlayers = grouped[team.key]?.flame || [];
-            const floodPlayers = grouped[team.key]?.flood || [];
-            const rowCount = Math.max(flamePlayers.length, floodPlayers.length, 1);
-
-            for (let i = 0; i < rowCount; i++) {
-                const flame = flamePlayers[i];
-                const flood = floodPlayers[i];
-
-                const flameName = getMemberDisplay(flame);
-                const floodName = getMemberDisplay(flood);
-
-                const flamePoints = flame ? displayNumber(flame.total_score) + ' points' : 'XXX points';
-                const floodPoints = flood ? displayNumber(flood.total_score) + ' points' : 'XXX points';
-
-                html += '<tr><td class="flame"><img src="http://images.neopets.com/neoboards/smilies/' + team.img + '"> ' + flameName + '</td>\n';
-                html += '        <td>' + flamePoints + '</td>\n';
-                html += '        <td class="flood"><img src="http://images.neopets.com/neoboards/smilies/' + team.img + '"> ' + floodName + '</td>\n';
-                html += '        <td>' + floodPoints + '</td>\n';
-                html += '        </tr>';
-            }
-        });
-
-        html += '</table>';
-
-        neoTableTextarea.value = html;
-    }
+    neoTableTextarea.value = html;
+}
 
     function renderTable(data) {
         while (scoresTableBody.firstChild) {
