@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Ignite Flame vs Flood Scoreboard">
+    <meta property="og:description" content="Tracking Altador Cup scores for Team Flame and Team Flood.">
+    <meta property="og:url" content="https://torybee.github.io/flamevsflood">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <title>Ignite Flame vs Flood Scoreboard</title>
+
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Verdana, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f4f4f4;
+        }
+
+        #header {
+            width: 100%;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        #content {
+            width: 100%;
+            box-sizing: border-box;
+            padding-bottom: 40px;
+        }
+
+        .note {
+            width: 85%;
+            margin: 0 auto 20px auto;
+            padding: 10px;
+            box-sizing: border-box;
+            background: #fff;
+            border: 1px solid #ccc;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        #team-totals {
+            width: 85%;
+            margin: 0 auto 20px auto;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        #spuds {
+            border-collapse: collapse;
+            width: 85%;
+            margin: auto;
+            font-size: 13px;
+        }
+
+        #spuds td, #spuds th {
+            border: 1px solid #555;
+            padding: 5px;
+            text-align: center;
+        }
+
+        #spuds tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #spuds tr:nth-child(odd) {
+            background-color: #ddd;
+        }
+
+        #spuds th {
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #spuds th.up::after {
+            content: " ▲";
+        }
+
+        #spuds th.down::after {
+            content: " ▼";
+        }
+
+        @media only screen and (max-width: 730px) {
+            #spuds td:nth-child(4),
+            #spuds th:nth-child(4),
+            #spuds td:nth-child(5),
+            #spuds th:nth-child(5),
+            #spuds td:nth-child(6),
+            #spuds th:nth-child(6),
+            #spuds td:nth-child(7),
+            #spuds th:nth-child(7),
+            #spuds td:nth-child(10),
+            #spuds th:nth-child(10) {
+                display: none;
+            }
+
+            .note,
+            #team-totals,
+            #spuds {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <h1>Ignite Flame vs Flood Scoreboard</h1>
+</div>
+
+<div id="content">
+    <div class="note">
+        <b>NOTE:</b> This scoreboard is updated semi-automatically. Click each username while logged into Neopets to pull their latest Altador Cup stats. After GitHub Pages finishes updating, hard refresh this page.
+    </div>
+
+    <div id="team-totals">
+        <!-- team totals will be displayed here -->
+    </div>
+
+    <table id="spuds">
+        <thead>
+        <tr>
+            <th data-key="guild_team">GUILD TEAM</th>
+            <th data-key="team_logo">AC TEAM</th>
+            <th data-key="username">USERNAME</th>
+            <th data-key="yyb_wins">YYB WINS</th>
+            <th data-key="slsl_wins">SLSL PLAYS</th>
+            <th data-key="msn_plays">MSN PLAYS</th>
+            <th data-key="sosd_plays">SOSD PLAYS</th>
+            <th data-key="total_score">TOTAL POINTS</th>
+            <th data-key="rank">RANK</th>
+            <th data-key="last_updated">LAST UPDATED (NST)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Data will be populated here -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const scoresTableBody = document.getElementById('spuds').getElementsByTagName('tbody')[0];
+    const teamTotalsDiv = document.getElementById('team-totals');
+    const headers = document.querySelectorAll('#spuds thead th');
+    let scoresData = [];
+    let sortState = { key: 'total_score', dir: 'desc' };
+
+    function numberValue(value) {
+        return Number(value || 0);
+    }
+
+    function displayNumber(value) {
+        return numberValue(value).toLocaleString();
+    }
+
+    function renderTable(data) {
+        while (scoresTableBody.firstChild) {
+            scoresTableBody.removeChild(scoresTableBody.firstChild);
+        }
+
+        let flameTotal = 0;
+        let floodTotal = 0;
+        let unassignedTotal = 0;
+
+        data.forEach(score => {
+            const row = scoresTableBody.insertRow();
+
+            row.insertCell().textContent = score.guild_team || '';
+
+            const cellTeamLogo = row.insertCell();
+            if (score.team_logo) {
+                const img = document.createElement('img');
+                img.src = score.team_logo;
+                img.height = 40;
+                img.alt = score.team_name || 'AC Team';
+                cellTeamLogo.appendChild(img);
+            }
+            if (score.team_name) {
+                cellTeamLogo.appendChild(document.createElement('br'));
+                cellTeamLogo.appendChild(document.createTextNode(score.team_name));
+            }
+
+            const cellUsername = row.insertCell();
+            const link = document.createElement('a');
+            link.href = 'https://www.neopets.com/altador/colosseum/userstats.phtml?username=' + encodeURIComponent(score.username);
+            link.textContent = score.username;
+            link.target = '_blank';
+            cellUsername.appendChild(link);
+
+            row.insertCell().textContent = displayNumber(score.yyb_wins);
+            row.insertCell().textContent = displayNumber(score.slsl_wins);
+            row.insertCell().textContent = displayNumber(score.msn_plays);
+            row.insertCell().textContent = displayNumber(score.sosd_plays);
+            row.insertCell().textContent = displayNumber(score.total_score);
+            row.insertCell().textContent = score.rank || '';
+            row.insertCell().textContent = score.last_updated || '';
+
+            const points = numberValue(score.total_score);
+            const guildTeam = (score.guild_team || '').toLowerCase();
+
+            if (guildTeam === 'flame') {
+                flameTotal += points;
+            } else if (guildTeam === 'flood') {
+                floodTotal += points;
+            } else {
+                unassignedTotal += points;
+            }
+        });
+
+        let totalsText = 'TEAM FLAME: ' + flameTotal.toLocaleString() + ' || TEAM FLOOD: ' + floodTotal.toLocaleString();
+        if (unassignedTotal > 0) {
+            totalsText += ' || UNASSIGNED: ' + unassignedTotal.toLocaleString();
+        }
+        teamTotalsDiv.textContent = totalsText;
+    }
+
+    function applySort(key) {
+        if (!scoresData.length || !key) return;
+
+        if (sortState.key === key) {
+            sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
+        } else {
+            sortState.key = key;
+            sortState.dir = ['username', 'guild_team', 'rank', 'last_updated', 'team_logo'].includes(key) ? 'asc' : 'desc';
+        }
+
+        const mult = sortState.dir === 'asc' ? 1 : -1;
+
+        scoresData.sort((a, b) => {
+            let A;
+            let B;
+
+            if (key === 'team_logo') {
+                A = a.team_name || '';
+                B = b.team_name || '';
+            } else {
+                A = a[key] || 0;
+                B = b[key] || 0;
+            }
+
+            if (typeof A === 'string' || typeof B === 'string') {
+                return A.toString().localeCompare(B.toString()) * mult;
+            }
+
+            return (Number(A) - Number(B)) * mult;
+        });
+
+        renderTable(scoresData);
+        setSortIndicators();
+    }
+
+    function setSortIndicators() {
+        headers.forEach(th => {
+            th.classList.remove('up', 'down');
+            if (th.getAttribute('data-key') === sortState.key) {
+                th.classList.add(sortState.dir === 'asc' ? 'up' : 'down');
+            }
+        });
+    }
+
+    fetch('ac_scores.json')
+        .then(response => response.json())
+        .then(scores => {
+            scores.sort((a, b) => numberValue(b.total_score) - numberValue(a.total_score));
+            scoresData = scores.slice();
+            renderTable(scoresData);
+            setSortIndicators();
+        })
+        .catch(error => {
+            console.error('Error fetching the JSON data:', error);
+        });
+
+    headers.forEach(th => {
+        const key = th.getAttribute('data-key');
+        if (!key) return;
+        th.addEventListener('click', function () {
+            applySort(key);
+        });
+    });
+});
+</script>
+
+</body>
+</html>
