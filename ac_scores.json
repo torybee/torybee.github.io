@@ -3,24 +3,6 @@
     "guild_team": "",
     "team_logo": "",
     "team_name": "",
-    "username": "cibola",
-    "yyb_wins": 0,
-    "yyb_draws": 0,
-    "yyb_high_score": 0,
-    "slsl_wins": 0,
-    "slsl_high_score": 0,
-    "msn_plays": 0,
-    "msn_high_score": 0,
-    "sosd_plays": 0,
-    "sosd_high_score": 0,
-    "total_score": 0,
-    "rank": "",
-    "last_updated": ""
-  },
-  {
-    "guild_team": "",
-    "team_logo": "",
-    "team_name": "",
     "username": "haleigh_2011",
     "yyb_wins": 0,
     "yyb_draws": 0,
@@ -88,5 +70,23 @@
     "total_score": 5345,
     "rank": "All-Star",
     "last_updated": "6/21/2026, 10:53:38 PM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/dacardia/logo.png",
+    "team_name": "dacardia",
+    "username": "cibola",
+    "yyb_wins": 297,
+    "yyb_draws": 0,
+    "yyb_high_score": 2414,
+    "slsl_wins": 0,
+    "slsl_high_score": 0,
+    "msn_plays": 0,
+    "msn_high_score": 0,
+    "sosd_plays": 40,
+    "sosd_high_score": 1146,
+    "total_score": 4278,
+    "rank": "Level 18",
+    "last_updated": "6/21/2026, 10:53:45 PM"
   }
 ]
