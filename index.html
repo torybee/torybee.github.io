@@ -90,6 +90,15 @@
             content: " ▼";
         }
 
+        #neo-table-code {
+            width: 85%;
+            height: 300px;
+            display: block;
+            margin: 0 auto 30px auto;
+            font-family: Consolas, monospace;
+            font-size: 12px;
+        }
+
         @media only screen and (max-width: 730px) {
             #members td:nth-child(4),
             #members th:nth-child(4),
@@ -106,7 +115,8 @@
 
             .note,
             #team-totals,
-            #members {
+            #members,
+            #neo-table-code {
                 width: 95%;
             }
         }
@@ -146,18 +156,40 @@
         <!-- Data will be populated here -->
         </tbody>
     </table>
-</div>
-<p></p>
+
     <h3 style="text-align:center;">Neopets Table Code</h3>
-<textarea id="neo-table-code" style="width:85%; height:300px; display:block; margin:0 auto 30px auto;"></textarea>
+    <textarea id="neo-table-code"></textarea>
+</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const scoresTableBody = document.getElementById('members').getElementsByTagName('tbody')[0];
     const teamTotalsDiv = document.getElementById('team-totals');
+    const neoTableTextarea = document.getElementById('neo-table-code');
     const headers = document.querySelectorAll('#members thead th');
+
     let scoresData = [];
     let sortState = { key: 'total_score', dir: 'desc' };
+
+    const TEAM_SMILIES = [
+        { key: 'altador', img: 'altador.gif' },
+        { key: 'brightvale', img: 'brightvale.gif' },
+        { key: 'dacardia', img: 'dacardia.gif' },
+        { key: 'darigan citadel', img: 'darigan.gif' },
+        { key: 'faerieland', img: 'faerieland.gif' },
+        { key: 'haunted woods', img: 'haunted.gif' },
+        { key: 'kiko lake', img: 'kikolake.gif' },
+        { key: 'krawk island', img: 'krawkisland.gif' },
+        { key: 'kreludor', img: 'kreludor.gif' },
+        { key: 'lost desert', img: 'lostdesert.gif' },
+        { key: 'maraqua', img: 'maraqua.gif' },
+        { key: 'meridell', img: 'meridell.gif' },
+        { key: 'mystery island', img: 'mysteryisland.gif' },
+        { key: 'roo island', img: 'rooisland.gif' },
+        { key: 'shenkuu', img: 'shenkuu.gif' },
+        { key: 'terror mountain', img: 'terror.gif' },
+        { key: 'tyrannia', img: 'tyrannia.gif' }
+    ];
 
     function numberValue(value) {
         return Number(value || 0);
@@ -165,6 +197,72 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function displayNumber(value) {
         return numberValue(value).toLocaleString();
+    }
+
+    function getMemberDisplay(score) {
+        if (!score) return 'Name (Username)';
+
+        if (score.member_name) {
+            return score.member_name + ' (' + score.username + ')';
+        }
+
+        return score.username;
+    }
+
+    function buildNeoTableCode(data) {
+        const grouped = {};
+
+        data.forEach(score => {
+            const acTeam = (score.team_name || '').toLowerCase();
+            const guildTeam = (score.guild_team || '').toLowerCase();
+
+            if (!grouped[acTeam]) {
+                grouped[acTeam] = {
+                    flame: [],
+                    flood: []
+                };
+            }
+
+            if (guildTeam === 'flame') {
+                grouped[acTeam].flame.push(score);
+            } else if (guildTeam === 'flood') {
+                grouped[acTeam].flood.push(score);
+            }
+        });
+
+        Object.keys(grouped).forEach(team => {
+            grouped[team].flame.sort((a, b) => a.username.localeCompare(b.username));
+            grouped[team].flood.sort((a, b) => a.username.localeCompare(b.username));
+        });
+
+        let html = '<table class="challenge" style="background-color: #FBFBFB;">';
+
+        TEAM_SMILIES.forEach(team => {
+            const flamePlayers = grouped[team.key]?.flame || [];
+            const floodPlayers = grouped[team.key]?.flood || [];
+            const rowCount = Math.max(flamePlayers.length, floodPlayers.length, 1);
+
+            for (let i = 0; i < rowCount; i++) {
+                const flame = flamePlayers[i];
+                const flood = floodPlayers[i];
+
+                const flameName = getMemberDisplay(flame);
+                const floodName = getMemberDisplay(flood);
+
+                const flamePoints = flame ? displayNumber(flame.total_score) + ' points' : 'XXX points';
+                const floodPoints = flood ? displayNumber(flood.total_score) + ' points' : 'XXX points';
+
+                html += '<tr><td class="flame"><img src="http://images.neopets.com/neoboards/smilies/' + team.img + '"> ' + flameName + '</td>\n';
+                html += '        <td>' + flamePoints + '</td>\n';
+                html += '        <td class="flood"><img src="http://images.neopets.com/neoboards/smilies/' + team.img + '"> ' + floodName + '</td>\n';
+                html += '        <td>' + floodPoints + '</td>\n';
+                html += '        </tr>';
+            }
+        });
+
+        html += '</table>';
+
+        neoTableTextarea.value = html;
     }
 
     function renderTable(data) {
@@ -189,6 +287,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 img.alt = score.team_name || 'AC Team';
                 cellTeamLogo.appendChild(img);
             }
+
             if (score.team_name) {
                 cellTeamLogo.appendChild(document.createElement('br'));
                 cellTeamLogo.appendChild(document.createTextNode(score.team_name));
@@ -222,10 +321,14 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         let totalsText = 'TEAM FLAME: ' + flameTotal.toLocaleString() + ' || TEAM FLOOD: ' + floodTotal.toLocaleString();
+
         if (unassignedTotal > 0) {
             totalsText += ' || UNASSIGNED: ' + unassignedTotal.toLocaleString();
         }
+
         teamTotalsDiv.textContent = totalsText;
+
+        buildNeoTableCode(data);
     }
 
     function applySort(key) {
@@ -266,6 +369,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function setSortIndicators() {
         headers.forEach(th => {
             th.classList.remove('up', 'down');
+
             if (th.getAttribute('data-key') === sortState.key) {
                 th.classList.add(sortState.dir === 'asc' ? 'up' : 'down');
             }
@@ -282,11 +386,14 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => {
             console.error('Error fetching the JSON data:', error);
+            neoTableTextarea.value = 'Error fetching ac_scores.json. Check the browser console.';
         });
 
     headers.forEach(th => {
         const key = th.getAttribute('data-key');
+
         if (!key) return;
+
         th.addEventListener('click', function () {
             applySort(key);
         });
