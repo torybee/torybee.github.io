@@ -901,24 +901,6 @@
   },
   {
     "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
-    "team_name": "neopia central",
-    "username": "bisscoito",
-    "yyb_wins": 18,
-    "yyb_draws": 0,
-    "yyb_high_score": 151,
-    "slsl_wins": 2,
-    "slsl_high_score": 640,
-    "msn_plays": 0,
-    "msn_high_score": 0,
-    "sosd_plays": 0,
-    "sosd_high_score": 0,
-    "total_score": 272,
-    "rank": "Level 2",
-    "last_updated": "7/6/2026, 7:11:12 AM"
-  },
-  {
-    "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/rooisland/logo.png",
     "team_name": "roo island",
     "username": "limour",
@@ -1118,5 +1100,25 @@
     "occ_high_score": 1852,
     "total_score": 958,
     "last_updated": "7/9/2026, 8:26:49 AM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
+    "team_name": "neopia central",
+    "username": "bisscoito",
+    "yyb_wins": 73,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 701,
+    "slsl_wins": 9,
+    "slsl_high_score": 710,
+    "msn_plays": 8,
+    "msn_high_score": 5405,
+    "sosd_plays": 347,
+    "sosd_high_score": 1177,
+    "occ_plays": 205,
+    "occ_high_score": 6278,
+    "total_score": 3202,
+    "last_updated": "7/9/2026, 8:27:04 AM"
   }
 ]
