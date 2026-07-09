@@ -1,24 +1,6 @@
 [
   {
     "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/kreludor/logo.png",
-    "team_name": "kreludor",
-    "username": "puppies10190",
-    "yyb_wins": 0,
-    "yyb_draws": 0,
-    "yyb_high_score": 0,
-    "slsl_wins": 0,
-    "slsl_high_score": 0,
-    "msn_plays": 0,
-    "msn_high_score": 0,
-    "sosd_plays": 0,
-    "sosd_high_score": 0,
-    "total_score": 0,
-    "rank": "Beginner",
-    "last_updated": "7/6/2026, 7:08:28 AM"
-  },
-  {
-    "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
     "team_name": "maraqua",
     "username": "bikerchic624",
@@ -1198,5 +1180,25 @@
     "occ_high_score": 4098,
     "total_score": 1429,
     "last_updated": "7/9/2026, 8:35:33 AM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/kreludor/logo.png",
+    "team_name": "kreludor",
+    "username": "puppies10190",
+    "yyb_wins": 0,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 0,
+    "slsl_wins": 0,
+    "slsl_high_score": 0,
+    "msn_plays": 0,
+    "msn_high_score": 0,
+    "sosd_plays": 0,
+    "sosd_high_score": 0,
+    "occ_plays": 0,
+    "occ_high_score": 0,
+    "total_score": 0,
+    "last_updated": "7/9/2026, 8:35:39 AM"
   }
 ]
