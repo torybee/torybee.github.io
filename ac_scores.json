@@ -1,24 +1,6 @@
 [
   {
     "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
-    "team_name": "neopia central",
-    "username": "cibola",
-    "yyb_wins": 0,
-    "yyb_draws": 0,
-    "yyb_high_score": 0,
-    "slsl_wins": 0,
-    "slsl_high_score": 0,
-    "msn_plays": 0,
-    "msn_high_score": 0,
-    "sosd_plays": 0,
-    "sosd_high_score": 0,
-    "total_score": 0,
-    "rank": "Beginner",
-    "last_updated": "7/6/2026, 6:52:58 AM"
-  },
-  {
-    "guild_team": "Flame",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/hauntedwoods/logo.png",
     "team_name": "haunted woods",
     "username": "najkay_44",
@@ -1176,5 +1158,25 @@
     "occ_high_score": 6166,
     "total_score": 904,
     "last_updated": "7/9/2026, 8:33:04 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
+    "team_name": "neopia central",
+    "username": "cibola",
+    "yyb_wins": 111,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 1077,
+    "slsl_wins": 4,
+    "slsl_high_score": 518,
+    "msn_plays": 3,
+    "msn_high_score": 3155,
+    "sosd_plays": 45,
+    "sosd_high_score": 1136,
+    "occ_plays": 225,
+    "occ_high_score": 3053,
+    "total_score": 2863,
+    "last_updated": "7/9/2026, 8:33:10 AM"
   }
 ]
