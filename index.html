@@ -108,6 +108,8 @@
             #members th:nth-child(6),
             #members td:nth-child(7),
             #members th:nth-child(7),
+            #members td:nth-child(8),
+            #members th:nth-child(8),
             #members td:nth-child(10),
             #members th:nth-child(10) {
                 display: none;
@@ -147,8 +149,8 @@
             <th data-key="slsl_wins">SLSL PLAYS</th>
             <th data-key="msn_plays">MSN PLAYS</th>
             <th data-key="sosd_plays">SOSD PLAYS</th>
+            <th data-key="occ_plays">OCC PLAYS</th>
             <th data-key="total_score">TOTAL POINTS</th>
-            <th data-key="rank">RANK</th>
             <th data-key="last_updated">LAST UPDATED (NST)</th>
         </tr>
         </thead>
@@ -346,8 +348,8 @@ document.addEventListener('DOMContentLoaded', function () {
             row.insertCell().textContent = displayNumber(score.slsl_wins);
             row.insertCell().textContent = displayNumber(score.msn_plays);
             row.insertCell().textContent = displayNumber(score.sosd_plays);
+            row.insertCell().textContent = displayNumber(score.occ_plays);
             row.insertCell().textContent = displayNumber(score.total_score);
-            row.insertCell().textContent = score.rank || '';
             row.insertCell().textContent = score.last_updated || '';
 
             const points = numberValue(score.total_score);
@@ -380,7 +382,7 @@ document.addEventListener('DOMContentLoaded', function () {
             sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
         } else {
             sortState.key = key;
-            sortState.dir = ['username', 'guild_team', 'rank', 'last_updated', 'team_logo'].includes(key) ? 'asc' : 'desc';
+            sortState.dir = ['username', 'guild_team', 'last_updated', 'team_logo'].includes(key) ? 'asc' : 'desc';
         }
 
         const mult = sortState.dir === 'asc' ? 1 : -1;
