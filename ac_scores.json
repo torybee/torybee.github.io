@@ -1,24 +1,6 @@
 [
   {
     "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/mysteryisland/logo.png",
-    "team_name": "mystery island",
-    "username": "id_24",
-    "yyb_wins": 0,
-    "yyb_draws": 0,
-    "yyb_high_score": 0,
-    "slsl_wins": 0,
-    "slsl_high_score": 0,
-    "msn_plays": 0,
-    "msn_high_score": 0,
-    "sosd_plays": 0,
-    "sosd_high_score": 0,
-    "total_score": 0,
-    "rank": "Beginner",
-    "last_updated": "7/6/2026, 7:09:18 AM"
-  },
-  {
-    "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
     "team_name": "neopia central",
     "username": "jecour",
@@ -1204,5 +1186,25 @@
     "occ_high_score": 3990,
     "total_score": 3987,
     "last_updated": "7/9/2026, 8:37:35 AM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/mysteryisland/logo.png",
+    "team_name": "mystery island",
+    "username": "id_24",
+    "yyb_wins": 0,
+    "yyb_draws": 0,
+    "yyb_losses": 1,
+    "yyb_high_score": 1,
+    "slsl_wins": 1,
+    "slsl_high_score": 27,
+    "msn_plays": 5,
+    "msn_high_score": 2896,
+    "sosd_plays": 10,
+    "sosd_high_score": 880,
+    "occ_plays": 45,
+    "occ_high_score": 3946,
+    "total_score": 286,
+    "last_updated": "7/9/2026, 8:37:40 AM"
   }
 ]
