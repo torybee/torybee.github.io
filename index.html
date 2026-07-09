@@ -272,6 +272,21 @@ document.addEventListener('DOMContentLoaded', function () {
         'legiox': 'Violet'
     };
 
+    // Optional: link a player's name to their petpage/userlookup, taken
+    // from the reference table. Not every member needs an entry here —
+    // names without one just render as plain text.
+    const PETPAGE_LINKS = {
+        'spidero': 'http://www.neopets.com/~Cesoo',
+        'emiliexromance': 'http://www.neopets.com/~_monstre_',
+        'haleigh_2011': '/~Festyre',
+        'cibola': 'http://www.neopets.com/~Cyshazara',
+        'curlsandhairbows': 'http://www.neopets.com/~boyological',
+        'hannahxtropicana': 'http://www.neopets.com/~EnsignSloth',
+        'cutypie349514': 'http://www.neopets.com/~Viuby',
+        'notooryous': '/~Draellion',
+        'madlovedarling': 'http://www.neopets.com/~Ripposte'
+    };
+
     function numberValue(value) {
         return Number(value || 0);
     }
@@ -290,6 +305,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         return score.username;
+    }
+
+    // Same as getMemberDisplay, but wraps the name in a petpage link when
+    // one is known. Used only for the Neo Table Code HTML output — sorting
+    // and the on-page table both use the plain-text version above.
+    function getMemberDisplayHTML(score) {
+        const name = getMemberDisplay(score);
+        const url = score ? PETPAGE_LINKS[(score.username || '').toLowerCase()] : null;
+
+        if (url) {
+            return '<a href="' + url + '">' + name + '</a>';
+        }
+
+        return name;
     }
 
     function iconFor(teamName) {
@@ -326,7 +355,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (icon) {
                     html += '<img src="http://images.neopets.com/neoboards/smilies/' + icon + '"> ';
                 }
-                html += getMemberDisplay(flamePlayer);
+                html += getMemberDisplayHTML(flamePlayer);
             }
             html += '</td>\n';
 
@@ -338,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (icon) {
                     html += '<img src="http://images.neopets.com/neoboards/smilies/' + icon + '"> ';
                 }
-                html += getMemberDisplay(floodPlayer);
+                html += getMemberDisplayHTML(floodPlayer);
             }
             html += '</td>\n';
 
