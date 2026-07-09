@@ -1,26 +1,6 @@
 [
   {
     "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/hauntedwoods/logo.png",
-    "team_name": "haunted woods",
-    "username": "emiliexromance",
-    "yyb_wins": 12,
-    "yyb_draws": 1,
-    "yyb_losses": 0,
-    "yyb_high_score": 54,
-    "slsl_wins": 10,
-    "slsl_high_score": 529,
-    "msn_plays": 14,
-    "msn_high_score": 4477,
-    "sosd_plays": 19,
-    "sosd_high_score": 894,
-    "occ_plays": 6,
-    "occ_high_score": 1752,
-    "total_score": 403,
-    "last_updated": "7/9/2026, 8:29:18 AM"
-  },
-  {
-    "guild_team": "Flame",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/krawkisland/logo.png",
     "team_name": "krawk island",
     "username": "gamin_de_la_landes2",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 0,
     "total_score": 29,
     "last_updated": "7/9/2026, 9:29:03 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/hauntedwoods/logo.png",
+    "team_name": "haunted woods",
+    "username": "emiliexromance",
+    "yyb_wins": 12,
+    "yyb_draws": 1,
+    "yyb_losses": 0,
+    "yyb_high_score": 54,
+    "slsl_wins": 10,
+    "slsl_high_score": 529,
+    "msn_plays": 14,
+    "msn_high_score": 4477,
+    "sosd_plays": 19,
+    "sosd_high_score": 894,
+    "occ_plays": 6,
+    "occ_high_score": 1752,
+    "total_score": 62,
+    "last_updated": "7/9/2026, 9:29:09 AM"
   }
 ]
