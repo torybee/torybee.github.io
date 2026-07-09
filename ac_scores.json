@@ -1,24 +1,6 @@
 [
   {
     "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/meridell/logo.png",
-    "team_name": "meridell",
-    "username": "drackonwood",
-    "yyb_wins": 0,
-    "yyb_draws": 0,
-    "yyb_high_score": 0,
-    "slsl_wins": 0,
-    "slsl_high_score": 0,
-    "msn_plays": 0,
-    "msn_high_score": 0,
-    "sosd_plays": 0,
-    "sosd_high_score": 0,
-    "total_score": 0,
-    "rank": "Beginner",
-    "last_updated": "7/6/2026, 6:51:13 AM"
-  },
-  {
-    "guild_team": "Flame",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/kreludor/logo.png",
     "team_name": "kreludor",
     "username": "choochiegurl",
@@ -1160,5 +1142,25 @@
     "occ_high_score": 1814,
     "total_score": 588,
     "last_updated": "7/9/2026, 8:30:27 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/meridell/logo.png",
+    "team_name": "meridell",
+    "username": "drackonwood",
+    "yyb_wins": 7,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 48,
+    "slsl_wins": 3,
+    "slsl_high_score": 559,
+    "msn_plays": 3,
+    "msn_high_score": 3508,
+    "sosd_plays": 12,
+    "sosd_high_score": 1164,
+    "occ_plays": 10,
+    "occ_high_score": 2085,
+    "total_score": 223,
+    "last_updated": "7/9/2026, 8:30:34 AM"
   }
 ]
