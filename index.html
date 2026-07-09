@@ -171,6 +171,10 @@ document.addEventListener('DOMContentLoaded', function () {
     let scoresData = [];
     let sortState = { key: 'total_score', dir: 'desc' };
 
+    // NOTE: order here also controls the display order of AC teams in the
+    // Neopets Table Code output. Any team_name NOT in this list will still
+    // be included (appended alphabetically at the end) instead of being
+    // silently dropped, per the fix below.
     const TEAM_SMILIES = [
         { key: 'altador', img: 'altador.gif' },
         { key: 'brightvale', img: 'brightvale.gif' },
@@ -184,11 +188,14 @@ document.addEventListener('DOMContentLoaded', function () {
         { key: 'lost desert', img: 'lostdesert.gif' },
         { key: 'maraqua', img: 'maraqua.gif' },
         { key: 'meridell', img: 'meridell.gif' },
+        { key: 'moltara', img: 'moltara.gif' },
         { key: 'mystery island', img: 'mysteryisland.gif' },
+        { key: 'neopia central', img: 'neopiacentral.gif' },
         { key: 'roo island', img: 'rooisland.gif' },
         { key: 'shenkuu', img: 'shenkuu.gif' },
         { key: 'terror mountain', img: 'terror.gif' },
-        { key: 'tyrannia', img: 'tyrannia.gif' }
+        { key: 'tyrannia', img: 'tyrannia.gif' },
+        { key: 'virtupets', img: 'virtupets.gif' }
     ];
 
     function numberValue(value) {
@@ -210,75 +217,95 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function buildNeoTableCode(data) {
-    const grouped = {};
+        const grouped = {};
 
-    data.forEach(score => {
-        const acTeam = (score.team_name || '').toLowerCase();
-        const guildTeam = (score.guild_team || '').toLowerCase();
+        data.forEach(score => {
+            // Fall back to "manually update" instead of dropping the row
+            // entirely when team_name is missing/blank.
+            const acTeam = (score.team_name || 'manually update').toLowerCase();
+            const guildTeam = (score.guild_team || '').toLowerCase();
 
-        if (!acTeam || !guildTeam) return;
+            // A row with no guild team can't be placed in a Flame/Flood
+            // column, so it's still skipped here.
+            if (!guildTeam) return;
 
-        if (!grouped[acTeam]) {
-            grouped[acTeam] = {
-                flame: [],
-                flood: []
-            };
-        }
-
-        if (guildTeam === 'flame') {
-            grouped[acTeam].flame.push(score);
-        } else if (guildTeam === 'flood') {
-            grouped[acTeam].flood.push(score);
-        }
-    });
-
-    Object.keys(grouped).forEach(team => {
-        grouped[team].flame.sort((a, b) => a.username.localeCompare(b.username));
-        grouped[team].flood.sort((a, b) => a.username.localeCompare(b.username));
-    });
-
-    let html = '<table class="challenge" style="background-color: #FBFBFB;">';
-
-    TEAM_SMILIES.forEach(team => {
-        const flamePlayers = grouped[team.key]?.flame || [];
-        const floodPlayers = grouped[team.key]?.flood || [];
-        const rowCount = Math.max(flamePlayers.length, floodPlayers.length);
-
-        if (rowCount === 0) return;
-
-        for (let i = 0; i < rowCount; i++) {
-            const flame = flamePlayers[i];
-            const flood = floodPlayers[i];
-
-            const flameName = flame ? getMemberDisplay(flame) : '';
-            const floodName = flood ? getMemberDisplay(flood) : '';
-
-            const flamePoints = flame ? displayNumber(flame.total_score) + ' points' : '';
-            const floodPoints = flood ? displayNumber(flood.total_score) + ' points' : '';
-
-            html += '<tr><td class="flame">';
-            if (flame) {
-                html += '<img src="http://images.neopets.com/neoboards/smilies/' + team.img + '"> ' + flameName;
+            if (!grouped[acTeam]) {
+                grouped[acTeam] = {
+                    flame: [],
+                    flood: []
+                };
             }
-            html += '</td>\n';
 
-            html += '        <td>' + flamePoints + '</td>\n';
-
-            html += '        <td class="flood">';
-            if (flood) {
-                html += '<img src="http://images.neopets.com/neoboards/smilies/' + team.img + '"> ' + floodName;
+            if (guildTeam === 'flame') {
+                grouped[acTeam].flame.push(score);
+            } else if (guildTeam === 'flood') {
+                grouped[acTeam].flood.push(score);
             }
-            html += '</td>\n';
+        });
 
-            html += '        <td>' + floodPoints + '</td>\n';
-            html += '        </tr>';
-        }
-    });
+        // FIX: sort by display name (member_name if present, else
+        // username) instead of always sorting by username.
+        Object.keys(grouped).forEach(team => {
+            grouped[team].flame.sort((a, b) => getMemberDisplay(a).localeCompare(getMemberDisplay(b)));
+            grouped[team].flood.sort((a, b) => getMemberDisplay(a).localeCompare(getMemberDisplay(b)));
+        });
 
-    html += '</table>';
+        // FIX: any AC team name not found in TEAM_SMILIES is no longer
+        // silently skipped — it's appended (alphabetically, no icon)
+        // instead of vanishing from the output.
+        const knownKeys = TEAM_SMILIES.map(t => t.key);
+        const orderedKeys = [
+            ...knownKeys.filter(k => grouped[k]),
+            ...Object.keys(grouped).filter(k => !knownKeys.includes(k)).sort()
+        ];
 
-    neoTableTextarea.value = html;
-}
+        let html = '<table class="challenge" style="background-color: #FBFBFB;">';
+
+        orderedKeys.forEach(teamKey => {
+            const teamMeta = TEAM_SMILIES.find(t => t.key === teamKey);
+            const flamePlayers = grouped[teamKey].flame;
+            const floodPlayers = grouped[teamKey].flood;
+            const rowCount = Math.max(flamePlayers.length, floodPlayers.length);
+
+            if (rowCount === 0) return;
+
+            for (let i = 0; i < rowCount; i++) {
+                const flame = flamePlayers[i];
+                const flood = floodPlayers[i];
+
+                const flameName = flame ? getMemberDisplay(flame) : '';
+                const floodName = flood ? getMemberDisplay(flood) : '';
+
+                const flamePoints = flame ? displayNumber(flame.total_score) + ' points' : '';
+                const floodPoints = flood ? displayNumber(flood.total_score) + ' points' : '';
+
+                const iconTag = teamMeta
+                    ? '<img src="http://images.neopets.com/neoboards/smilies/' + teamMeta.img + '"> '
+                    : '';
+
+                html += '<tr><td class="flame">';
+                if (flame) {
+                    html += iconTag + flameName;
+                }
+                html += '</td>\n';
+
+                html += '        <td>' + flamePoints + '</td>\n';
+
+                html += '        <td class="flood">';
+                if (flood) {
+                    html += iconTag + floodName;
+                }
+                html += '</td>\n';
+
+                html += '        <td>' + floodPoints + '</td>\n';
+                html += '        </tr>';
+            }
+        });
+
+        html += '</table>';
+
+        neoTableTextarea.value = html;
+    }
 
     function renderTable(data) {
         while (scoresTableBody.firstChild) {
@@ -365,6 +392,12 @@ document.addEventListener('DOMContentLoaded', function () {
             if (key === 'team_logo') {
                 A = a.team_name || '';
                 B = b.team_name || '';
+            } else if (key === 'username') {
+                // FIX: sort by display name here too, so the on-page
+                // table's username column matches the same ordering
+                // logic as the Neopets Table Code output.
+                A = getMemberDisplay(a);
+                B = getMemberDisplay(b);
             } else {
                 A = a[key] || 0;
                 B = b[key] || 0;
