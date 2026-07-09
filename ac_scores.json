@@ -641,26 +641,6 @@
   },
   {
     "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
-    "team_name": "maraqua",
-    "username": "bikerchic624",
-    "yyb_wins": 32,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 246,
-    "slsl_wins": 8,
-    "slsl_high_score": 641,
-    "msn_plays": 7,
-    "msn_high_score": 4384,
-    "sosd_plays": 497,
-    "sosd_high_score": 1181,
-    "occ_plays": 101,
-    "occ_high_score": 3877,
-    "total_score": 2545,
-    "last_updated": "7/9/2026, 8:37:29 AM"
-  },
-  {
-    "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/mysteryisland/logo.png",
     "team_name": "mystery island",
     "username": "id_24",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 3262,
     "total_score": 396,
     "last_updated": "7/9/2026, 9:23:58 AM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
+    "team_name": "maraqua",
+    "username": "bikerchic624",
+    "yyb_wins": 32,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 246,
+    "slsl_wins": 8,
+    "slsl_high_score": 641,
+    "msn_plays": 7,
+    "msn_high_score": 4384,
+    "sosd_plays": 500,
+    "sosd_high_score": 1181,
+    "occ_plays": 113,
+    "occ_high_score": 5307,
+    "total_score": 660,
+    "last_updated": "7/9/2026, 9:24:06 AM"
   }
 ]
