@@ -141,26 +141,6 @@
   },
   {
     "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/meridell/logo.png",
-    "team_name": "meridell",
-    "username": "softypaws",
-    "yyb_wins": 0,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 0,
-    "slsl_wins": 53,
-    "slsl_high_score": 501,
-    "msn_plays": 123,
-    "msn_high_score": 3156,
-    "sosd_plays": 1,
-    "sosd_high_score": 105,
-    "occ_plays": 3,
-    "occ_high_score": 1174,
-    "total_score": 917,
-    "last_updated": "7/9/2026, 8:29:57 AM"
-  },
-  {
-    "guild_team": "Flame",
     "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
     "team_name": "neopia central",
     "username": "callisto2002",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 1852,
     "total_score": 158,
     "last_updated": "7/9/2026, 9:26:16 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/meridell/logo.png",
+    "team_name": "meridell",
+    "username": "softypaws",
+    "yyb_wins": 0,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 0,
+    "slsl_wins": 53,
+    "slsl_high_score": 501,
+    "msn_plays": 123,
+    "msn_high_score": 3156,
+    "sosd_plays": 1,
+    "sosd_high_score": 105,
+    "occ_plays": 3,
+    "occ_high_score": 1174,
+    "total_score": 180,
+    "last_updated": "7/9/2026, 9:26:21 AM"
   }
 ]
