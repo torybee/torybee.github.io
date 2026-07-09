@@ -1,24 +1,6 @@
 [
   {
     "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/altador/logo.png",
-    "team_name": "altador",
-    "username": "madidogs88",
-    "yyb_wins": 0,
-    "yyb_draws": 0,
-    "yyb_high_score": 0,
-    "slsl_wins": 0,
-    "slsl_high_score": 0,
-    "msn_plays": 0,
-    "msn_high_score": 0,
-    "sosd_plays": 0,
-    "sosd_high_score": 0,
-    "total_score": 0,
-    "rank": "Beginner",
-    "last_updated": "7/6/2026, 6:52:47 AM"
-  },
-  {
-    "guild_team": "Flame",
     "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
     "team_name": "neopia central",
     "username": "cibola",
@@ -1174,5 +1156,25 @@
     "occ_high_score": 2542,
     "total_score": 842,
     "last_updated": "7/9/2026, 8:32:58 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/altador/logo.png",
+    "team_name": "altador",
+    "username": "madidogs88",
+    "yyb_wins": 13,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 60,
+    "slsl_wins": 6,
+    "slsl_high_score": 544,
+    "msn_plays": 4,
+    "msn_high_score": 3438,
+    "sosd_plays": 50,
+    "sosd_high_score": 1184,
+    "occ_plays": 100,
+    "occ_high_score": 6166,
+    "total_score": 904,
+    "last_updated": "7/9/2026, 8:33:04 AM"
   }
 ]
