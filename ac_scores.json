@@ -121,26 +121,6 @@
   },
   {
     "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/hauntedwoods/logo.png",
-    "team_name": "haunted woods",
-    "username": "najkay_44",
-    "yyb_wins": 21,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 91,
-    "slsl_wins": 9,
-    "slsl_high_score": 480,
-    "msn_plays": 5,
-    "msn_high_score": 4602,
-    "sosd_plays": 9,
-    "sosd_high_score": 1143,
-    "occ_plays": 7,
-    "occ_high_score": 2337,
-    "total_score": 461,
-    "last_updated": "7/9/2026, 8:33:18 AM"
-  },
-  {
-    "guild_team": "Flame",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/darigancitadel/logo.png",
     "team_name": "darigan citadel",
     "username": "gymbrat2010",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 3126,
     "total_score": 66,
     "last_updated": "7/9/2026, 9:28:40 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/hauntedwoods/logo.png",
+    "team_name": "haunted woods",
+    "username": "najkay_44",
+    "yyb_wins": 21,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 91,
+    "slsl_wins": 9,
+    "slsl_high_score": 480,
+    "msn_plays": 5,
+    "msn_high_score": 4602,
+    "sosd_plays": 9,
+    "sosd_high_score": 1143,
+    "occ_plays": 7,
+    "occ_high_score": 2337,
+    "total_score": 51,
+    "last_updated": "7/9/2026, 9:28:45 AM"
   }
 ]
