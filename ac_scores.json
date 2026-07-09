@@ -1,24 +1,6 @@
 [
   {
     "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/terrormountain/logo.png",
-    "team_name": "terror mountain",
-    "username": "kittycrew",
-    "yyb_wins": 0,
-    "yyb_draws": 0,
-    "yyb_high_score": 0,
-    "slsl_wins": 0,
-    "slsl_high_score": 0,
-    "msn_plays": 0,
-    "msn_high_score": 0,
-    "sosd_plays": 0,
-    "sosd_high_score": 0,
-    "total_score": 0,
-    "rank": "Beginner",
-    "last_updated": "7/6/2026, 7:11:34 AM"
-  },
-  {
-    "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/kreludor/logo.png",
     "team_name": "kreludor",
     "username": "whyhellotherecupcake",
@@ -1222,5 +1204,25 @@
     "occ_high_score": 0,
     "total_score": 13,
     "last_updated": "7/9/2026, 8:44:01 AM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/terrormountain/logo.png",
+    "team_name": "terror mountain",
+    "username": "kittycrew",
+    "yyb_wins": 17,
+    "yyb_draws": 3,
+    "yyb_losses": 0,
+    "yyb_high_score": 77,
+    "slsl_wins": 4,
+    "slsl_high_score": 447,
+    "msn_plays": 9,
+    "msn_high_score": 3936,
+    "sosd_plays": 10,
+    "sosd_high_score": 1159,
+    "occ_plays": 8,
+    "occ_high_score": 1489,
+    "total_score": 393,
+    "last_updated": "7/9/2026, 8:44:06 AM"
   }
 ]
