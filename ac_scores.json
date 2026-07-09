@@ -1,23 +1,5 @@
 [
   {
-    "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/darigancitadel/logo.png",
-    "team_name": "darigan citadel",
-    "username": "notooryous",
-    "yyb_wins": 0,
-    "yyb_draws": 0,
-    "yyb_high_score": 0,
-    "slsl_wins": 0,
-    "slsl_high_score": 0,
-    "msn_plays": 0,
-    "msn_high_score": 0,
-    "sosd_plays": 0,
-    "sosd_high_score": 0,
-    "total_score": 0,
-    "rank": "Beginner",
-    "last_updated": "7/6/2026, 6:34:57 AM"
-  },
-  {
     "guild_team": "Flame",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/meridell/logo.png",
     "team_name": "meridell",
@@ -1146,5 +1128,25 @@
     "occ_high_score": 2141,
     "total_score": 1533,
     "last_updated": "7/9/2026, 8:29:45 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/darigancitadel/logo.png",
+    "team_name": "darigan citadel",
+    "username": "notooryous",
+    "yyb_wins": 1,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 5,
+    "slsl_wins": 9,
+    "slsl_high_score": 517,
+    "msn_plays": 3,
+    "msn_high_score": 4346,
+    "sosd_plays": 1,
+    "sosd_high_score": 807,
+    "occ_plays": 1,
+    "occ_high_score": 1240,
+    "total_score": 121,
+    "last_updated": "7/9/2026, 8:29:52 AM"
   }
 ]
