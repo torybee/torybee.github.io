@@ -173,10 +173,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let scoresData = [];
     let sortState = { key: 'total_score', dir: 'desc' };
 
-    // NOTE: order here also controls the display order of AC teams in the
-    // Neopets Table Code output. Any team_name NOT in this list will still
-    // be included (appended alphabetically at the end) instead of being
-    // silently dropped, per the fix below.
+    // Used only to look up each player's individual AC team icon for the
+    // Neopets Table Code output. A team_name with no match here just
+    // renders without an icon — never dropped from the output.
     const TEAM_SMILIES = [
         { key: 'altador', img: 'altador.gif' },
         { key: 'brightvale', img: 'brightvale.gif' },
@@ -200,6 +199,79 @@ document.addEventListener('DOMContentLoaded', function () {
         { key: 'virtupets', img: 'virtupets.gif' }
     ];
 
+    // Neopets doesn't expose a "display name" anywhere on the stats page,
+    // so the scraper can't capture one automatically. This maps username ->
+    // the name you actually want shown. Add new members here as needed.
+    const DISPLAY_NAMES = {
+        // Team Flame
+        'b4nditzzz': 'Amir',
+        'softypaws': 'Ari',
+        'nyltiac5': 'Caitlyn',
+        'callisto2002': 'Callie',
+        'spidero': 'Cat',
+        'chris123094': 'Chris',
+        'christinearning': 'Christine',
+        'emiliexromance': 'Emily',
+        'gamin_de_la_landes2': 'Geci',
+        'haleigh_2011': 'Haleigh',
+        'angelbrat916': 'Hayley',
+        'drackonwood': 'Immy',
+        'choochiegurl': 'Jacy',
+        'catchinglights': 'Jae',
+        'goosesticks': 'Jamie',
+        'rotfljenn': 'Jenn',
+        'kindled': 'Justin',
+        'devil_kiki_girlz': 'KiKi',
+        'laura_ow08': 'Laurie',
+        'madidogs88': 'Maddie',
+        'cibola': 'Maggie',
+        'curlsandhairbows': 'Marina',
+        'melissa12xx': 'Melissa',
+        '_myst_queen': 'Myst',
+        'najkay_44': 'Naj',
+        'gymbrat2010': 'Noah',
+        'ameilae': 'Nymph',
+        'rachael1410': 'Rach',
+        'hannahxtropicana': 'Rose',
+        'cyberpuppy33': 'Rune',
+        'tevildo': 'Tash',
+        'cutypie349514': 'Tina',
+        'notooryous': 'Tory',
+        // Team Flood
+        'schwarzes_schaaf': 'Aci',
+        '_aliciaaa_': 'Alicia',
+        'piinkskullz': 'Amanda',
+        'riseofzedekiel': 'Bryan',
+        'ossabritt': 'Cat',
+        'puppies10190': 'Colie',
+        'bikerchic624': 'Dakin',
+        'unfreeze_xlinger2': 'Dustin',
+        '987654321_hj': 'Haybales',
+        'm_hero18': 'Hero',
+        'id_24': 'Izzy',
+        'gali184': 'John',
+        'jecour': 'Josh',
+        '16th_serendipity': 'Kaitlyn',
+        'bodhikels9': 'Kels',
+        'flated': 'Kelsey',
+        'thedaydreamfaerie': 'KK',
+        'vanitycrisis': 'Leanna',
+        'superlen': 'Len',
+        'lesliiiiex': 'Leslie',
+        'bisscoito': 'Lipe',
+        'limour': 'Lisa',
+        'kittycrew': 'Millie',
+        'whyhellotherecupcake': 'MJ',
+        'candieddragon': 'Opu',
+        'akhmim': 'Seti',
+        'madlovedarling': 'Spook',
+        'lynnrules118108': 'Squid',
+        'stratus365': 'Thomas',
+        'salvadortuna': 'Tuna',
+        'koggler': 'Valerie',
+        'legiox': 'Violet'
+    };
+
     function numberValue(value) {
         return Number(value || 0);
     }
@@ -211,98 +283,68 @@ document.addEventListener('DOMContentLoaded', function () {
     function getMemberDisplay(score) {
         if (!score) return 'Name (Username)';
 
-        if (score.member_name) {
-            return score.member_name + ' (' + score.username + ')';
+        const knownName = score.member_name || DISPLAY_NAMES[(score.username || '').toLowerCase()];
+
+        if (knownName) {
+            return knownName + ' (' + score.username + ')';
         }
 
         return score.username;
     }
 
+    function iconFor(teamName) {
+        const meta = TEAM_SMILIES.find(t => t.key === (teamName || '').toLowerCase());
+        return meta ? meta.img : '';
+    }
+
     function buildNeoTableCode(data) {
-        const grouped = {};
+        // Two independent columns: Flame alphabetized by display name,
+        // Flood alphabetized by display name, lined up by row position.
+        // Each player shows their OWN AC team's icon — rows are not
+        // grouped by matching AC team.
+        const flame = data
+            .filter(score => (score.guild_team || '').toLowerCase() === 'flame')
+            .slice()
+            .sort((a, b) => getMemberDisplay(a).localeCompare(getMemberDisplay(b)));
 
-        data.forEach(score => {
-            // Fall back to "manually update" instead of dropping the row
-            // entirely when team_name is missing/blank.
-            const acTeam = (score.team_name || 'manually update').toLowerCase();
-            const guildTeam = (score.guild_team || '').toLowerCase();
+        const flood = data
+            .filter(score => (score.guild_team || '').toLowerCase() === 'flood')
+            .slice()
+            .sort((a, b) => getMemberDisplay(a).localeCompare(getMemberDisplay(b)));
 
-            // A row with no guild team can't be placed in a Flame/Flood
-            // column, so it's still skipped here.
-            if (!guildTeam) return;
-
-            if (!grouped[acTeam]) {
-                grouped[acTeam] = {
-                    flame: [],
-                    flood: []
-                };
-            }
-
-            if (guildTeam === 'flame') {
-                grouped[acTeam].flame.push(score);
-            } else if (guildTeam === 'flood') {
-                grouped[acTeam].flood.push(score);
-            }
-        });
-
-        // FIX: sort by display name (member_name if present, else
-        // username) instead of always sorting by username.
-        Object.keys(grouped).forEach(team => {
-            grouped[team].flame.sort((a, b) => getMemberDisplay(a).localeCompare(getMemberDisplay(b)));
-            grouped[team].flood.sort((a, b) => getMemberDisplay(a).localeCompare(getMemberDisplay(b)));
-        });
-
-        // FIX: any AC team name not found in TEAM_SMILIES is no longer
-        // silently skipped — it's appended (alphabetically, no icon)
-        // instead of vanishing from the output.
-        const knownKeys = TEAM_SMILIES.map(t => t.key);
-        const orderedKeys = [
-            ...knownKeys.filter(k => grouped[k]),
-            ...Object.keys(grouped).filter(k => !knownKeys.includes(k)).sort()
-        ];
+        const rowCount = Math.max(flame.length, flood.length);
 
         let html = '<table class="challenge" style="background-color: #FBFBFB;">';
 
-        orderedKeys.forEach(teamKey => {
-            const teamMeta = TEAM_SMILIES.find(t => t.key === teamKey);
-            const flamePlayers = grouped[teamKey].flame;
-            const floodPlayers = grouped[teamKey].flood;
-            const rowCount = Math.max(flamePlayers.length, floodPlayers.length);
+        for (let i = 0; i < rowCount; i++) {
+            const flamePlayer = flame[i];
+            const floodPlayer = flood[i];
 
-            if (rowCount === 0) return;
-
-            for (let i = 0; i < rowCount; i++) {
-                const flame = flamePlayers[i];
-                const flood = floodPlayers[i];
-
-                const flameName = flame ? getMemberDisplay(flame) : '';
-                const floodName = flood ? getMemberDisplay(flood) : '';
-
-                const flamePoints = flame ? displayNumber(flame.total_score) + ' points' : '';
-                const floodPoints = flood ? displayNumber(flood.total_score) + ' points' : '';
-
-                const iconTag = teamMeta
-                    ? '<img src="http://images.neopets.com/neoboards/smilies/' + teamMeta.img + '"> '
-                    : '';
-
-                html += '<tr><td class="flame">';
-                if (flame) {
-                    html += iconTag + flameName;
+            html += '<tr><td class="flame">';
+            if (flamePlayer) {
+                const icon = iconFor(flamePlayer.team_name);
+                if (icon) {
+                    html += '<img src="http://images.neopets.com/neoboards/smilies/' + icon + '"> ';
                 }
-                html += '</td>\n';
-
-                html += '        <td>' + flamePoints + '</td>\n';
-
-                html += '        <td class="flood">';
-                if (flood) {
-                    html += iconTag + floodName;
-                }
-                html += '</td>\n';
-
-                html += '        <td>' + floodPoints + '</td>\n';
-                html += '        </tr>';
+                html += getMemberDisplay(flamePlayer);
             }
-        });
+            html += '</td>\n';
+
+            html += '        <td>' + (flamePlayer ? displayNumber(flamePlayer.total_score) + ' points' : '') + '</td>\n';
+
+            html += '        <td class="flood">';
+            if (floodPlayer) {
+                const icon = iconFor(floodPlayer.team_name);
+                if (icon) {
+                    html += '<img src="http://images.neopets.com/neoboards/smilies/' + icon + '"> ';
+                }
+                html += getMemberDisplay(floodPlayer);
+            }
+            html += '</td>\n';
+
+            html += '        <td>' + (floodPlayer ? displayNumber(floodPlayer.total_score) + ' points' : '') + '</td>\n';
+            html += '        </tr>';
+        }
 
         html += '</table>';
 
