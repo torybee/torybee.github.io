@@ -1,24 +1,6 @@
 [
   {
     "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/rooisland/logo.png",
-    "team_name": "roo island",
-    "username": "limour",
-    "yyb_wins": 0,
-    "yyb_draws": 0,
-    "yyb_high_score": 0,
-    "slsl_wins": 0,
-    "slsl_high_score": 0,
-    "msn_plays": 0,
-    "msn_high_score": 0,
-    "sosd_plays": 0,
-    "sosd_high_score": 0,
-    "total_score": 0,
-    "rank": "Beginner",
-    "last_updated": "7/6/2026, 7:11:27 AM"
-  },
-  {
-    "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/terrormountain/logo.png",
     "team_name": "terror mountain",
     "username": "kittycrew",
@@ -1220,5 +1202,25 @@
     "occ_high_score": 1465,
     "total_score": 110,
     "last_updated": "7/9/2026, 8:43:56 AM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/rooisland/logo.png",
+    "team_name": "roo island",
+    "username": "limour",
+    "yyb_wins": 0,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 0,
+    "slsl_wins": 1,
+    "slsl_high_score": 512,
+    "msn_plays": 1,
+    "msn_high_score": 3545,
+    "sosd_plays": 0,
+    "sosd_high_score": 0,
+    "occ_plays": 0,
+    "occ_high_score": 0,
+    "total_score": 13,
+    "last_updated": "7/9/2026, 8:44:01 AM"
   }
 ]
