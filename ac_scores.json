@@ -703,24 +703,6 @@
   },
   {
     "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/kreludor/logo.png",
-    "team_name": "kreludor",
-    "username": "987654321_hj",
-    "yyb_wins": 18,
-    "yyb_draws": 0,
-    "yyb_high_score": 93,
-    "slsl_wins": 1,
-    "slsl_high_score": 262,
-    "msn_plays": 0,
-    "msn_high_score": 0,
-    "sosd_plays": 4,
-    "sosd_high_score": 261,
-    "total_score": 274,
-    "rank": "Level 2",
-    "last_updated": "7/6/2026, 7:08:58 AM"
-  },
-  {
-    "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
     "team_name": "maraqua",
     "username": "m_hero18",
@@ -1116,5 +1098,25 @@
     "occ_high_score": 6791,
     "total_score": 5615,
     "last_updated": "7/9/2026, 8:26:11 AM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/kreludor/logo.png",
+    "team_name": "kreludor",
+    "username": "987654321_hj",
+    "yyb_wins": 40,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 210,
+    "slsl_wins": 4,
+    "slsl_high_score": 422,
+    "msn_plays": 3,
+    "msn_high_score": 4549,
+    "sosd_plays": 103,
+    "sosd_high_score": 1185,
+    "occ_plays": 8,
+    "occ_high_score": 1852,
+    "total_score": 958,
+    "last_updated": "7/9/2026, 8:26:49 AM"
   }
 ]
