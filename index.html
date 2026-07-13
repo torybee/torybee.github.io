@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Used only to look up each player's individual AC team icon for the
     // Neopets Table Code output. A team_name with no match here just
-    // renders without an icon — never dropped from the output.
+    // renders without an icon - never dropped from the output.
     const TEAM_SMILIES = [
         { key: 'altador', img: 'altador.gif' },
         { key: 'brightvale', img: 'brightvale.gif' },
@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // Optional: link a player's name to their petpage/userlookup, taken
-    // from the reference table. Not every member needs an entry here —
+    // from the reference table. Not every member needs an entry here -
     // names without one just render as plain text.
     const PETPAGE_LINKS = {
         'spidero': 'http://www.neopets.com/~Cesoo',
@@ -285,6 +285,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'cutypie349514': 'http://www.neopets.com/~Viuby',
         'notooryous': '/~Draellion',
         'madlovedarling': 'http://www.neopets.com/~Ripposte'
+        'ameilae': 'http://www.neopets.com/~Wherfi'
     };
 
     function numberValue(value) {
@@ -308,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Same as getMemberDisplay, but wraps the name in a petpage link when
-    // one is known. Used only for the Neo Table Code HTML output — sorting
+    // one is known. Used only for the Neo Table Code HTML output - sorting
     // and the on-page table both use the plain-text version above.
     function getMemberDisplayHTML(score) {
         const name = getMemberDisplay(score);
@@ -329,8 +330,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function buildNeoTableCode(data) {
         // Two independent columns: Flame alphabetized by display name,
         // Flood alphabetized by display name, lined up by row position.
-        // Each player shows their OWN AC team's icon — rows are not
-        // grouped by matching AC team.
+        // Each player shows their OWN AC team's icon.
         const flame = data
             .filter(score => (score.guild_team || '').toLowerCase() === 'flame')
             .slice()
