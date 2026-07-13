@@ -20,26 +20,6 @@
     "last_updated": "7/9/2026, 9:26:59 AM"
   },
   {
-    "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/lostdesert/logo.png",
-    "team_name": "lost desert",
-    "username": "_myst_queen",
-    "yyb_wins": 24,
-    "yyb_draws": 1,
-    "yyb_losses": 0,
-    "yyb_high_score": 139,
-    "slsl_wins": 12,
-    "slsl_high_score": 595,
-    "msn_plays": 5,
-    "msn_high_score": 4102,
-    "sosd_plays": 10,
-    "sosd_high_score": 1125,
-    "occ_plays": 17,
-    "occ_high_score": 2289,
-    "total_score": 69,
-    "last_updated": "7/9/2026, 9:27:23 AM"
-  },
-  {
     "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
     "team_name": "neopia central",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 1922,
     "total_score": 87,
     "last_updated": "7/13/2026, 10:34:09 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/lostdesert/logo.png",
+    "team_name": "lost desert",
+    "username": "_myst_queen",
+    "yyb_wins": 83,
+    "yyb_draws": 1,
+    "yyb_losses": 0,
+    "yyb_high_score": 502,
+    "slsl_wins": 25,
+    "slsl_high_score": 595,
+    "msn_plays": 6,
+    "msn_high_score": 4102,
+    "sosd_plays": 10,
+    "sosd_high_score": 1125,
+    "occ_plays": 81,
+    "occ_high_score": 4483,
+    "total_score": 206,
+    "last_updated": "7/13/2026, 10:34:15 AM"
   }
 ]
