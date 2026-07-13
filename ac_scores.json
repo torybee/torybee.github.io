@@ -21,26 +21,6 @@
   },
   {
     "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/kreludor/logo.png",
-    "team_name": "kreludor",
-    "username": "whyhellotherecupcake",
-    "yyb_wins": 52,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 349,
-    "slsl_wins": 28,
-    "slsl_high_score": 526,
-    "msn_plays": 387,
-    "msn_high_score": 5346,
-    "sosd_plays": 347,
-    "sosd_high_score": 1168,
-    "occ_plays": 114,
-    "occ_high_score": 5812,
-    "total_score": 928,
-    "last_updated": "7/9/2026, 9:23:37 AM"
-  },
-  {
-    "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
     "team_name": "neopia central",
     "username": "bisscoito",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 8868,
     "total_score": 1370,
     "last_updated": "7/13/2026, 7:38:24 AM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/kreludor/logo.png",
+    "team_name": "kreludor",
+    "username": "whyhellotherecupcake",
+    "yyb_wins": 55,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 366,
+    "slsl_wins": 36,
+    "slsl_high_score": 526,
+    "msn_plays": 488,
+    "msn_high_score": 5346,
+    "sosd_plays": 348,
+    "sosd_high_score": 1168,
+    "occ_plays": 183,
+    "occ_high_score": 5812,
+    "total_score": 1110,
+    "last_updated": "7/13/2026, 7:38:38 AM"
   }
 ]
