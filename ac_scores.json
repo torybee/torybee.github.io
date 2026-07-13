@@ -1,26 +1,6 @@
 [
   {
     "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
-    "team_name": "neopia central",
-    "username": "cibola",
-    "yyb_wins": 111,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 1077,
-    "slsl_wins": 4,
-    "slsl_high_score": 518,
-    "msn_plays": 3,
-    "msn_high_score": 3155,
-    "sosd_plays": 45,
-    "sosd_high_score": 1136,
-    "occ_plays": 225,
-    "occ_high_score": 3053,
-    "total_score": 388,
-    "last_updated": "7/9/2026, 9:23:50 AM"
-  },
-  {
-    "guild_team": "Flame",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/darigancitadel/logo.png",
     "team_name": "darigan citadel",
     "username": "spidero",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 3262,
     "total_score": 466,
     "last_updated": "7/13/2026, 8:12:23 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
+    "team_name": "neopia central",
+    "username": "cibola",
+    "yyb_wins": 189,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 1880,
+    "slsl_wins": 8,
+    "slsl_high_score": 518,
+    "msn_plays": 7,
+    "msn_high_score": 3335,
+    "sosd_plays": 49,
+    "sosd_high_score": 1136,
+    "occ_plays": 327,
+    "occ_high_score": 3053,
+    "total_score": 580,
+    "last_updated": "7/13/2026, 8:12:29 AM"
   }
 ]
