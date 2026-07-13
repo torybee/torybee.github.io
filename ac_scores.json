@@ -241,26 +241,6 @@
   },
   {
     "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
-    "team_name": "neopia central",
-    "username": "callisto2002",
-    "yyb_wins": 1,
-    "yyb_draws": 0,
-    "yyb_losses": 1,
-    "yyb_high_score": 2,
-    "slsl_wins": 4,
-    "slsl_high_score": 373,
-    "msn_plays": 3,
-    "msn_high_score": 3520,
-    "sosd_plays": 164,
-    "sosd_high_score": 1138,
-    "occ_plays": 6,
-    "occ_high_score": 1602,
-    "total_score": 179,
-    "last_updated": "7/9/2026, 9:27:05 AM"
-  },
-  {
-    "guild_team": "Flame",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
     "team_name": "maraqua",
     "username": "angelbrat916",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 2396,
     "total_score": 1436,
     "last_updated": "7/13/2026, 8:21:56 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
+    "team_name": "neopia central",
+    "username": "callisto2002",
+    "yyb_wins": 8,
+    "yyb_draws": 0,
+    "yyb_losses": 1,
+    "yyb_high_score": 47,
+    "slsl_wins": 8,
+    "slsl_high_score": 534,
+    "msn_plays": 6,
+    "msn_high_score": 4313,
+    "sosd_plays": 341,
+    "sosd_high_score": 1139,
+    "occ_plays": 14,
+    "occ_high_score": 3781,
+    "total_score": 378,
+    "last_updated": "7/13/2026, 8:22:01 AM"
   }
 ]
