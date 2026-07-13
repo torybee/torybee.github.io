@@ -101,26 +101,6 @@
   },
   {
     "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/mysteryisland/logo.png",
-    "team_name": "mystery island",
-    "username": "id_24",
-    "yyb_wins": 0,
-    "yyb_draws": 0,
-    "yyb_losses": 1,
-    "yyb_high_score": 1,
-    "slsl_wins": 1,
-    "slsl_high_score": 27,
-    "msn_plays": 5,
-    "msn_high_score": 2896,
-    "sosd_plays": 10,
-    "sosd_high_score": 880,
-    "occ_plays": 45,
-    "occ_high_score": 3946,
-    "total_score": 62,
-    "last_updated": "7/9/2026, 9:29:20 AM"
-  },
-  {
-    "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/darigancitadel/logo.png",
     "team_name": "darigan citadel",
     "username": "_aliciaaa_",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 2675,
     "total_score": 254,
     "last_updated": "7/13/2026, 10:34:26 AM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/mysteryisland/logo.png",
+    "team_name": "mystery island",
+    "username": "id_24",
+    "yyb_wins": 12,
+    "yyb_draws": 1,
+    "yyb_losses": 1,
+    "yyb_high_score": 93,
+    "slsl_wins": 7,
+    "slsl_high_score": 587,
+    "msn_plays": 15,
+    "msn_high_score": 4154,
+    "sosd_plays": 20,
+    "sosd_high_score": 1159,
+    "occ_plays": 90,
+    "occ_high_score": 5151,
+    "total_score": 146,
+    "last_updated": "7/13/2026, 10:34:35 AM"
   }
 ]
