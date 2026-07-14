@@ -380,26 +380,6 @@
     "last_updated": "7/13/2026, 10:33:32 AM"
   },
   {
-    "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/hauntedwoods/logo.png",
-    "team_name": "haunted woods",
-    "username": "cyberpuppy33",
-    "yyb_wins": 19,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 138,
-    "slsl_wins": 8,
-    "slsl_high_score": 542,
-    "msn_plays": 25,
-    "msn_high_score": 4274,
-    "sosd_plays": 172,
-    "sosd_high_score": 1181,
-    "occ_plays": 42,
-    "occ_high_score": 4635,
-    "total_score": 266,
-    "last_updated": "7/13/2026, 10:33:37 AM"
-  },
-  {
     "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
     "team_name": "maraqua",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 1441,
     "total_score": 283,
     "last_updated": "7/14/2026, 6:26:04 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/hauntedwoods/logo.png",
+    "team_name": "haunted woods",
+    "username": "cyberpuppy33",
+    "yyb_wins": 19,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 138,
+    "slsl_wins": 8,
+    "slsl_high_score": 542,
+    "msn_plays": 25,
+    "msn_high_score": 4274,
+    "sosd_plays": 172,
+    "sosd_high_score": 1181,
+    "occ_plays": 42,
+    "occ_high_score": 4635,
+    "total_score": 266,
+    "last_updated": "7/14/2026, 6:26:11 AM"
   }
 ]
