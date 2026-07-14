@@ -281,26 +281,6 @@
   },
   {
     "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/rooisland/logo.png",
-    "team_name": "roo island",
-    "username": "limour",
-    "yyb_wins": 0,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 0,
-    "slsl_wins": 1,
-    "slsl_high_score": 512,
-    "msn_plays": 1,
-    "msn_high_score": 3545,
-    "sosd_plays": 0,
-    "sosd_high_score": 0,
-    "occ_plays": 0,
-    "occ_high_score": 0,
-    "total_score": 2,
-    "last_updated": "7/13/2026, 10:36:09 AM"
-  },
-  {
-    "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/darigancitadel/logo.png",
     "team_name": "darigan citadel",
     "username": "madlovedarling",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 2420,
     "total_score": 15,
     "last_updated": "7/14/2026, 6:28:26 AM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/rooisland/logo.png",
+    "team_name": "roo island",
+    "username": "limour",
+    "yyb_wins": 0,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 0,
+    "slsl_wins": 1,
+    "slsl_high_score": 512,
+    "msn_plays": 1,
+    "msn_high_score": 3545,
+    "sosd_plays": 0,
+    "sosd_high_score": 0,
+    "occ_plays": 0,
+    "occ_high_score": 0,
+    "total_score": 2,
+    "last_updated": "7/14/2026, 6:28:29 AM"
   }
 ]
