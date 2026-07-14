@@ -560,26 +560,6 @@
     "last_updated": "7/13/2026, 10:35:54 AM"
   },
   {
-    "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
-    "team_name": "maraqua",
-    "username": "ameilae",
-    "yyb_wins": 21,
-    "yyb_draws": 3,
-    "yyb_losses": 4,
-    "yyb_high_score": 104,
-    "slsl_wins": 3,
-    "slsl_high_score": 424,
-    "msn_plays": 9,
-    "msn_high_score": 3777,
-    "sosd_plays": 10,
-    "sosd_high_score": 873,
-    "occ_plays": 69,
-    "occ_high_score": 3612,
-    "total_score": 119,
-    "last_updated": "7/13/2026, 10:35:57 AM"
-  },
-  {
     "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/rooisland/logo.png",
     "team_name": "roo island",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 2270,
     "total_score": 244,
     "last_updated": "7/14/2026, 6:27:11 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
+    "team_name": "maraqua",
+    "username": "ameilae",
+    "yyb_wins": 27,
+    "yyb_draws": 3,
+    "yyb_losses": 4,
+    "yyb_high_score": 141,
+    "slsl_wins": 4,
+    "slsl_high_score": 424,
+    "msn_plays": 10,
+    "msn_high_score": 3777,
+    "sosd_plays": 12,
+    "sosd_high_score": 873,
+    "occ_plays": 71,
+    "occ_high_score": 3612,
+    "total_score": 131,
+    "last_updated": "7/14/2026, 6:27:20 AM"
   }
 ]
