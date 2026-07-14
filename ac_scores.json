@@ -60,26 +60,6 @@
     "last_updated": "7/9/2026, 9:31:06 AM"
   },
   {
-    "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/krawkisland/logo.png",
-    "team_name": "krawk island",
-    "username": "tevildo",
-    "yyb_wins": 33,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 179,
-    "slsl_wins": 4,
-    "slsl_high_score": 619,
-    "msn_plays": 109,
-    "msn_high_score": 4790,
-    "sosd_plays": 832,
-    "sosd_high_score": 1185,
-    "occ_plays": 392,
-    "occ_high_score": 8868,
-    "total_score": 1370,
-    "last_updated": "7/13/2026, 7:38:24 AM"
-  },
-  {
     "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/kreludor/logo.png",
     "team_name": "kreludor",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 3990,
     "total_score": 1523,
     "last_updated": "7/14/2026, 6:24:26 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/krawkisland/logo.png",
+    "team_name": "krawk island",
+    "username": "tevildo",
+    "yyb_wins": 33,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 179,
+    "slsl_wins": 4,
+    "slsl_high_score": 619,
+    "msn_plays": 109,
+    "msn_high_score": 4790,
+    "sosd_plays": 904,
+    "sosd_high_score": 1185,
+    "occ_plays": 467,
+    "occ_high_score": 9928,
+    "total_score": 1517,
+    "last_updated": "7/14/2026, 6:24:30 AM"
   }
 ]
