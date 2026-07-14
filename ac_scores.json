@@ -360,26 +360,6 @@
     "last_updated": "7/13/2026, 10:35:24 AM"
   },
   {
-    "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/krawkisland/logo.png",
-    "team_name": "krawk island",
-    "username": "gamin_de_la_landes2",
-    "yyb_wins": 20,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 109,
-    "slsl_wins": 7,
-    "slsl_high_score": 549,
-    "msn_plays": 10,
-    "msn_high_score": 4579,
-    "sosd_plays": 10,
-    "sosd_high_score": 1127,
-    "occ_plays": 8,
-    "occ_high_score": 1684,
-    "total_score": 55,
-    "last_updated": "7/13/2026, 10:35:38 AM"
-  },
-  {
     "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/faerieland/logo.png",
     "team_name": "faerieland",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 1941,
     "total_score": 65,
     "last_updated": "7/14/2026, 6:27:46 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/krawkisland/logo.png",
+    "team_name": "krawk island",
+    "username": "gamin_de_la_landes2",
+    "yyb_wins": 21,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 114,
+    "slsl_wins": 9,
+    "slsl_high_score": 549,
+    "msn_plays": 13,
+    "msn_high_score": 4722,
+    "sosd_plays": 10,
+    "sosd_high_score": 1127,
+    "occ_plays": 11,
+    "occ_high_score": 2216,
+    "total_score": 64,
+    "last_updated": "7/14/2026, 6:27:50 AM"
   }
 ]
