@@ -61,26 +61,6 @@
   },
   {
     "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/darigancitadel/logo.png",
-    "team_name": "darigan citadel",
-    "username": "ossabritt",
-    "yyb_wins": 70,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 531,
-    "slsl_wins": 20,
-    "slsl_high_score": 606,
-    "msn_plays": 12,
-    "msn_high_score": 4687,
-    "sosd_plays": 600,
-    "sosd_high_score": 1187,
-    "occ_plays": 58,
-    "occ_high_score": 4098,
-    "total_score": 760,
-    "last_updated": "7/13/2026, 8:12:51 AM"
-  },
-  {
-    "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/rooisland/logo.png",
     "team_name": "roo island",
     "username": "schwarzes_schaaf",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 3781,
     "total_score": 379,
     "last_updated": "7/14/2026, 6:32:01 AM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/darigancitadel/logo.png",
+    "team_name": "darigan citadel",
+    "username": "ossabritt",
+    "yyb_wins": 70,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 531,
+    "slsl_wins": 20,
+    "slsl_high_score": 606,
+    "msn_plays": 12,
+    "msn_high_score": 4687,
+    "sosd_plays": 802,
+    "sosd_high_score": 1187,
+    "occ_plays": 58,
+    "occ_high_score": 4098,
+    "total_score": 962,
+    "last_updated": "7/14/2026, 6:32:33 AM"
   }
 ]
