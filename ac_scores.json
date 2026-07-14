@@ -1241,26 +1241,6 @@
   },
   {
     "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
-    "team_name": "maraqua",
-    "username": "laura_ow08",
-    "yyb_wins": 133,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 807,
-    "slsl_wins": 9,
-    "slsl_high_score": 544,
-    "msn_plays": 25,
-    "msn_high_score": 5739,
-    "sosd_plays": 71,
-    "sosd_high_score": 1162,
-    "occ_plays": 254,
-    "occ_high_score": 3527,
-    "total_score": 492,
-    "last_updated": "7/14/2026, 6:40:11 AM"
-  },
-  {
-    "guild_team": "Flame",
     "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
     "team_name": "neopia central",
     "username": "melissa12xx",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 2233,
     "total_score": 432,
     "last_updated": "7/14/2026, 6:40:49 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
+    "team_name": "maraqua",
+    "username": "laura_ow08",
+    "yyb_wins": 133,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 807,
+    "slsl_wins": 9,
+    "slsl_high_score": 544,
+    "msn_plays": 25,
+    "msn_high_score": 5739,
+    "sosd_plays": 71,
+    "sosd_high_score": 1162,
+    "occ_plays": 254,
+    "occ_high_score": 3527,
+    "total_score": 492,
+    "last_updated": "7/14/2026, 6:41:47 AM"
   }
 ]
