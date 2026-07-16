@@ -20,26 +20,6 @@
     "last_updated": "7/14/2026, 6:26:11 AM"
   },
   {
-    "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/hauntedwoods/logo.png",
-    "team_name": "haunted woods",
-    "username": "emiliexromance",
-    "yyb_wins": 39,
-    "yyb_draws": 2,
-    "yyb_losses": 0,
-    "yyb_high_score": 174,
-    "slsl_wins": 10,
-    "slsl_high_score": 529,
-    "msn_plays": 22,
-    "msn_high_score": 4477,
-    "sosd_plays": 135,
-    "sosd_high_score": 899,
-    "occ_plays": 64,
-    "occ_high_score": 2675,
-    "total_score": 272,
-    "last_updated": "7/14/2026, 6:26:19 AM"
-  },
-  {
     "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
     "team_name": "maraqua",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 3721,
     "total_score": 333,
     "last_updated": "7/16/2026, 8:51:04 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/hauntedwoods/logo.png",
+    "team_name": "haunted woods",
+    "username": "emiliexromance",
+    "yyb_wins": 39,
+    "yyb_draws": 2,
+    "yyb_losses": 0,
+    "yyb_high_score": 174,
+    "slsl_wins": 10,
+    "slsl_high_score": 529,
+    "msn_plays": 22,
+    "msn_high_score": 4477,
+    "sosd_plays": 135,
+    "sosd_high_score": 899,
+    "occ_plays": 64,
+    "occ_high_score": 2675,
+    "total_score": 272,
+    "last_updated": "7/16/2026, 8:51:10 AM"
   }
 ]
