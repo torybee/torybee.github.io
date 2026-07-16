@@ -1,26 +1,6 @@
 [
   {
     "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
-    "team_name": "maraqua",
-    "username": "rachael1410",
-    "yyb_wins": 16,
-    "yyb_draws": 1,
-    "yyb_losses": 1,
-    "yyb_high_score": 83,
-    "slsl_wins": 4,
-    "slsl_high_score": 534,
-    "msn_plays": 12,
-    "msn_high_score": 2783,
-    "sosd_plays": 180,
-    "sosd_high_score": 1175,
-    "occ_plays": 22,
-    "occ_high_score": 3027,
-    "total_score": 236,
-    "last_updated": "7/14/2026, 6:26:29 AM"
-  },
-  {
-    "guild_team": "Flame",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/lostdesert/logo.png",
     "team_name": "lost desert",
     "username": "_myst_queen",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 2787,
     "total_score": 250,
     "last_updated": "7/16/2026, 8:51:33 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
+    "team_name": "maraqua",
+    "username": "rachael1410",
+    "yyb_wins": 16,
+    "yyb_draws": 1,
+    "yyb_losses": 1,
+    "yyb_high_score": 83,
+    "slsl_wins": 4,
+    "slsl_high_score": 534,
+    "msn_plays": 12,
+    "msn_high_score": 2783,
+    "sosd_plays": 180,
+    "sosd_high_score": 1175,
+    "occ_plays": 22,
+    "occ_high_score": 3027,
+    "total_score": 236,
+    "last_updated": "7/16/2026, 8:52:52 AM"
   }
 ]
