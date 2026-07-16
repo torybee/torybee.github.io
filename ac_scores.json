@@ -161,26 +161,6 @@
   },
   {
     "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/darigancitadel/logo.png",
-    "team_name": "darigan citadel",
-    "username": "christinearning",
-    "yyb_wins": 22,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 139,
-    "slsl_wins": 15,
-    "slsl_high_score": 537,
-    "msn_plays": 2,
-    "msn_high_score": 3053,
-    "sosd_plays": 198,
-    "sosd_high_score": 1160,
-    "occ_plays": 7,
-    "occ_high_score": 2270,
-    "total_score": 244,
-    "last_updated": "7/14/2026, 6:27:11 AM"
-  },
-  {
-    "guild_team": "Flame",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
     "team_name": "maraqua",
     "username": "ameilae",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 4635,
     "total_score": 266,
     "last_updated": "7/16/2026, 8:51:17 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/darigancitadel/logo.png",
+    "team_name": "darigan citadel",
+    "username": "christinearning",
+    "yyb_wins": 30,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 194,
+    "slsl_wins": 15,
+    "slsl_high_score": 537,
+    "msn_plays": 2,
+    "msn_high_score": 3053,
+    "sosd_plays": 259,
+    "sosd_high_score": 1160,
+    "occ_plays": 7,
+    "occ_high_score": 2270,
+    "total_score": 313,
+    "last_updated": "7/16/2026, 8:51:25 AM"
   }
 ]
