@@ -760,26 +760,6 @@
     "last_updated": "7/14/2026, 6:32:01 AM"
   },
   {
-    "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
-    "team_name": "neopia central",
-    "username": "cibola",
-    "yyb_wins": 192,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 1908,
-    "slsl_wins": 8,
-    "slsl_high_score": 518,
-    "msn_plays": 8,
-    "msn_high_score": 3335,
-    "sosd_plays": 74,
-    "sosd_high_score": 1137,
-    "occ_plays": 402,
-    "occ_high_score": 3053,
-    "total_score": 684,
-    "last_updated": "7/14/2026, 6:32:47 AM"
-  },
-  {
     "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
     "team_name": "neopia central",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 6337,
     "total_score": 908,
     "last_updated": "7/16/2026, 8:42:21 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
+    "team_name": "neopia central",
+    "username": "cibola",
+    "yyb_wins": 193,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 1918,
+    "slsl_wins": 9,
+    "slsl_high_score": 518,
+    "msn_plays": 9,
+    "msn_high_score": 3335,
+    "sosd_plays": 75,
+    "sosd_high_score": 1137,
+    "occ_plays": 403,
+    "occ_high_score": 3053,
+    "total_score": 689,
+    "last_updated": "7/16/2026, 8:42:25 AM"
   }
 ]
