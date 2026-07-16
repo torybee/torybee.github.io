@@ -1,25 +1,5 @@
 [
   {
-    "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
-    "team_name": "maraqua",
-    "username": "ameilae",
-    "yyb_wins": 27,
-    "yyb_draws": 3,
-    "yyb_losses": 4,
-    "yyb_high_score": 141,
-    "slsl_wins": 4,
-    "slsl_high_score": 424,
-    "msn_plays": 10,
-    "msn_high_score": 3777,
-    "sosd_plays": 12,
-    "sosd_high_score": 873,
-    "occ_plays": 71,
-    "occ_high_score": 3612,
-    "total_score": 131,
-    "last_updated": "7/14/2026, 6:27:20 AM"
-  },
-  {
     "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/terrormountain/logo.png",
     "team_name": "terror mountain",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 2251,
     "total_score": 211,
     "last_updated": "7/16/2026, 8:56:17 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
+    "team_name": "maraqua",
+    "username": "ameilae",
+    "yyb_wins": 45,
+    "yyb_draws": 4,
+    "yyb_losses": 4,
+    "yyb_high_score": 271,
+    "slsl_wins": 4,
+    "slsl_high_score": 424,
+    "msn_plays": 10,
+    "msn_high_score": 3777,
+    "sosd_plays": 12,
+    "sosd_high_score": 873,
+    "occ_plays": 79,
+    "occ_high_score": 3612,
+    "total_score": 158,
+    "last_updated": "7/16/2026, 8:57:08 AM"
   }
 ]
