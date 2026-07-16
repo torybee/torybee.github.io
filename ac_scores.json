@@ -1,25 +1,5 @@
 [
   {
-    "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/hauntedwoods/logo.png",
-    "team_name": "haunted woods",
-    "username": "legiox",
-    "yyb_wins": 7,
-    "yyb_draws": 2,
-    "yyb_losses": 0,
-    "yyb_high_score": 33,
-    "slsl_wins": 129,
-    "slsl_high_score": 505,
-    "msn_plays": 557,
-    "msn_high_score": 3729,
-    "sosd_plays": 739,
-    "sosd_high_score": 1180,
-    "occ_plays": 13,
-    "occ_high_score": 1954,
-    "total_score": 1447,
-    "last_updated": "7/14/2026, 6:24:12 AM"
-  },
-  {
     "guild_team": "Flame",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/meridell/logo.png",
     "team_name": "meridell",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 6791,
     "total_score": 1510,
     "last_updated": "7/16/2026, 8:37:26 AM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/hauntedwoods/logo.png",
+    "team_name": "haunted woods",
+    "username": "legiox",
+    "yyb_wins": 10,
+    "yyb_draws": 2,
+    "yyb_losses": 0,
+    "yyb_high_score": 47,
+    "slsl_wins": 182,
+    "slsl_high_score": 505,
+    "msn_plays": 799,
+    "msn_high_score": 3729,
+    "sosd_plays": 762,
+    "sosd_high_score": 1180,
+    "occ_plays": 15,
+    "occ_high_score": 1954,
+    "total_score": 1770,
+    "last_updated": "7/16/2026, 8:39:35 AM"
   }
 ]
