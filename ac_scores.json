@@ -1,26 +1,6 @@
 [
   {
     "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/darigancitadel/logo.png",
-    "team_name": "darigan citadel",
-    "username": "_aliciaaa_",
-    "yyb_wins": 18,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 97,
-    "slsl_wins": 17,
-    "slsl_high_score": 507,
-    "msn_plays": 21,
-    "msn_high_score": 3752,
-    "sosd_plays": 27,
-    "sosd_high_score": 1116,
-    "occ_plays": 262,
-    "occ_high_score": 6152,
-    "total_score": 345,
-    "last_updated": "7/14/2026, 6:26:01 AM"
-  },
-  {
-    "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/lostdesert/logo.png",
     "team_name": "lost desert",
     "username": "akhmim",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 3781,
     "total_score": 379,
     "last_updated": "7/16/2026, 8:46:15 AM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/darigancitadel/logo.png",
+    "team_name": "darigan citadel",
+    "username": "_aliciaaa_",
+    "yyb_wins": 22,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 127,
+    "slsl_wins": 19,
+    "slsl_high_score": 507,
+    "msn_plays": 25,
+    "msn_high_score": 4346,
+    "sosd_plays": 43,
+    "sosd_high_score": 1163,
+    "occ_plays": 337,
+    "occ_high_score": 6152,
+    "total_score": 446,
+    "last_updated": "7/16/2026, 8:48:08 AM"
   }
 ]
