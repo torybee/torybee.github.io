@@ -41,26 +41,6 @@
   },
   {
     "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/altador/logo.png",
-    "team_name": "altador",
-    "username": "madidogs88",
-    "yyb_wins": 15,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 68,
-    "slsl_wins": 10,
-    "slsl_high_score": 544,
-    "msn_plays": 5,
-    "msn_high_score": 4046,
-    "sosd_plays": 150,
-    "sosd_high_score": 1186,
-    "occ_plays": 150,
-    "occ_high_score": 6166,
-    "total_score": 330,
-    "last_updated": "7/14/2026, 6:26:14 AM"
-  },
-  {
-    "guild_team": "Flame",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/hauntedwoods/logo.png",
     "team_name": "haunted woods",
     "username": "emiliexromance",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 5151,
     "total_score": 348,
     "last_updated": "7/16/2026, 8:48:40 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/altador/logo.png",
+    "team_name": "altador",
+    "username": "madidogs88",
+    "yyb_wins": 15,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 68,
+    "slsl_wins": 10,
+    "slsl_high_score": 544,
+    "msn_plays": 10,
+    "msn_high_score": 4046,
+    "sosd_plays": 250,
+    "sosd_high_score": 1186,
+    "occ_plays": 175,
+    "occ_high_score": 6166,
+    "total_score": 460,
+    "last_updated": "7/16/2026, 8:48:48 AM"
   }
 ]
