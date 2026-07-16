@@ -561,26 +561,6 @@
   },
   {
     "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
-    "team_name": "neopia central",
-    "username": "candieddragon",
-    "yyb_wins": 2,
-    "yyb_draws": 1,
-    "yyb_losses": 1,
-    "yyb_high_score": 13,
-    "slsl_wins": 42,
-    "slsl_high_score": 570,
-    "msn_plays": 9,
-    "msn_high_score": 3590,
-    "sosd_plays": 362,
-    "sosd_high_score": 1141,
-    "occ_plays": 13,
-    "occ_high_score": 2577,
-    "total_score": 430,
-    "last_updated": "7/14/2026, 6:28:16 AM"
-  },
-  {
-    "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/faerieland/logo.png",
     "team_name": "faerieland",
     "username": "bodhikels9",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 2233,
     "total_score": 446,
     "last_updated": "7/16/2026, 8:45:47 AM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
+    "team_name": "neopia central",
+    "username": "candieddragon",
+    "yyb_wins": 2,
+    "yyb_draws": 1,
+    "yyb_losses": 1,
+    "yyb_high_score": 13,
+    "slsl_wins": 42,
+    "slsl_high_score": 570,
+    "msn_plays": 9,
+    "msn_high_score": 3590,
+    "sosd_plays": 365,
+    "sosd_high_score": 1141,
+    "occ_plays": 13,
+    "occ_high_score": 2577,
+    "total_score": 433,
+    "last_updated": "7/16/2026, 8:45:54 AM"
   }
 ]
