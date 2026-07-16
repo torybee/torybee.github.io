@@ -800,26 +800,6 @@
     "last_updated": "7/14/2026, 6:39:02 AM"
   },
   {
-    "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
-    "team_name": "neopia central",
-    "username": "melissa12xx",
-    "yyb_wins": 199,
-    "yyb_draws": 4,
-    "yyb_losses": 0,
-    "yyb_high_score": 1016,
-    "slsl_wins": 7,
-    "slsl_high_score": 504,
-    "msn_plays": 12,
-    "msn_high_score": 4781,
-    "sosd_plays": 190,
-    "sosd_high_score": 1174,
-    "occ_plays": 20,
-    "occ_high_score": 2233,
-    "total_score": 432,
-    "last_updated": "7/14/2026, 6:40:49 AM"
-  },
-  {
     "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/darigancitadel/logo.png",
     "team_name": "darigan citadel",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 3262,
     "total_score": 466,
     "last_updated": "7/16/2026, 8:43:27 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/neoboards/smilies/neopiacentral.gif",
+    "team_name": "neopia central",
+    "username": "melissa12xx",
+    "yyb_wins": 205,
+    "yyb_draws": 4,
+    "yyb_losses": 0,
+    "yyb_high_score": 1048,
+    "slsl_wins": 7,
+    "slsl_high_score": 504,
+    "msn_plays": 12,
+    "msn_high_score": 4781,
+    "sosd_plays": 198,
+    "sosd_high_score": 1174,
+    "occ_plays": 20,
+    "occ_high_score": 2233,
+    "total_score": 446,
+    "last_updated": "7/16/2026, 8:45:47 AM"
   }
 ]
