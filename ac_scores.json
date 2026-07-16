@@ -1,26 +1,6 @@
 [
   {
     "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/faerieland/logo.png",
-    "team_name": "faerieland",
-    "username": "bodhikels9",
-    "yyb_wins": 0,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 0,
-    "slsl_wins": 3,
-    "slsl_high_score": 362,
-    "msn_plays": 4,
-    "msn_high_score": 4005,
-    "sosd_plays": 4,
-    "sosd_high_score": 852,
-    "occ_plays": 4,
-    "occ_high_score": 2420,
-    "total_score": 15,
-    "last_updated": "7/14/2026, 6:28:26 AM"
-  },
-  {
-    "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/rooisland/logo.png",
     "team_name": "roo island",
     "username": "limour",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 3424,
     "total_score": 21,
     "last_updated": "7/16/2026, 9:02:46 AM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/faerieland/logo.png",
+    "team_name": "faerieland",
+    "username": "bodhikels9",
+    "yyb_wins": 0,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 0,
+    "slsl_wins": 3,
+    "slsl_high_score": 362,
+    "msn_plays": 4,
+    "msn_high_score": 4005,
+    "sosd_plays": 4,
+    "sosd_high_score": 852,
+    "occ_plays": 4,
+    "occ_high_score": 2420,
+    "total_score": 15,
+    "last_updated": "7/16/2026, 9:02:56 AM"
   }
 ]
