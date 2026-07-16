@@ -1,25 +1,5 @@
 [
   {
-    "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/tyrannia/logo.png",
-    "team_name": "tyrannia",
-    "username": "goosesticks",
-    "yyb_wins": 0,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 0,
-    "slsl_wins": 0,
-    "slsl_high_score": 0,
-    "msn_plays": 0,
-    "msn_high_score": 0,
-    "sosd_plays": 0,
-    "sosd_high_score": 0,
-    "occ_plays": 0,
-    "occ_high_score": 0,
-    "total_score": 0,
-    "last_updated": "7/14/2026, 6:28:48 AM"
-  },
-  {
     "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/faerieland/logo.png",
     "team_name": "faerieland",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 0,
     "total_score": 153,
     "last_updated": "7/16/2026, 9:03:44 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/tyrannia/logo.png",
+    "team_name": "tyrannia",
+    "username": "goosesticks",
+    "yyb_wins": 0,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 0,
+    "slsl_wins": 0,
+    "slsl_high_score": 0,
+    "msn_plays": 0,
+    "msn_high_score": 0,
+    "sosd_plays": 0,
+    "sosd_high_score": 0,
+    "occ_plays": 0,
+    "occ_high_score": 0,
+    "total_score": 0,
+    "last_updated": "7/16/2026, 9:03:55 AM"
   }
 ]
