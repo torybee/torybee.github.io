@@ -660,26 +660,6 @@
     "last_updated": "7/14/2026, 6:28:51 AM"
   },
   {
-    "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/kreludor/logo.png",
-    "team_name": "kreludor",
-    "username": "kindled",
-    "yyb_wins": 7,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 47,
-    "slsl_wins": 16,
-    "slsl_high_score": 668,
-    "msn_plays": 101,
-    "msn_high_score": 3480,
-    "sosd_plays": 129,
-    "sosd_high_score": 1193,
-    "occ_plays": 31,
-    "occ_high_score": 2789,
-    "total_score": 284,
-    "last_updated": "7/14/2026, 6:38:11 AM"
-  },
-  {
     "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/darigancitadel/logo.png",
     "team_name": "darigan citadel",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 2488,
     "total_score": 322,
     "last_updated": "7/16/2026, 8:48:54 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/kreludor/logo.png",
+    "team_name": "kreludor",
+    "username": "kindled",
+    "yyb_wins": 15,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 97,
+    "slsl_wins": 16,
+    "slsl_high_score": 668,
+    "msn_plays": 125,
+    "msn_high_score": 3769,
+    "sosd_plays": 310,
+    "sosd_high_score": 1198,
+    "occ_plays": 50,
+    "occ_high_score": 2789,
+    "total_score": 516,
+    "last_updated": "7/16/2026, 8:50:37 AM"
   }
 ]
