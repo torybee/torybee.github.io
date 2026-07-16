@@ -80,26 +80,6 @@
     "last_updated": "7/14/2026, 6:27:34 AM"
   },
   {
-    "guild_team": "Flame",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/meridell/logo.png",
-    "team_name": "meridell",
-    "username": "drackonwood",
-    "yyb_wins": 88,
-    "yyb_draws": 1,
-    "yyb_losses": 0,
-    "yyb_high_score": 592,
-    "slsl_wins": 9,
-    "slsl_high_score": 569,
-    "msn_plays": 4,
-    "msn_high_score": 3508,
-    "sosd_plays": 19,
-    "sosd_high_score": 1164,
-    "occ_plays": 12,
-    "occ_high_score": 2126,
-    "total_score": 133,
-    "last_updated": "7/14/2026, 6:27:39 AM"
-  },
-  {
     "guild_team": "Flood",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
     "team_name": "maraqua",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 1134,
     "total_score": 197,
     "last_updated": "7/16/2026, 8:54:13 AM"
+  },
+  {
+    "guild_team": "Flame",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/meridell/logo.png",
+    "team_name": "meridell",
+    "username": "drackonwood",
+    "yyb_wins": 124,
+    "yyb_draws": 1,
+    "yyb_losses": 0,
+    "yyb_high_score": 849,
+    "slsl_wins": 34,
+    "slsl_high_score": 592,
+    "msn_plays": 14,
+    "msn_high_score": 3508,
+    "sosd_plays": 20,
+    "sosd_high_score": 1164,
+    "occ_plays": 18,
+    "occ_high_score": 2251,
+    "total_score": 211,
+    "last_updated": "7/16/2026, 8:56:17 AM"
   }
 ]
