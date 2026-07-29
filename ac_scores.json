@@ -1180,26 +1180,6 @@
     "last_updated": "7/16/2026, 9:03:55 AM"
   },
   {
-    "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/faerieland/logo.png",
-    "team_name": "faerieland",
-    "username": "thedaydreamfaerie",
-    "yyb_wins": 1,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 4,
-    "slsl_wins": 2,
-    "slsl_high_score": 129,
-    "msn_plays": 2,
-    "msn_high_score": 3964,
-    "sosd_plays": 2,
-    "sosd_high_score": 723,
-    "occ_plays": 2,
-    "occ_high_score": 1061,
-    "total_score": 9,
-    "last_updated": "7/16/2026, 9:04:02 AM"
-  },
-  {
     "guild_team": "Flame",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/darigancitadel/logo.png",
     "team_name": "darigan citadel",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 3781,
     "total_score": 2238,
     "last_updated": "7/28/2026, 9:38:07 AM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/faerieland/logo.png",
+    "team_name": "faerieland",
+    "username": "thedaydreamfaerie",
+    "yyb_wins": 1,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 4,
+    "slsl_wins": 2,
+    "slsl_high_score": 129,
+    "msn_plays": 2,
+    "msn_high_score": 3964,
+    "sosd_plays": 2,
+    "sosd_high_score": 723,
+    "occ_plays": 2,
+    "occ_high_score": 1061,
+    "total_score": 9,
+    "last_updated": "7/29/2026, 7:34:12 AM"
   }
 ]
