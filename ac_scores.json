@@ -480,26 +480,6 @@
     "last_updated": "7/16/2026, 8:48:08 AM"
   },
   {
-    "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/mysteryisland/logo.png",
-    "team_name": "mystery island",
-    "username": "id_24",
-    "yyb_wins": 20,
-    "yyb_draws": 1,
-    "yyb_losses": 1,
-    "yyb_high_score": 156,
-    "slsl_wins": 15,
-    "slsl_high_score": 587,
-    "msn_plays": 20,
-    "msn_high_score": 4154,
-    "sosd_plays": 125,
-    "sosd_high_score": 1191,
-    "occ_plays": 166,
-    "occ_high_score": 5151,
-    "total_score": 348,
-    "last_updated": "7/16/2026, 8:48:40 AM"
-  },
-  {
     "guild_team": "Flame",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/altador/logo.png",
     "team_name": "altador",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 1061,
     "total_score": 9,
     "last_updated": "7/29/2026, 7:34:12 AM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/mysteryisland/logo.png",
+    "team_name": "mystery island",
+    "username": "id_24",
+    "yyb_wins": 20,
+    "yyb_draws": 1,
+    "yyb_losses": 1,
+    "yyb_high_score": 156,
+    "slsl_wins": 15,
+    "slsl_high_score": 587,
+    "msn_plays": 20,
+    "msn_high_score": 4154,
+    "sosd_plays": 125,
+    "sosd_high_score": 1191,
+    "occ_plays": 166,
+    "occ_high_score": 5151,
+    "total_score": 348,
+    "last_updated": "8/2/2026, 9:59:56 AM"
   }
 ]
