@@ -620,26 +620,6 @@
     "last_updated": "7/16/2026, 8:51:25 AM"
   },
   {
-    "guild_team": "Flood",
-    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
-    "team_name": "maraqua",
-    "username": "gali184",
-    "yyb_wins": 42,
-    "yyb_draws": 0,
-    "yyb_losses": 0,
-    "yyb_high_score": 272,
-    "slsl_wins": 14,
-    "slsl_high_score": 571,
-    "msn_plays": 8,
-    "msn_high_score": 3051,
-    "sosd_plays": 9,
-    "sosd_high_score": 871,
-    "occ_plays": 177,
-    "occ_high_score": 2787,
-    "total_score": 250,
-    "last_updated": "7/16/2026, 8:51:33 AM"
-  },
-  {
     "guild_team": "Flame",
     "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
     "team_name": "maraqua",
@@ -1278,5 +1258,25 @@
     "occ_high_score": 2675,
     "total_score": 272,
     "last_updated": "8/2/2026, 11:00:22 AM"
+  },
+  {
+    "guild_team": "Flood",
+    "team_logo": "https://images.neopets.com/altador/altadorcup/2010/popups/maraqua/logo.png",
+    "team_name": "maraqua",
+    "username": "gali184",
+    "yyb_wins": 42,
+    "yyb_draws": 0,
+    "yyb_losses": 0,
+    "yyb_high_score": 272,
+    "slsl_wins": 14,
+    "slsl_high_score": 571,
+    "msn_plays": 8,
+    "msn_high_score": 3051,
+    "sosd_plays": 9,
+    "sosd_high_score": 871,
+    "occ_plays": 177,
+    "occ_high_score": 2787,
+    "total_score": 250,
+    "last_updated": "8/4/2026, 9:38:45 AM"
   }
 ]
