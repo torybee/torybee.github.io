@@ -1,35 +1,35 @@
 {
-  "last_updated": "9/14/2026, 10:22:18 AM",
+  "last_updated": "9/25/2026, 9:18:27 AM",
   "games_checked": 9,
   "games_with_open_spots": 4,
   "open_games": [
     {
       "game": "Let It Slide",
       "url": "https://www.neopets.com/games/hiscores.phtml?game_id=970",
-      "current_spots": 4,
-      "open_spots": 13,
-      "last_checked": "9/14/2026, 10:22:16 AM"
+      "current_spots": 7,
+      "open_spots": 10,
+      "last_checked": "9/25/2026, 9:18:23 AM"
     },
     {
       "game": "Pakiko",
       "url": "https://www.neopets.com/games/hiscores.phtml?game_id=1369",
-      "current_spots": 7,
-      "open_spots": 10,
-      "last_checked": "9/14/2026, 10:22:17 AM"
+      "current_spots": 9,
+      "open_spots": 8,
+      "last_checked": "9/25/2026, 9:18:25 AM"
     },
     {
       "game": "Hot Dog Hero",
       "url": "https://www.neopets.com/games/hiscores.phtml?game_id=965",
-      "current_spots": 9,
-      "open_spots": 8,
-      "last_checked": "9/14/2026, 10:22:15 AM"
+      "current_spots": 12,
+      "open_spots": 5,
+      "last_checked": "9/25/2026, 9:18:21 AM"
     },
     {
       "game": "Kreludan Mining Corp.",
       "url": "https://www.neopets.com/games/hiscores.phtml?game_id=404",
-      "current_spots": 10,
-      "open_spots": 7,
-      "last_checked": "9/14/2026, 10:22:15 AM"
+      "current_spots": 12,
+      "open_spots": 5,
+      "last_checked": "9/25/2026, 9:18:22 AM"
     }
   ]
 }
